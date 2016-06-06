@@ -1,0 +1,36 @@
+﻿<h1>popup window</h1>
+<p>
+Open yahoo.com in a popup window (800x500) positioned 50 pixels from the
+top and left side of the screen.
+</p>
+<p>
+    <?php $this->widget('ext.popup.JPopupWindow', array(
+        'content'=>'open popup',
+        'url'=>"http://www.yahoo.com",        
+        'htmlOptions'=>array('title'=>"yahoo.com"),
+        'options'=>array(
+            'height'=>500,
+            'width'=>800,
+            'top'=>50,
+            'left'=>50,
+        ),
+    )); ?><!-- popup -->
+</p>
+<p>
+Open contact form of a Yii skeleton app
+</p>
+<p>
+    <?php $this->widget('ext.popup.JPopupWindow', array(
+        'tagName'=>'button',
+        'content'=>'open contact form',
+        'url'=>array('/site/login'),        
+        'options'=>array(
+            'height'=>500,
+            'width'=>800,
+            'centerScreen'=>1,
+        ),
+    )); ?><!-- popup -->
+</p>
+
+
+
