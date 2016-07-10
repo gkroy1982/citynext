@@ -9,12 +9,7 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 ?>
 
 
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<link href="<?php echo $url . '/css/custom.css' ?>" rel="stylesheet" />
-	<link href="<?php echo $url?>/2/ninja-slider.css" rel="stylesheet" type="text/css" />
-    <script src="<?php echo $url?>/2/ninja-slider.js" type="text/javascript"></script>
+
   <div id="container">
    <?php 
    $this->renderPartial('left');?>
@@ -85,7 +80,7 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 		<h4 style='margin-left:-11px;margin-right:-11px;margin-top:-11px;text-align:center;background-color:#FFDAB9;color:black;border-radius: 10px;'>City Update </h4>
 			<marquee style='height:480px;' direction="up" onmouseover="this.stop();" onmouseout="this.start();">
 				<?php
-				
+				/*
 				foreach($news as $obj )
 				{
 					echo '<a href="'.Yii::app()->createUrl('//site/news',array('id'=>$obj->id)).'">';
@@ -97,6 +92,7 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 					echo '</a><br>';
 					
 				}
+				*/
 				?>
 			</marquee>
 		</div>

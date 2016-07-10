@@ -11,19 +11,28 @@
     <title><?php echo CHtml::encode( $Title); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">      
-	<meta name="author" content="Html5TemplatesDreamweaver.com">
+	<meta name="author" content="">
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> <!-- Remove this Robots Meta Tag, to allow indexing of site -->
     
-  
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
    <!-- CSS Part Start-->
-		<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/stylesheet.css" />
-		<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/slideshow.css" media="screen" />
-   
-		<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/carousel.css" media="screen" />
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-        <link type="text/css" rel="stylesheet" href="<?php echo $url ?>/popup/css/style.css" />
-   	   <link rel="stylesheet" href="<?php echo $url; ?>/css/bootstrap-datetimepicker.min.css" />
-	   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		 <link rel="stylesheet" href="<?php echo $url; ?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/style.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/flexslider.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/fontello.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/settings.css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/animation.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/owl.carousel.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/owl.theme.css">
+  <link rel="stylesheet" href="<?php echo $url; ?>/css/chosen.css">
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<link rel="stylesheet" href="<?php echo $url; ?>/css/ie.css">
+        <![endif]-->
+  <!--[if IE 7]>
+			<link rel="stylesheet" href="<?php echo $url; ?>/css/fontello-ie7.css">
+		<![endif]-->
     <!-- CSS Part End-->
 
   <style type="text/css">
@@ -41,59 +50,70 @@
     padding: 8px 35px 8px 14px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-  </style>
+</style>
   
- 
-
-
-
-
-
- 
-   <!--  JS Part End-->
-    
+<!--  JS Part End-->
 </head>
 <body>    	
-<div class="main-wrapper">
-<div>
-    <?php	
+<div class="container">
 
-    $this->renderPartial("//site/header");
-
- 		echo $content; 
-echo '</div>';
-	$this->renderPartial("//site/footer");	
-
+    <?php
+		$this->renderPartial("//site/header");
+			echo $content;
+		$this->renderPartial("//site/footer");
 	?>
+	<div id="back-to-top">
+		<i class="icon-up-dir"></i>
+    </div>	
+</div>
 	
-	
-	    <!-- 
--->
+  <!-- JavaScript -->
+  <script src="<?php echo $url; ?>/js/modernizr.min.js"></script>
+  <script src="<?php echo $url; ?>/js/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="<?php echo $url; ?>/js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.raty.min.js"></script>
 
-    <script type="text/javascript" src="<?php echo $url; ?>/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.jcarousel.min.js"></script>
-    <script type="text/javascript" src="<?php echo $url; ?>/js/colorbox/jquery.colorbox-min.js"></script>
-   <script type="text/javascript" src="<?php echo $url; ?>/js/tabs.js"></script>
-     <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.easing-1.3.min.js"></script>
-    <script type="text/javascript" src="<?php echo $url; ?>/js/cloud_zoom.js"></script>
+  <!-- Scroll Bar -->
+  <script src="<?php echo $url; ?>/js/perfect-scrollbar.min.js"></script>
+
+  <!-- Cloud Zoom -->
+  <script src="<?php echo $url; ?>/js/zoomsl-3.0.min.js"></script>
+
+  <!-- FancyBox -->
+  <script src="<?php echo $url; ?>/js/jquery.fancybox.pack.js"></script>
+
+  <!-- jQuery REVOLUTION Slider  -->
+  <script type="text/javascript" src="js/jquery.themepunch.plugins.min.js"></script>
+  <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.themepunch.revolution.min.js"></script>
+
+  <!-- FlexSlider -->
+  <script defer src="<?php echo $url; ?>/js/flexslider.min.js"></script>
+
+  <!-- IOS Slider -->
+  <script src="<?php echo $url; ?>/js/jquery.iosslider.min.js"></script>
+
+  <!-- noUi Slider -->
+  <script src="<?php echo $url; ?>/js/jquery.nouislider.min.js"></script>
+
+  <!-- Owl Carousel -->
+  <script src="<?php echo $url; ?>/js/owl.carousel.min.js"></script>
+
+  <!-- Cloud Zoom -->
+  <script src="<?php echo $url; ?>/js/zoomsl-3.0.min.js"></script>
+
+  <!-- SelectJS -->
+  <script src="<?php echo $url; ?>/js/chosen.jquery.min.js" type="text/javascript"></script>
+
+  <!-- Main JS -->
+  <script defer src="<?php echo $url; ?>/js/bootstrap.min.js"></script>
+  <script src="<?php echo $url; ?>/js/main-script.js"></script>
+  <script>
     
-   
-    <script type="text/javascript" src="<?php echo $url; ?>/js/custom.js"></script>
-    <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.dcjqaccordion.js"></script>
-
-   
-
-  <!--  <script type="text/javascript" src="<?php echo $url ?>/popup/js/jquery-1.11.0.min.js"></script>
- -->
-<script type="text/javascript" src="<?php echo $url ?>/popup/js/jquery.leanModal.min.js"></script>
-	
-	
-  <!--	<script src="1http://code.jquery.com/jquery-1.10.2.js"></script> -->
-	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	
-
-  
+    $("#sideMenuHeading").on('click', function () {
+      $("#sideMenuContent").toggle();
+    })
+  </script>
+	 
   
  <script type="text/javascript">
   $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
@@ -102,6 +122,11 @@ echo '</div>';
    // $('#slideshow2').nivoSlider();
  
    
+	$('.button-search').click(function(){
+	document.frm_search.submit();
+
+	});
+	
 	$(".datepicker").datepicker({dateFormat: 'dd-mm-yy',changeMonth: true, changeYear: true,yearRange: "-100:+0"});
 	
 

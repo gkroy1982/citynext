@@ -53,15 +53,15 @@ class SiteController extends Controller
 		
 		$ads2=Ads::model()->findAll( array('condition'=>'show_in=1 AND status ="active"'));
 		
-		$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
+		// $news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 		$company_ads=Companyads::model()->findByPk(1);
 		$product_offer1=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>0));
 		$product_offer2=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>4));
 		$product_offer3=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>8));
-		
-		//ORDER BY `created_on` DESC 
-		//echo $this->SMS('hi Laxman','9970404897',1);
-		$this->render('index',array('products'=>$products, 'ads'=>$ads, 'ads2'=>$ads2, 'news'=>$news, 'company_ads'=>$company_ads, 'product_offer1'=>$product_offer1, 'product_offer2'=>$product_offer2, 'product_offer3'=>$product_offer3 ) );
+		 
+		 // print_r($news[0]->attributes);exit;
+		 
+		$this->render('index',array('products'=>$products, 'ads'=>$ads, 'ads2'=>$ads2,'company_ads'=>$company_ads, 'product_offer1'=>$product_offer1, 'product_offer2'=>$product_offer2, 'product_offer3'=>$product_offer3 ) );
 	}
 	
 	public function actionTodayoffer()

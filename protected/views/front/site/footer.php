@@ -2,57 +2,169 @@
     $controller = Yii::app()->controller->id;
     $action     = Yii::app()->controller->action->id;
     $url = Yii::app()->theme->baseUrl; 
+	$url_product = Yii::app()->baseUrl.'/upload/cityupdate/'; 
 ?>
 
-<!--Footer Part Start-->
+
+    <!-- Footer -->
+    <footer id="footer" class="row">
+
+      <!-- Upper Footer -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div id="upper-footer">
+
+          <div class="row">
+
+            <!-- Newsletter -->
+            <div class="col-lg-7 col-md-7 col-sm-7">
+              <form id="newsletter" action="http://inthe7heaven.com/homeshop-html/php/newsletter.php">
+                <h4>Newsletter Sign Up</h4>
+                <input type="text" name="newsletter-email" placeholder="Enter your email address">
+                <input type="submit" name="newsletter-submit" value="Submit">
+              </form>
+            </div>
+            <!-- /Newsletter -->
 
 
+            <!-- Social Media -->
+            <div class="col-lg-5 col-md-5 col-sm-5 social-media">
+              <h4>Stay Connected</h4>
+              <ul>
+                <li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+">
+                  <a href="#"></a>
+                </li>
+                <li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <a href="#"></a>
+                </li>
+                <li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest">
+                  <a href="#"></a>
+                </li>
+                <li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <a href="#"></a>
+                </li>
+                <li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube">
+                  <a href="#"></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /Social Media -->
 
-<div id="footer">
-  <div class="column">
-    <h3>Information</h3>
-    <ul>
-      <li><a href="<?php echo Yii::app()->createUrl('//site/aboutus')?>">About Us</a></li> 
-      <li><a href="<?php echo Yii::app()->createUrl('//site/contactus')?>">Contact Us</a></li>  
-      <li><a href="<?php echo Yii::app()->createUrl('site/careers')?>">Careers</a> </li>
-      <li><a href="<?php echo Yii::app()->createUrl('site/enquiry')?>">Enquiry</a> </li>
-      <li><a href="<?php echo Yii::app()->createUrl('//site/feedback')?>">Feedback/Suggestion</a></li>  
-    </ul>
-  </div>
-  <div class="column">
-    <h3> Service</h3>
-    <ul>
-      <!--li><a href="<?php echo Yii::app()->createUrl('//site/buy')?>">I Want to Buy</a></li-->
-      <li><a href="<?php echo Yii::app()->createUrl('//sale/sell')?>">Used Product</a></li>
-      <li><a href="<?php echo Yii::app()->createUrl('//site/classifieds')?>">Classifieds</a></li>
-      <li><a href="<?php echo Yii::app()->createUrl('//site/condolences')?>">Condolences</a></li>
-    </ul>
-  </div>
+          </div>
 
+        </div>
 
-  
-  <div class="contact">
-    <ul>
-      <li class="address">Frist Address, State, India</li>
-      <li class="mobile">000 0000 000</li>
-      <li class="email"><a href="#">info@jhansishopping.com</a></li>
-      <li class="fax">000 0000 000</li>
-    </ul>
-  </div>
-  <div class="social"> 
-  <a href="#" target="_blank"><img src="<?php echo $url; ?>/image/facebook.png" alt="Facebook" title="Facebook"></a>
-   <a href="#" target="_blank"><img src="<?php echo $url; ?>/image/twitter.png" alt="Twitter" title="Twitter"></a> 
-   <a href="#" target="_blank"><img src="<?php echo $url; ?>/image/googleplus.png" alt="Google+" title="Google+"> </a> 
-  </div>
-  <div class="clear"></div>
-  <div id="powered">Jhansishopping.com <a href="#">  | Shop Master </a> &copy; <?php echo date('Y'); ?>
-  
-    <div class="payments_types"> 
-		<?php $this->widget('application.extensions.hitCounter.hitCounter');?>
       </div>
-  </div>
-</ >
+      <!-- /Upper Footer -->
 
+
+
+      <!-- Main Footer -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div id="main-footer">
+
+          <div class="row">
+
+            <!-- Contact Us -->
+            <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+              <h4>Contact Us</h4>
+              <ul>
+                <li><i class="icons icon-location"></i> Address, City
+                  <br>State, India, 00000.</li>
+                <li><i class="icons icon-mail-alt"></i><a href="mailto:info@jhansishopping.com"> info@jhansishopping.com</a></li>
+                <li><i class="icons icon-phone"></i> +1 800 603 6035</li>
+                <li><i class="icons icon-print"></i> 000 000 0000</li>
+              </ul>
+            </div>
+            <!-- /Contact Us -->
+
+            <!-- Information -->
+            <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+              <h4>Information</h4>
+              <ul>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/aboutus')?>"><i class="icons icon-right-dir"></i> About Us</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/contactus')?>"><i class="icons icon-right-dir"></i> Contact Us</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/careers')?>"><i class="icons icon-right-dir"></i> Careers</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/enquiry')?>"><i class="icons icon-right-dir"></i> Enquiry</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/feedback')?>"><i class="icons icon-right-dir"></i> Feedback/Suggestions</a></li>
+              </ul>
+            </div>
+            <!-- /Information -->
+
+            <!-- The Service -->
+            <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+              <h4>The Service</h4>
+              <ul> 
+                <li><a href="<?php echo Yii::app()->createUrl('//sale/sell')?>"><i class="icons icon-right-dir"></i> Used Products</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//sale/classifieds')?>"><i class="icons icon-right-dir"></i> Classifields</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//sale/condolences')?>"><i class="icons icon-right-dir"></i> Condolences</a></li>
+              </ul>
+            </div>
+            <!-- /The Service -->
+
+            <!-- City Updates -->
+            <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+              <h4>City Updates </h4>
+              <marquee style="height:200px;" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                <?php
+				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
+				// var_dump($news[0]->attributes);exit;
+					foreach($news as $obj ) {
+						echo '<a href="'.Yii::app()->createUrl('//site/news',array('id'=>$obj->id)).'">';
+						echo "<p><div class='image' style='float:left;'><img src=$url_product$obj->image height='40px' width='40px'></div>
+						<div style='color:#0E0C0A;margin:2%; font-size:14px'><strong>
+						".ucwords($obj->title)."
+						</strong></div>
+						<span style='color:#0E0C0A;margin:2%;float:right;'><b>By ". $obj->user->first_name.'</b> '.date('d-m-Y h:s a',strtotime($obj->created_on))."</span></p>";
+						echo '</a><br>';
+					}
+				?>
+				</marquee>
+            </div>
+            <!-- /Like us on Facebook -->
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /Main Footer -->
+
+
+
+      <!-- Lower Footer -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div id="lower-footer">
+
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <p class="copyright"><a href="http://www.Jhansishopping.com" target="_blank">Jhansishopping.com</a>| Shop Master © 2016</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <ul class="payment-list">
+                <li class="payment1"></li>
+                <li class="payment2"></li>
+                <li class="payment3"></li>
+                <li class="payment4"></li>
+                <li class="payment5"></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /Lower Footer -->
+    </footer>
+    <!-- Footer -->
+
+
+ 
  <div id="modal" class="popupContainer" style="display:none;position: absolute!important;">
     <header class="popupHeader ">
       <span class="header_title">Login</span>
@@ -75,15 +187,13 @@
           ?>
           <label>Email </label>
           
-
           <input id="LoginForm2_username" type="text" name="LoginForm2[username]">
           <br />
-
-          <label>Password</label>
-          
+		  
+          <label>Password</label>          
           <input id="LoginForm2_password" type="password" name="LoginForm2[password]">
           <br />
-
+		  
           <div class="checkbox">
             <input id="remember" type="checkbox" />
             <label for="remember">Remember me on this computer</label>
@@ -99,7 +209,6 @@
         <a href="#" id="forgot" style="float:left">Forgot password?</a>
 
         <a href="<?php echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
-
         </br>
       </div>
 
