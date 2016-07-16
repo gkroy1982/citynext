@@ -24,20 +24,20 @@
 ?>
 
 
-    <!-- Header -->
-    <header class="row">
+  <!-- Header -->
+  <header class="row">
 
-      <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
 
-        <!-- Top Header -->
-        <div id="top-header">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              
-   <div class="card" style="text-align:center;margin-bottom: 2px;">
-<marquee style="height:20px;" onmouseover="this.stop();" onmouseout="this.start();">
-    <p style="color:#CB6465;margin-top:-5px">
-    <?php 
+      <!-- Top Header -->
+      <div id="top-header">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="card" style="text-align:center;margin-bottom: 2px;">
+              <marquee style="height:20px;" onmouseover="this.stop();" onmouseout="this.start();">
+                <p style="color:#CB6465;margin-top:-5px">
+                  <?php 
 
     $links=Marquee::model()->findAll();
     $cnt=1;
@@ -51,35 +51,35 @@
     }
 
     ?>
-      </p>
-</marquee>
-</div>
+                </p>
+              </marquee>
             </div>
           </div>
-
         </div>
-        <!-- /Top Header -->
+
+      </div>
+      <!-- /Top Header -->
 
 
 
-        <!-- Main Header -->
-        <div id="main-header">
+      <!-- Main Header -->
+      <div id="main-header">
 
-          <div class="row">
-            <div id="logo" class="logo col-lg-4 col-md-4 col-sm-4 col-xs-6">			
-              <a href="<?php echo Yii::app()->createUrl('//site/index')?>">
+        <div class="row">
+          <div id="logo" class="logo col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            <a href="<?php echo Yii::app()->createUrl('//site/index')?>">
 				<img src="<?php echo $url; ?>/image/logo.png" alt="Logo"/>
 			  </a>
-            </div>
+          </div>
 
-			<nav class="login col-lg-8 col-md-8 col-sm-8 col-xs-6">
-              <ul class="pull-right" id="top-header">
-			  
-				<?php 
+          <nav class="login col-lg-8 col-md-8 col-sm-8 col-xs-6">
+            <ul class="pull-right" id="top-header">
+
+              <?php 
 				if(!Yii::app()->user->isGuest) {
 					$user = Users::model()->findByPk(Yii::app()->user->getState('uid'));
-				?>				   
-					 <li><a href="<?php echo Yii::app()->createUrl('//site/myaccount')?>"><i class="icons icon-user-3"></i>
+				?>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/myaccount')?>"><i class="icons icon-user-3"></i>
 					 <?php 
 					 if( $user->user_type==2 ) {
 						 echo ucwords($user->business_name);
@@ -88,23 +88,23 @@
 					 } 
 					 ?>
 					 </a></li>
-					 <li><a href="<?php echo Yii::app()->createUrl('//site/logout')?>"><i class="icons icon-user-3"></i>Logout</a></li>					
-					<?php 
+                <li><a href="<?php echo Yii::app()->createUrl('//site/logout')?>"><i class="icons icon-user-3"></i>Logout</a></li>
+                <?php 
 				  } else {
 					?>
-					<li><a href="<?php echo Yii::app()->createUrl('//site/register')?>"><i class="icons icon-user-3"></i>Register</a> </li>
-					
-					<!--<a href="<?php echo Yii::app()->createUrl('//site/login')?>">login</a> --> 
-					<!--a id="modal_trigger" href="#modal">Login</a-->
-					
-				
+                  <li><a href="<?php echo Yii::app()->createUrl('//site/register')?>"><i class="icons icon-user-3"></i>Register</a> </li>
 
-                <li class="purple"><a href="#"><i class="icons icon-lock"></i> Login</a>
-                  <ul id="login-dropdown" class="box-dropdown">
-                    <li>
-                      <div class="box-wrapper">
-                        <h4>LOGIN</h4>
-						<?php 
+                  <!--<a href="<?php echo Yii::app()->createUrl('//site/login')?>">login</a> -->
+                  <!--a id="modal_trigger" href="#modal">Login</a-->
+
+
+
+                  <li class="purple"><a href="#"><i class="icons icon-lock"></i> Login</a>
+                    <ul id="login-dropdown" class="box-dropdown">
+                      <li>
+                        <div class="box-wrapper">
+                          <h4>LOGIN</h4>
+                          <?php 
 						$form=$this->beginWidget('CActiveForm', array(
 							'id'=>'login-form',
 							'enableClientValidation'=>true,
@@ -113,69 +113,69 @@
 						  )
 						);
 					  ?>
-                        <div class="iconic-input">
-							<input id="LoginForm2_username" type="text" name="LoginForm2[username]" placeholder="Email"/>
-							<i class="icons icon-email"></i>
-                        </div>
-                        <div class="iconic-input">
-							<input id="LoginForm2_password" type="password" name="LoginForm2[password]" placeholder="Password"/>                          
-							<i class="icons icon-lock"></i>
-                        </div>
-						
-						<input id="remember" type="checkbox" />
-						<label for="remember">Remember me</label>
-						
-                        <br/>
-                        <br/>
-                        <div class="pull-left">
-							
-							<input type="submit" id='login' class="orange" value="Login"/>
-                        </div>
-						<?php $this->endWidget(); ?>
-                        <div class="pull-right">
-                          <a href="#">Forgot your Password?</a>
-                          <br/>
-                        </div>
-                        <br class="clearfix"/>
-                      </div>
-                      <div class="footer">
-                        <h4 class="pull-left">New User ?</h4>
-							<a class="button pull-right" href="<?php echo Yii::app()->createUrl('/site/register');?>"  > Register</a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>	
-				
-					<?php 
-				  } 
-				  ?> 
-			  
-                <!--<li><a href="#"><i class="icons icon-user-3"></i>Register</a></li>-->
-              </ul>
-            </nav>
+                            <div class="iconic-input">
+                              <input id="LoginForm2_username" type="text" name="LoginForm2[username]" placeholder="Email" />
+                              <i class="icons icon-email"></i>
+                            </div>
+                            <div class="iconic-input">
+                              <input id="LoginForm2_password" type="password" name="LoginForm2[password]" placeholder="Password" />
+                              <i class="icons icon-lock"></i>
+                            </div>
 
-          </div>
+                            <input id="remember" type="checkbox" />
+                            <label for="remember">Remember me</label>
+
+                            <br/>
+                            <br/>
+                            <div class="pull-left">
+
+                              <input type="submit" id='login' class="orange" value="Login" />
+                            </div>
+                            <?php $this->endWidget(); ?>
+                              <div class="pull-right">
+                                <a href="#">Forgot your Password?</a>
+                                <br/>
+                              </div>
+                              <br class="clearfix" />
+                        </div>
+                        <div class="footer">
+                          <h4 class="pull-left">New User ?</h4>
+                          <a class="button pull-right" href="<?php echo Yii::app()->createUrl('/site/register');?>"> Register</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <?php 
+				  } 
+				  ?>
+
+                    <!--<li><a href="#"><i class="icons icon-user-3"></i>Register</a></li>-->
+            </ul>
+          </nav>
 
         </div>
-        <!-- /Main Header -->
+
+      </div>
+      <!-- /Main Header -->
 
 
-        <!-- Main Navigation -->
-        <nav id="main-navigation" class="style1">
-          <ul>
+      <!-- Main Navigation -->
+      <nav id="main-navigation" class="style1">
+        <ul>
 
-            <li class="home-green current-item">
-              <a>
-                <span class="nav-caption">Home</span>
-              </a>
-            </li>
+          <li class="home-green current-item">
+            <a>
+              <span class="nav-caption">Home</span>
+            </a>
+          </li>
 
-            <li class="red">
-              <a href="<?php echo Yii::app()->createUrl('sale/sell')?>">
-                <span class="nav-caption">Used Products</span>
-              </a> 
+          <li class="red">
+            <a href="<?php echo Yii::app()->createUrl('sale/sell')?>">
+              <span class="nav-caption">Used Products</span>
+            </a>
 
-              <!--ul class="wide-dropdown normalAniamtion">
+            <!--ul class="wide-dropdown normalAniamtion">
                 <li>
                   <ul>
                     <li><a href="#"><i class="icons icon-right-dir"></i> Digital SLR</a></li>
@@ -201,56 +201,61 @@
                 </li>
               </ul-->
 
-            </li>
+          </li>
 
-            <li class="blue">
-              <a href="<?php echo Yii::app()->createUrl('site/classifieds')?>">
-                <span class="nav-caption">Classifieds</span>
-              </a>
-            </li>
+          <li class="blue">
+            <a href="<?php echo Yii::app()->createUrl('site/classifieds')?>">
+              <span class="nav-caption">Classifieds</span>
+            </a>
+          </li>
 
-            <li class="orange">
-              <a href="<?php echo Yii::app()->createUrl('site/condolences')?>">
-                <span class="nav-caption">Obituaries</span>
-              </a>
-            </li>
+          <li class="orange">
+            <a href="<?php echo Yii::app()->createUrl('site/condolences')?>">
+              <span class="nav-caption">Obituaries</span>
+            </a>
+          </li>
 
-            <li class="nav-search">
-              <i class="icons icon-search-1"></i>
-            </li>
+          <li class="blue">
+            <a href="<?php echo Yii::app()->createUrl('site/vouchers')?>">
+              <span class="nav-caption">Discount Vouchers</span>
+            </a>
+          </li>
 
-          </ul>
+          <li class="orange">
+            <a href="<?php echo Yii::app()->createUrl('site/todayoffer')?>">
+              <span class="nav-caption">Today's Offers</span>
+            </a>
+          </li>
 
-          <div id="search-bar">
+          <li class="nav-search">
+            <i class="icons icon-search-1"></i>
+          </li>
 
-            <div class="col-lg-12 col-md-12 col-sm-12">
-              <table id="search-bar-table">
-                <tr>
-                  <td class="search-column-1">
-                    <input type="text" placeholder="search for a vendor, product, service or category">
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="search-button">
-              <input type="submit" value="">
-              <i class="icons icon-search-1"></i>
-            </div>
+        </ul>
+
+        <div id="search-bar">
+
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <table id="search-bar-table">
+              <tr>
+                <td class="search-column-1">
+                  <input type="text" placeholder="search for a vendor, product, service or category">
+                </td>
+              </tr>
+            </table>
           </div>
+          <div id="search-button">
+            <input type="submit" value="">
+            <i class="icons icon-search-1"></i>
+          </div>
+        </div>
 
-        </nav>
-        <!-- /Main Navigation -->
+      </nav>
+      <!-- /Main Navigation -->
 
-      </div>
-    </header>
-    <!-- /Header -->
-
-
-
-
-
-
-
+    </div>
+  </header>
+  <!-- /Header -->
 
 
 
@@ -261,69 +266,10 @@
 
 
 
-
-<!--
+  <!--
 <div style="text-align:center;">
     <div id="search" >
       <div class="button-search"></div>
       <input type="text" value="" style="width:70%;" placeholder="search for category and product" id="filter_name" name="search">
     </div>
     </div>-->
-
-
-
-  <!--Top Navigation Start-->
-
-   <div id="menu"><span>Menu</span>
-    <ul>
-      <li <?php echo $home;?>>
-        <a  title="Home" href="<?php echo Yii::app()->createUrl('site/index')?>"><span>Home</span></a>
-      </li>
-	   <li style='margin-left:20px;margin-right:20px;margin-top:10px; width:70%;color:#FFFFFF;'>
-	 <!-- <marquee onmouseover="this.stop();" onmouseout="this.start();">
-	  <p style="color:#FFFFFF;">
-	      <?php
-			$links=Marquee::model()->findAll();
-			$cnt=1;
-			foreach ($links as $link ) {
-				if($cnt==1)
-					echo ' <b> <a href="'.$link->link .'" style="color:#FFFFFF;">'.$link->title .'</a> </b>';
-				else
-					echo ' &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b> <a href="'.$link->link .'" style="color:#FFFFFF;">'.$link->title .'</a> </b>';	
-				$cnt++;
-			} ?>
-	  </p>
-	  </marquee>-->
-	   </li>
-	<li style='float:right;padding-left:10px;'<?php //echo $enquiry;?>><a href="<?php echo Yii::app()->createUrl('site/vouchers')?>">Discount Vouchers</a> &nbsp;&nbsp;&nbsp;&nbsp;</li>
-	<li style='float:right;' <?php //echo $enquiry;?>><a href="<?php echo Yii::app()->createUrl('site/todayoffer')?>">Today's Offers</a> </li>
-	
-      <?php /*
-       //$mainMenus=array();
-      $mainMenus = MainCategory::model()->findAll();
-      foreach($mainMenus as $menu)
-      {
-        ?>
-        <li><a href="<?php echo Yii::app()->createUrl('site/product',array('id'=>$menu->mcid))?>"><?php echo ucwords($menu->category);?></a>
-          <div>
-            <ul>
-              <?php 
-                $submenus = SubCategory::model()->findAll( array('condition'=>'main_category_id='.$menu->mcid));
-                foreach($submenus as $sub)
-                {
-                  ?>
-                  <li><a href="<?php echo Yii::app()->createUrl('site/products',array('id'=>$sub->scid))?>"><?php echo ucwords($sub->sub_category);?></a></li>                                   
-                  <?php
-                }
-                ?>
-            </ul>
-          </div>
-        </li>
-        <?php
-      }*/
-      ?>
-    
-    </ul>
-  </div>
-  <!--Top Navigation Start-->
-

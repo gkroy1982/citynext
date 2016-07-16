@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 
 $url = Yii::app()->theme->baseUrl; 
 
@@ -10,67 +10,67 @@ $url = Yii::app()->theme->baseUrl;
 
 
 
-    <!--Left Part-->
-    <div id="column-left">
-      <!--Categories Part Start-->
-     <div class="box">
-   
-		 <!-- Categories -->
-        <div class="row sidebar-box purple">
+  <!--Left Part-->
+  <div id="column-left">
+    <!--Categories Part Start-->
+    <div class="box">
 
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <!-- Categories -->
+      <div class="row sidebar-box purple">
 
-            <div class="sidebar-box-heading" id="sideMenuHeading">
-              <i class="icons icon-folder-open-empty"></i>
-              <h4>Categories</h4>
-            </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            <div class="sidebar-box-content" id="sideMenuContent">
-              <ul>
-			  
-			  <?php                  
+          <div class="sidebar-box-heading" id="sideMenuHeading">
+            <i class="icons icon-folder-open-empty"></i>
+            <h4>Categories</h4>
+          </div>
+
+          <div class="sidebar-box-content" id="sideMenuContent">
+            <ul>
+
+              <?php                  
                 $mainMenus = MainCategory::model()->findAll(array('order'=>'category'));
                 foreach($mainMenus as $menu)
                 {
                   ?>
-                  <li><a><?php echo ucwords($menu->category);?><i class="icons icon-right-dir"></i></a>
-					<ul class="sidebar-dropdown">
-						<li>
-							<ul>
+                <li><a><?php echo ucwords($menu->category);?><i class="icons icon-right-dir"></i></a>
+                  <ul class="sidebar-dropdown">
+                    <li>
+                      <ul>
                         <?php 
                           $submenus = SubCategory::model()->findAll( array('condition'=>'main_category_id='.$menu->mcid,'order'=>'sub_category'));
                           foreach($submenus as $sub)
                           {
                             ?>
-                                <li><a href="<?php echo Yii::app()->createUrl('site/vendors',array('id'=>$sub->scid))?>"><?php echo ucwords($sub->sub_category);?></a></li>
-                             <?php
+                          <li><a href="<?php echo Yii::app()->createUrl('site/vendors',array('id'=>$sub->scid))?>"><?php echo ucwords($sub->sub_category);?></a></li>
+                          <?php
                           }
                           ?>
-							</ul>
-						</li>
                       </ul>
-                  </li>
-                  <?php
+                    </li>
+                  </ul>
+                </li>
+                <?php
                 }
                 ?>
-			  
-			  
-			  
-			     
-				
-              </ul>
-            </div>
 
+
+
+
+
+            </ul>
           </div>
 
         </div>
-        <!-- /Categories -->
- 
-      </div> 
-      <!--Categories Part End-->
-      <!--Latest Product Start-->
 
-      <!--
+      </div>
+      <!-- /Categories -->
+
+    </div>
+    <!--Categories Part End-->
+    <!--Latest Product Start-->
+
+    <!--
       <div class="box">
         <div class="box-heading">Latest</div>
         <div class="box-content">
@@ -100,9 +100,9 @@ $url = Yii::app()->theme->baseUrl;
           </div>
         </div>
       </div>-->
-      <!--Latest Product End-->
-      <!--Specials Product Start-->
-      <!--<div class="box">
+    <!--Latest Product End-->
+    <!--Specials Product Start-->
+    <!--<div class="box">
         <div class="box-heading">Specials</div>
         <div class="box-content">
           <div class="box-product">
@@ -130,8 +130,5 @@ $url = Yii::app()->theme->baseUrl;
         </div>
       </div>
       <!--Specials Product End-->
-    </div>
-    <!--Left End-->
-
-
-
+  </div>
+  <!--Left End-->
