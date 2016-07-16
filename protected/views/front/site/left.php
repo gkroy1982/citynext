@@ -18,7 +18,7 @@ $url = Yii::app()->theme->baseUrl;
       <!-- Categories -->
       <div class="row sidebar-box purple">
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
 
           <div class="sidebar-box-heading" id="sideMenuHeading">
             <i class="icons icon-folder-open-empty"></i>
