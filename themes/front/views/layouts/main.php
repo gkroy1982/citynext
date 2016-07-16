@@ -83,7 +83,7 @@
   <script src="<?php echo $url; ?>/js/jquery.fancybox.pack.js"></script>
 
   <!-- jQuery REVOLUTION Slider  -->
-  <script type="text/javascript" src="js/jquery.themepunch.plugins.min.js"></script>
+  <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.themepunch.plugins.min.js"></script>
   <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.themepunch.revolution.min.js"></script>
 
   <!-- FlexSlider -->
@@ -116,47 +116,52 @@
 	 
   
  <script type="text/javascript">
-  $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-  $(".popup").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-   $('#slideshow').nivoSlider();
+ 
+ 
+  // $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+  // $(".popup").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+   // $('#slideshow').nivoSlider();
    // $('#slideshow2').nivoSlider();
  
+	
    
 	$('.button-search').click(function(){
-	document.frm_search.submit();
-
+		document.frm_search.submit();
 	});
-	
-	$(".datepicker").datepicker({dateFormat: 'dd-mm-yy',changeMonth: true, changeYear: true,yearRange: "-100:+0"});
+	// $(".datepicker").datepicker({dateFormat: 'dd-mm-yy',changeMonth: true, changeYear: true,yearRange: "-100:+0"});
 	
 
+$( document ).ready(function() {
+   
 
     $('#login').click(function(){
 
       var data= $('#login-form');
 
       $.ajax( {
-      type: "POST",
-      url: "<?php echo Yii::app()->createUrl('site/login');?>",
-      data: data.serialize(),
-      success: function( response ) {
-      
-	   var response = response.split(",");
-			var  res = response[1];
-			var res1 = response[0];
-          if(res.trim()==1 || res1.trim()==1){
-			  window.location.reload();
-			//window.location="<?php echo Yii::app()->createUrl('/users/view');?>";
-			
-          } else{
-			alert('Invalid Username and Password !');
-          }
-
-
-        }
-      } );      
+		  type: "POST",
+		  url: "<?php echo Yii::app()->createUrl('site/login');?>",
+		  data: data.serialize(),
+		  async:false,
+		  success: function( response ) {
+		   var response = response.split(",");
+				var  res = response[1];
+				var res1 = response[0];
+		  // alert(res.trim());//exit;
+		  // alert(res1.trim());exit;
+			  if(res.trim()==1 || res1.trim()==1) {
+				  window.location.reload();
+				//window.location="<?php echo Yii::app()->createUrl('/users/view');?>";
+				
+			  } else {
+				  alert('aa');
+				alert('Invalid Username and Password !');
+				return false;				
+			  }
+			}
+      });
     });
-
+});
 
   
 
@@ -184,7 +189,7 @@
       } );      
     });
   
-	    $('.send').click(function(){
+	$('.send').click(function(){
   //alert('hi');
       var data= $('#request-form');
 
@@ -192,16 +197,12 @@
       type: "POST",
       url: "<?php echo Yii::app()->createUrl('site/requestproduct');?>",
       data: data.serialize(),
-      success: function( response ) {
-      
-          if(response==1)
-          {
+      success: function( response ) { 
+		if(response==1) {
             $('#message').val('');
             window.location.reload();
           }
-
-
-        }
+		}
       } );     
     });
 

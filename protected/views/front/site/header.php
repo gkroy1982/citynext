@@ -66,10 +66,9 @@
         <div id="main-header">
 
           <div class="row">
-
             <div id="logo" class="logo col-lg-4 col-md-4 col-sm-4 col-xs-6">			
               <a href="<?php echo Yii::app()->createUrl('//site/index')?>">
-				<img src="<?php echo $url; ?>/image/logo.png" alt="Logo">
+				<img src="<?php echo $url; ?>/image/logo.png" alt="Logo"/>
 			  </a>
             </div>
 
@@ -144,56 +143,10 @@
                       </div>
                     </li>
                   </ul>
-                </li>
-				
-				
-				  <!-- Username & Password Login form -->
-				  <!--
-				  <div class="user_login">
-					<?php 
-						// $form=$this->beginWidget('CActiveForm', array(
-							// 'id'=>'login-form',
-							// 'enableClientValidation'=>true,
-							// 'clientOptions'=>array('validateOnSubmit'=>true),
-							// 'htmlOptions'=>array("class"=>"form-signin"),
-						  // )
-						// );
-					  ?>
-					  
-				  <label>Email </label>				  
-				  <input id="LoginForm2_username" type="text" name="LoginForm2[username]"/>
-				  <br />
-				  
-				  <label>Password</label>          
-				  <input id="LoginForm2_password" type="password" name="LoginForm2[password]"/>
-				  <br />
-				  
-				  <div class="checkbox">
-					<input id="remember" type="checkbox" />
-					<label for="remember">Remember me on this computer</label>
-				  </div>
-
-				  <div class="action_btns">
-					<div class="one_half"><a href="#" class="btn modal_close">Cancel</a></div>
-					<div class="one_half last"><a id='login' class="btn btn_red">Login</a></div>
-					
-				  </div>
-					<?php //$this->endWidget(); ?>
-					</br>
-					<a href="#" id="forgot" style="float:left">Forgot password?</a>
-
-					<a href="<?php echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
-					</br>
-				  </div>
--->
-					
-					
+                </li>					 
 					<?php 
 				  } 
-				  ?>
-			  
-			  
-			  
+				  ?> 
 			  
                 <!--<li><a href="#"><i class="icons icon-user-3"></i>Register</a></li>-->
               </ul>

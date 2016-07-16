@@ -8,7 +8,6 @@
 
     <!-- Footer -->
     <footer id="footer" class="row">
-
       <!-- Upper Footer -->
       <div class="col-lg-12 col-md-12 col-sm-12">
 
