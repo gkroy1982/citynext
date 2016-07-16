@@ -133,11 +133,33 @@
 
 $( document ).ready(function() {
    
+	function ValidateEmail(email) {
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
 
-    $('#login').click(function(){
+    $('#login').click(function(evt){
+		evt.preventDefault();
+		var data= $('#login-form');
 
-      var data= $('#login-form');
-
+   
+		if ($("#LoginForm2_username").val()=='') {
+			alert("Enter email address.");
+			$("#LoginForm2_username").focus;
+			return false;			
+		}
+		if (!ValidateEmail($("#LoginForm2_username").val())) {
+			alert("Invalid email address.");
+			$("#LoginForm2_username").focus;
+			return false;			
+		}
+		if ($("#LoginForm2_password").val()) {
+			alert("Enter password.");
+			$("#LoginForm2_password").focus;
+			return false;			
+		}
+   
+	  
       $.ajax( {
 		  type: "POST",
 		  url: "<?php echo Yii::app()->createUrl('site/login');?>",
@@ -153,8 +175,7 @@ $( document ).ready(function() {
 				  window.location.reload();
 				//window.location="<?php echo Yii::app()->createUrl('/users/view');?>";
 				
-			  } else {
-				  alert('aa');
+			  } else {				  
 				alert('Invalid Username and Password !');
 				return false;				
 			  }

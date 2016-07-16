@@ -95,7 +95,8 @@
 					<li><a href="<?php echo Yii::app()->createUrl('//site/register')?>"><i class="icons icon-user-3"></i>Register</a> </li>
 					
 					<!--<a href="<?php echo Yii::app()->createUrl('//site/login')?>">login</a> --> 
-					<!--a id="modal_trigger" href="#modal">Login</a-->      
+					<!--a id="modal_trigger" href="#modal">Login</a-->
+					
 				
 
                 <li class="purple"><a href="#"><i class="icons icon-lock"></i> Login</a>
@@ -127,7 +128,7 @@
                         <br/>
                         <br/>
                         <div class="pull-left">
-							<!-- <div class="one_half last"><a class="btn btn_red">Login</a></div> -->
+							
 							<input type="submit" id='login' class="orange" value="Login"/>
                         </div>
 						<?php $this->endWidget(); ?>
@@ -143,7 +144,8 @@
                       </div>
                     </li>
                   </ul>
-                </li>					 
+                </li>	
+				
 					<?php 
 				  } 
 				  ?> 
@@ -169,11 +171,11 @@
             </li>
 
             <li class="red">
-              <a href="category_v1.html">
+              <a href="<?php echo Yii::app()->createUrl('sale/sell')?>">
                 <span class="nav-caption">Used Products</span>
-              </a>
+              </a> 
 
-              <ul class="wide-dropdown normalAniamtion">
+              <!--ul class="wide-dropdown normalAniamtion">
                 <li>
                   <ul>
                     <li><a href="#"><i class="icons icon-right-dir"></i> Digital SLR</a></li>
@@ -197,18 +199,18 @@
                     <li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
                   </ul>
                 </li>
-              </ul>
+              </ul-->
 
             </li>
 
             <li class="blue">
-              <a href="category_v2.html">
+              <a href="<?php echo Yii::app()->createUrl('site/classifieds')?>">
                 <span class="nav-caption">Classifieds</span>
               </a>
             </li>
 
             <li class="orange">
-              <a href="category_v1.html">
+              <a href="<?php echo Yii::app()->createUrl('site/condolences')?>">
                 <span class="nav-caption">Obituaries</span>
               </a>
             </li>

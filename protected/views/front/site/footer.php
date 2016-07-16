@@ -186,12 +186,12 @@
           ?>
           <label>Email </label>
           
-          <input id="LoginForm2_username" type="text" name="LoginForm2[username]">
-          <br />
+          <input id="LoginForm2_username" type="text" name="LoginForm2[username]"/>
+          <br/>
 		  
-          <label>Password</label>          
-          <input id="LoginForm2_password" type="password" name="LoginForm2[password]">
-          <br />
+          <label>Password</label>
+          <input id="LoginForm2_password" type="password" name="LoginForm2[password]"/>
+          <br/>
 		  
           <div class="checkbox">
             <input id="remember" type="checkbox" />
@@ -209,9 +209,7 @@
 
         <a href="<?php echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
         </br>
-      </div>
-
- 
+      </div> 
     </section>
   </div>
 

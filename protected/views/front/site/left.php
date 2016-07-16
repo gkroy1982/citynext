@@ -14,57 +14,58 @@ $url = Yii::app()->theme->baseUrl;
     <div id="column-left">
       <!--Categories Part Start-->
      <div class="box">
-    <div class="box-heading">Services</div>
+   
+		 <!-- Categories -->
+        <div class="row sidebar-box purple">
 
-      <div class="box-content box-category">
-          <ul id="custom_accordion1">		  
-            <li class="category25"><a class="cuuchild " href="<?php echo Yii::app()->createUrl('sale/sell')?>">Used Products</a> 
-				<!--ul style='display:block;'>
-					<!--<li style='display:block;' class="category30"><a class="nochild " href="<?php echo Yii::app()->createUrl('site/buy')?>">I Want To Buy</a></li>-->
-					<!--li style='display:block;' class="category30"><a class="nochild " href="<?php echo Yii::app()->createUrl('sale/sell')?>">I Want To Sell</a></li>
-					
-			   </ul-->
-			</li> 
-			<li class="category25"><a class="cuuchild " href="<?php echo Yii::app()->createUrl('site/classifieds')?>">Classifieds</a> 
-				
-			</li>
-			<li class="category25"><a class="cuuchild " href="<?php echo Yii::app()->createUrl('site/condolences')?>">Obituaries</a> 
-				
-			</li>
-          </ul>
-        </div>
-        <br>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+            <div class="sidebar-box-heading" id="sideMenuHeading">
+              <i class="icons icon-folder-open-empty"></i>
+              <h4>Categories</h4>
+            </div>
 
-
-        <div class="box-heading">Categories</div>
-        <div class="box-content box-category" style='height:500px;overflow-x: hidden;overflow-y: scroll;'>
-          <ul id="custom_accordion">
-          <?php                  
+            <div class="sidebar-box-content" id="sideMenuContent">
+              <ul>
+			  
+			  <?php                  
                 $mainMenus = MainCategory::model()->findAll(array('order'=>'category'));
                 foreach($mainMenus as $menu)
                 {
                   ?>
-                  <li class="category25"><span class="down"><a class="cuuchild "><?php echo ucwords($menu->category);?></a> </span>
-                    <ul>
-                  
+                  <li><a><?php echo ucwords($menu->category);?><i class="icons icon-right-dir"></i></a>
+					<ul class="sidebar-dropdown">
+						<li>
+							<ul>
                         <?php 
                           $submenus = SubCategory::model()->findAll( array('condition'=>'main_category_id='.$menu->mcid,'order'=>'sub_category'));
                           foreach($submenus as $sub)
                           {
                             ?>
-                                <li class="category30"><a class="nochild " href="<?php echo Yii::app()->createUrl('site/vendors',array('id'=>$sub->scid))?>"><?php echo ucwords($sub->sub_category);?></a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('site/vendors',array('id'=>$sub->scid))?>"><?php echo ucwords($sub->sub_category);?></a></li>
                              <?php
                           }
                           ?>
+							</ul>
+						</li>
                       </ul>
                   </li>
                   <?php
                 }
                 ?>
+			  
+			  
+			  
+			     
+				
+              </ul>
+            </div>
 
-          </ul>
+          </div>
+
         </div>
+        <!-- /Categories -->
+ 
       </div> 
       <!--Categories Part End-->
       <!--Latest Product Start-->
