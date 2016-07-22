@@ -129,6 +129,88 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
     </div>
 
 
+	    <!-- News -->
+    <div class="products-row row">
+
+      <!-- Carousel Heading -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div class="carousel-heading">
+          <h4>Offer Ending Today!</h4>
+          <div class="carousel-arrows">
+            <i class="icons icon-left-dir"></i>
+            <i class="icons icon-right-dir"></i>
+          </div>
+        </div>
+
+      </div>
+      <!-- /Carousel Heading -->
+
+
+      <!-- Carousel -->
+      <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+        <div class="owl-carousel" data-max-items="2">
+			
+		<!-- Slide -->
+          <div>
+            <!-- Carousel Item -->
+            <article class="news">
+
+              <div class="news-background">
+
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 news-thumbnail">
+                    <a href="#"><img src="img/news/sample1.jpg" alt="News1"></a>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 news-content">
+                    <h5><a href="blog_post.html">Lorem Ipsum</a></h5>
+                    <span class="date"><i class="icons icon-clock-1"></i> 23 April, 2012</span>
+                    <p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh.</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </article>
+            <!-- /Carousel Item -->
+          </div>
+          <!-- /Slide -->
+		
+		<!-- Slide -->
+          <div>
+            <!-- Carousel Item -->
+            <article class="news">
+
+              <div class="news-background">
+
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 news-thumbnail">
+                    <a href="#"><img src="img/news/sample1.jpg" alt="News1"></a>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 news-content">
+                    <h5><a href="blog_post.html">Lorem Ipsum</a></h5>
+                    <span class="date"><i class="icons icon-clock-1"></i> 23 April, 2012</span>
+                    <p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh.</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </article>
+            <!-- /Carousel Item -->
+          </div>
+          <!-- /Slide -->
+		
+        </div>
+      </div>
+      <!-- /Carousel -->
+
+    </div>
+    <!-- /News -->
+	
+	
+	
+	
 
     <div class="">
       <div class="">
