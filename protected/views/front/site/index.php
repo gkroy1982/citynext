@@ -3,7 +3,8 @@ $this->pageTitle='Jhansishopping.com | Home';
 $url = Yii::app()->theme->baseUrl; 
 $url_product = Yii::app()->baseUrl.'/upload/cityupdate/'; 
 $url_offer_product = Yii::app()->baseUrl.'/upload/products/'; 
-
+ $ads2=Ads::model()->findAll( array('condition'=>'show_in=1 AND status ="active"'));
+ $p_url=Yii::app()->baseUrl.'/upload/products/';
 //$url_img_city_update = Yii::app()->basePath.'/../upload/cityupdate/'; 
 //$products=array();
 ?>
@@ -16,28 +17,56 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
         $this->renderPartial('left');?>
         <!--Middle Part Start-->
     </div>
-    <div class="row content">
+    <div class="content">
       <!--div style='padding:10px;width:23%;float:right;height:500px;overflow:hidden;border:2px solid #e0e0e0; color:#e0e0e0;border-radius: 10px;'-->
 
-<section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-		
+      <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+
+        <div class="sidebar-box">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel">
+            <!-- Slider -->
+            <section class="sidebar-slider">
+              <div class="sidebar-flexslider">
+                <ul class="slides">
+                  <?php
+					$url_ads = Yii::app()->baseUrl.'/upload/ads/';
+					// var_dump($ads2);exit;
+					$count_slide=0;
+					foreach ($ads2 as $ad ) {
+				?>
+                    <li>
+                      <a href="#">
+						<img src="<?php echo $url_ads.$ad->image; ?>" style='height:250px;'/>
+					</a>
+                    </li>
+                    <?php
+					} 
+				?>
+                </ul>
+              </div>
+              <div class="slider-nav"></div>
+            </section>
+          </div>
+        </div>
+
         <section class="slider">
           <div class="tp-banner-container">
             <div class="tp-banner">
               <ul>
                 <!-- SLIDE  -->
-				<?php
+                <?php
 				  $url_ads = Yii::app()->baseUrl.'/upload/ads/'; 
 				  foreach($ads as $ad) {
 					$url = 'vendor/id/'.$ad->user_id;
 						if($ad->url!='' )
 							$url = $ad->url;
 				?>
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-                  <!-- MAIN IMAGE -->
-                  <img src="<?php echo $url_ads.$ad->image; ?>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                  <!-- LAYERS -->
-                  <!--div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="60" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                  <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
+                    <!-- MAIN IMAGE -->
+                    <img src="<?php echo $url_ads.$ad->image; ?>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                    <!-- LAYERS -->
+                    <!--div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="60" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                     <h2>The New <strong>Laptop</strong></h2>
                   </div>
                   <div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="140" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -47,36 +76,36 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
                   </div>
                   <div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="300" data-speed="500" data-start="1200" data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
                   </div-->
-                </li>
-				  <?php
+                  </li>
+                  <?php
 					} ?>
-                <!-- SLIDE  -->
-                
-			  </ul>
+                    <!-- SLIDE  -->
+
+              </ul>
             </div>
           </div>
         </section>
 
-        
- 
-      <div class="col-sm-3 col-md-3">
-        <div class="center" style="width:20%">
-          <div>
-            <?php 
+
+
+        <div class="col-sm-3 col-md-3">
+          <div class="center" style="width:20%">
+            <div>
+              <?php 
 			if(!empty($company_ads))
 				$home_page_company_ads=Yii::app()->baseUrl.'/upload/company_advertisement/'.$company_ads->image;
 			else
 				$home_page_company_ads=Yii::app()->baseUrl.'/upload/company_advertisement/default.png';
 				//http://dummyimage.com/medrect Link for default image
 			?>
-              <img src="<?php echo $home_page_company_ads; ?>" style="max-width:290px; width:auto; max-height:290px; height:auto" />
+                <img src="<?php echo $home_page_company_ads; ?>" style="max-width:290px; width:auto; max-height:290px; height:auto" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="clear"></div>
-</section>
- 
- 
+        <div class="clear"></div>
+      </section>
+
+
 
 
       <!--Slideshow Part End-->
