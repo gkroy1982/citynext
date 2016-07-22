@@ -37,7 +37,7 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 				?>
                   <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
                     <!-- MAIN IMAGE -->
-                    <img src="<?php echo $url_ads.$ad->image; ?>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                    <img src="<?php echo $url_ads.$ad->image; ?>" alt="" data-bgfit="100%" data-bgposition="left top" data-bgrepeat="no-repeat">
                     <!-- LAYERS -->
                     <!--div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="60" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                     <h2>The New <strong>Laptop</strong></h2>
@@ -53,13 +53,14 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
                   <?php
 					} ?>
                     <!-- SLIDE  -->
-
               </ul>
+              <div class="tp-loader" style="display: none;"></div>
+              <div class="tp-bannertimer" style="visibility: hidden; overflow: hidden; width: 0%;"></div>
             </div>
+            <div style="position: absolute; margin-top: -25px; left: 20px; top: 186px;" class="tp-leftarrow tparrows default hidearrows"></div>
+            <div style="position: absolute; margin-top: -25px; right: 20px; top: 186px;" class="tp-rightarrow tparrows default hidearrows"></div>
           </div>
         </section>
-
-
 
         <div class="col-sm-3 col-md-3">
           <div class="center" style="width:20%">
@@ -77,8 +78,6 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
         </div>
         <div class="clear"></div>
       </section>
-
-
 
 
       <!--Slideshow Part End-->
