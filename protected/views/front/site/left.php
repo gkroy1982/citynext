@@ -4,7 +4,8 @@ $url = Yii::app()->theme->baseUrl;
 
  $letest = Products::model()->findAll();
  $specials = Products::model()->findAll();
-
+ $ads2=Ads::model()->findAll( array('condition'=>'show_in=1 AND status ="active"'));
+ $p_url=Yii::app()->baseUrl.'/upload/products/';
 //$products=array();
 ?>
 
@@ -58,6 +59,34 @@ $url = Yii::app()->theme->baseUrl;
         </div>
       </div>
       <!-- /Categories -->
+
+
+      <div class="sidebar-box">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel">
+          <!-- Slider -->
+          <section class="sidebar-slider">
+            <div class="sidebar-flexslider">
+              <ul class="slides">
+                <?php
+					$url_ads = Yii::app()->baseUrl.'/upload/ads/';
+					// var_dump($ads2);exit;
+					$count_slide=0;
+					foreach ($ads2 as $ad ) {
+				?>
+                  <li>
+                    <a href="#">
+						<img src="<?php echo $url_ads.$ad->image; ?>" style='height:250px;'/>
+					</a>
+                  </li>
+                  <?php
+					} 
+				?>
+              </ul>
+            </div>
+            <div class="slider-nav"></div>
+          </section>
+        </div>
+      </div>
     </div>
     <!--Categories Part End-->
     <!--Latest Product Start-->
