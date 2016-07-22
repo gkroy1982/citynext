@@ -49,9 +49,9 @@ class SiteController extends Controller
 		$max_slide_limit=$slide_limit->f_slide_limit;
 		// $products = Products::model()->findAll(array('condition'=>"pid in ( $ids ) and status ='active'"));
 
-		$ads=Ads::model()->findAll(array('condition'=>"show_in=0 AND status ='active' AND '$todate'>=start_date AND '$todate'<=DATE_ADD(start_date,INTERVAL validity_days DAY) ",'limit'=>$max_slide_limit));
+		$ads=Ads::model()->findAll(array('condition'=>"show_in=0 AND status ='active' AND '$todate'>=start_date AND '$todate'<=DATE_ADD(start_date,INTERVAL validity_days DAY)",'limit'=>$max_slide_limit));
 		
-		$ads2=Ads::model()->findAll( array('condition'=>'show_in=1 AND status ="active"'));
+		// $ads2=Ads::model()->findAll(array('condition'=>'show_in=1 AND status ="active"'));
 		
 		// $news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 		$company_ads=Companyads::model()->findByPk(1);
@@ -61,7 +61,7 @@ class SiteController extends Controller
 		 
 		 // print_r($news[0]->attributes);exit;
 		 
-		$this->render('index',array('products'=>$products, 'ads'=>$ads, 'ads2'=>$ads2,'company_ads'=>$company_ads, 'product_offer1'=>$product_offer1, 'product_offer2'=>$product_offer2, 'product_offer3'=>$product_offer3 ) );
+		$this->render('index',array('products'=>$products, 'ads'=>$ads, 'ads2'=>$ads2,'company_ads'=>$company_ads, 'product_offer1'=>$product_offer1, 'product_offer2'=>$product_offer2, 'product_offer3'=>$product_offer3 ));
 	}
 	
 	public function actionTodayoffer()

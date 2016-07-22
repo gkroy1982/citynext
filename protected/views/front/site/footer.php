@@ -164,25 +164,23 @@
 
 
  
- <div id="modal" class="popupContainer" style="display:none;position: absolute!important;">
+ <!--div id="modal" class="popupContainer" style="display:none;position: absolute!important;">
     <header class="popupHeader ">
       <span class="header_title">Login</span>
       <span class="modal_close"><i class="fa fa-times"></i></span>
     </header>
     
     <section class="popupBody ">
-      <!-- Social Login -->
-      
-      <!-- Username & Password Login form -->
+   
       <div class="user_login">
         <?php 
-            $form=$this->beginWidget('CActiveForm', array(
-                'id'=>'login-form',
-                'enableClientValidation'=>true,
-                'clientOptions'=>array('validateOnSubmit'=>true),
-                'htmlOptions'=>array("class"=>"form-signin"),
-              )
-            );
+            // $form=$this->beginWidget('CActiveForm', array(
+                // 'id'=>'login-form',
+                // 'enableClientValidation'=>true,
+                // 'clientOptions'=>array('validateOnSubmit'=>true),
+                // 'htmlOptions'=>array("class"=>"form-signin"),
+              // )
+            // );
           ?>
           <label>Email </label>
           
@@ -203,15 +201,15 @@
             <div class="one_half last"><a id='login' class="btn btn_red">Login</a></div>
 			
           </div>
-        <?php $this->endWidget(); ?>
+        <?php //$this->endWidget(); ?>
         </br>
         <a href="#" id="forgot" style="float:left">Forgot password?</a>
 
-        <a href="<?php echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
+        <a href="<?php //echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
         </br>
       </div> 
     </section>
-  </div>
+  </div-->
 
   
   
