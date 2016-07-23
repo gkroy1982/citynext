@@ -169,10 +169,12 @@ span.error {
 
 /* Top Header */
 
+
 /* #top-header {
   background: #fff;
 }
  */
+
 #top-header.style2,
 #top-header.style4,
 #top-header.style5 {
@@ -309,7 +311,8 @@ li.purple .box-dropdown:after {
   top: 5px;
 }
 
-.box-dropdown input[type="text"] , .box-dropdown input[type="password"] {
+.box-dropdown input[type="text"],
+.box-dropdown input[type="password"] {
   width: 100%;
   background: #f7f7f7;
   font-size: 14px;
@@ -369,7 +372,8 @@ li.purple .box-dropdown:after {
   width: 350px;
 }
 
-.iconic-input input[type="text"] , .iconic-input input[type="password"]{
+.iconic-input input[type="text"],
+.iconic-input input[type="password"] {
   width: 100%;
   background: #f7f7f7;
   font-size: 14px;
@@ -418,16 +422,16 @@ li.purple .box-dropdown:after {
 }
 
 nav.login {
-  margin-top : 25px;
+  margin-top: 25px;
 }
 
 nav.login ul {
-  list-style : none;
+  list-style: none;
 }
 
-nav.login ul li{
-	display:inline;
-	float: left;
+nav.login ul li {
+  display: inline;
+  float: left;
 }
 
 #middle-navigation ul {
@@ -1456,7 +1460,7 @@ li.orange .parent-arrow:after {
 
 .sidebar-box-heading .icons {
   position: absolute;
-  left: 30px;
+  left: 20px;
 }
 
 .sidebar-box-heading h4 {
@@ -2959,14 +2963,34 @@ p .tag-item {
 
 .news-background {
   background: #f7f7f7;
+  height: 240px;
+}
+
+.news-thumbnail a {
+  display: block;
+}
+
+.news-thumbnail img {
+  height: 150px;
 }
 
 .news-content {
-  padding: 10px 30px 10px 5px;
+  padding: 10px 20px;
 }
 
 .news-content h5 {
   margin: 0 0 5px;
+  height: 44px;
+}
+
+.news-content .oldPrice {
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+.news-content .newPrice {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .news-content p {
@@ -4438,7 +4462,8 @@ table.coupon-table td.fit-cell {
   color: #7a8188;
 }
 
-input[type="text"],input[type="password"],
+input[type="text"],
+input[type="password"],
 select {
   padding: 5px 10px;
   border: 1px solid #e6e6e6;

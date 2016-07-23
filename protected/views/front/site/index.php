@@ -62,20 +62,94 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
           </div>
         </section>
 
-        <div class="col-sm-3 col-md-3">
-          <div class="center" style="width:20%">
-            <div>
-              <?php 
+
+
+        <!-- News -->
+        <div class="products-row row">
+
+          <!-- Carousel Heading -->
+          <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading">
+              <h4>Offer Ending Today</h4>
+              <div class="carousel-arrows">
+                <i class="icons icon-left-dir"></i>
+                <i class="icons icon-right-dir"></i>
+              </div>
+            </div>
+
+          </div>
+          <!-- /Carousel Heading -->
+
+
+          <!-- Carousel -->
+          <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+
+            <div class="owl-carousel" data-max-items="4">
+
+              <?php
+		if(!empty($product_offer1)) {
+			foreach($product_offer1 as $product_offer_row1) {
+				$product_name1=$product_offer_row1->product->product;
+				$old_price1=$product_offer_row1->product->old_price;
+				$new_price1=$product_offer_row1->product->price;
+				$offer_prod_url1=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row1->product_id;
+				$image_offer_prod_url1=$url_offer_product.$product_offer_row1->product->image;
+		?>
+                <!-- Slide -->
+                <div>
+                  <!-- Carousel Item -->
+                  <article class="news">
+
+                    <div class="news-background">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 news-thumbnail">
+                          <a href="#"><img src="<?php echo $image_offer_prod_url1; ?>" class="img-responsive center-block" alt="News1"></a>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 news-content">
+                          <h5>
+						<a href="<?php echo $offer_prod_url1; ?>">
+						  <?php
+                           if(strlen($product_name1) >= 40)
+                             echo substr(ucwords($product_name1), 0, 40)."..."; 
+                           else
+                             echo ucwords($product_name1);
+                          ?>
+						</a>
+					</h5>
+                          <span class="oldPrice"><?php echo "Rs." . $old_price1; ?></span> <span class="newPrice"><?php echo "Rs." . $new_price1; ?></span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </article>
+                  <!-- /Carousel Item -->
+                </div>
+                <!-- /Slide -->
+
+                <?php 
+				}
+			}
+		?>
+            </div>
+          </div>
+          <!-- /Carousel -->
+        </div>
+        <!-- /News -->
+        <!--<div class="col-sm-3 col-md-3">
+  <div class="center" style="width:20%">
+    <div>
+      <?php /*
 			if(!empty($company_ads))
 				$home_page_company_ads=Yii::app()->baseUrl.'/upload/company_advertisement/'.$company_ads->image;
 			else
 				$home_page_company_ads=Yii::app()->baseUrl.'/upload/company_advertisement/default.png';
 				//http://dummyimage.com/medrect Link for default image
-			?>
-                <img src="<?php echo $home_page_company_ads; ?>" style="max-width:290px; width:auto; max-height:290px; height:auto" />
-            </div>
-          </div>
-        </div>
+		*/	 ?> 
+        <img src="<?php /* echo $home_page_company_ads; */ ?>" style="max-width:290px; width:auto; max-height:290px; height:auto" />
+    </div>
+  </div>
+</div>-->
         <div class="clear"></div>
       </section>
 
@@ -129,79 +203,6 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
     </div>
 
 
-	
-    <!-- News -->
-    <div class="products-row row">
-
-      <!-- Carousel Heading -->
-      <div class="col-lg-12 col-md-12 col-sm-12">
-
-        <div class="carousel-heading">
-          <h4>Offer Ending Today</h4>
-          <div class="carousel-arrows">
-            <i class="icons icon-left-dir"></i>
-            <i class="icons icon-right-dir"></i>
-          </div>
-        </div>
-
-      </div>
-      <!-- /Carousel Heading -->
-
-
-      <!-- Carousel -->
-      <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
-
-        <div class="owl-carousel" data-max-items="4">
-
-<?php
-		if(!empty($product_offer1)) {
-			foreach($product_offer1 as $product_offer_row1) {
-				$product_name1=$product_offer_row1->product->product;
-				$old_price1=$product_offer_row1->product->old_price;
-				$new_price1=$product_offer_row1->product->price;
-				$offer_prod_url1=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row1->product_id;
-				$image_offer_prod_url1=$url_offer_product.$product_offer_row1->product->image;
-		?>			
-		<!-- Slide -->
-          <div>
-            <!-- Carousel Item -->
-            <article class="news">
-
-              <div class="news-background">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 news-thumbnail">
-                    <a href="#"><img src="<?php echo $image_offer_prod_url1; ?>" alt="News1"></a>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 news-content">
-                    <h5>
-						<a href="<?php echo $offer_prod_url1; ?>">
-							<?php echo ucwords($product_name1); ?>
-						</a>
-					</h5>
-                    <span class="date"><i class="icons icon-clock-1"></i>
-						<?php echo date('d M Y',strtotime($product_offer_row1->end_date)); ?>
-					</span>
-                    <p>
-						<?php echo ucwords($product_offer_row1->description); ?>
-					</p>
-                  </div>
-                </div>
-              </div>
-
-            </article>
-            <!-- /Carousel Item -->
-          </div>
-          <!-- /Slide -->
-		
-		<?php 
-				}
-			}
-		?>
-        </div>
-      </div>
-      <!-- /Carousel -->
-    </div>
-    <!-- /News -->
 
     <div class="clear"></div>
     <div class="social-part"></div>
