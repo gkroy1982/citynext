@@ -55,10 +55,11 @@ class SiteController extends Controller
 		
 		// $news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 		$company_ads=Companyads::model()->findByPk(1);
-		$product_offer1=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>0));
-		$product_offer2=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>4));
+		$product_offer1=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 12,"offset"=>0));
+		
+		/*		$product_offer2=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>4));
 		$product_offer3=ProductOffers::model()->findAll(array('condition'=>"end_date='$todate' AND status='Active'","order" => "created_on DESC", "limit" => 4,"offset"=>8));
-		 
+		*/ 
 		 // print_r($news[0]->attributes);exit;
 		 
 		$this->render('index',array('products'=>$products, 'ads'=>$ads, 'ads2'=>$ads2,'company_ads'=>$company_ads, 'product_offer1'=>$product_offer1, 'product_offer2'=>$product_offer2, 'product_offer3'=>$product_offer3 ));

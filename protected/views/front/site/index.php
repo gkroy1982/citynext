@@ -129,14 +129,15 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
     </div>
 
 
-	    <!-- News -->
+	
+    <!-- News -->
     <div class="products-row row">
 
       <!-- Carousel Heading -->
       <div class="col-lg-12 col-md-12 col-sm-12">
 
         <div class="carousel-heading">
-          <h4>Offer Ending Today!</h4>
+          <h4>Offer Ending Today</h4>
           <div class="carousel-arrows">
             <i class="icons icon-left-dir"></i>
             <i class="icons icon-right-dir"></i>
@@ -149,26 +150,42 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 
       <!-- Carousel -->
       <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
-        <div class="owl-carousel" data-max-items="2">
-			
+
+        <div class="owl-carousel" data-max-items="4">
+
+<?php
+		if(!empty($product_offer1)) {
+			foreach($product_offer1 as $product_offer_row1) {
+				$product_name1=$product_offer_row1->product->product;
+				$old_price1=$product_offer_row1->product->old_price;
+				$new_price1=$product_offer_row1->product->price;
+				$offer_prod_url1=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row1->product_id;
+				$image_offer_prod_url1=$url_offer_product.$product_offer_row1->product->image;
+		?>			
 		<!-- Slide -->
           <div>
             <!-- Carousel Item -->
             <article class="news">
 
               <div class="news-background">
-
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 news-thumbnail">
-                    <a href="#"><img src="img/news/sample1.jpg" alt="News1"></a>
+                    <a href="#"><img src="<?php echo $image_offer_prod_url1; ?>" alt="News1"></a>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 news-content">
-                    <h5><a href="blog_post.html">Lorem Ipsum</a></h5>
-                    <span class="date"><i class="icons icon-clock-1"></i> 23 April, 2012</span>
-                    <p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh.</p>
+                    <h5>
+						<a href="<?php echo $offer_prod_url1; ?>">
+							<?php echo ucwords($product_name1); ?>
+						</a>
+					</h5>
+                    <span class="date"><i class="icons icon-clock-1"></i>
+						<?php echo date('d M Y',strtotime($product_offer_row1->end_date)); ?>
+					</span>
+                    <p>
+						<?php echo ucwords($product_offer_row1->description); ?>
+					</p>
                   </div>
                 </div>
-
               </div>
 
             </article>
@@ -176,195 +193,15 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
           </div>
           <!-- /Slide -->
 		
-		<!-- Slide -->
-          <div>
-            <!-- Carousel Item -->
-            <article class="news">
-
-              <div class="news-background">
-
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 news-thumbnail">
-                    <a href="#"><img src="img/news/sample1.jpg" alt="News1"></a>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 news-content">
-                    <h5><a href="blog_post.html">Lorem Ipsum</a></h5>
-                    <span class="date"><i class="icons icon-clock-1"></i> 23 April, 2012</span>
-                    <p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh.</p>
-                  </div>
-                </div>
-
-              </div>
-
-            </article>
-            <!-- /Carousel Item -->
-          </div>
-          <!-- /Slide -->
-		
+		<?php 
+				}
+			}
+		?>
         </div>
       </div>
       <!-- /Carousel -->
-
     </div>
     <!-- /News -->
-	
-	
-	
-	
-
-    <div class="">
-      <div class="">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="col-md-9">
-            <center>
-              <h3>Offer Ending Today!</h3></center>
-          </div>
-          <div class="col-md-3">
-            <!-- Controls -->
-            <div class="controls pull-right hidden-xs">
-              <a class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev"></a>
-              <a class="right fa fa-chevron-right btn" href="#carousel-example" data-slide="next"></a>
-            </div>
-          </div>
-        </div>
-        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <div class="row">
-                <?php
-						if(!empty($product_offer1)){
-							foreach($product_offer1 as $product_offer_row1){
-								$product_name1=$product_offer_row1->product->product;
-								$old_price1=$product_offer_row1->product->old_price;
-								$new_price1=$product_offer_row1->product->price;
-								$offer_prod_url1=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row1->product_id;
-								$image_offer_prod_url1=$url_offer_product.$product_offer_row1->product->image;
-					?>
-                  <div class="col-md-3 col-sm-3 col-xs-12">
-                    <div class="col-item">
-                      <div class="photo">
-                        <img src="<?php echo $image_offer_prod_url1; ?>" class="img-responsive img-resized" alt="a" />
-                      </div>
-                      <div class="info">
-                        <div class="separator clear-left">
-                          <p class="btn-add">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="<?php echo $offer_prod_url1; ?>" class="hidden-sm">
-                              <?php echo ucwords($product_name1); ?>
-                            </a>
-                          </p>
-                          <p class="btn-details">
-                            <i class="fa fa-inr"></i>
-                            <a href="<?php echo $offer_prod_url1; ?>" class="hidden-sm">
-												Rs. <?php echo $new_price1; ?>
-												</a>
-                          </p>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <?php 
-							}
-						}
-					?>
-
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="row">
-                <?php
-						if(!empty($product_offer2)){
-							foreach($product_offer2 as $product_offer_row2){
-								$product_name2=$product_offer_row2->product->product;
-								$old_price2=$product_offer_row2->product->old_price;
-								$new_price2=$product_offer_row2->product->price;
-								$offer_prod_url2=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row2->product_id;
-								$image_offer_prod_url2=$url_offer_product.$product_offer_row2->product->image;
-						?>
-                  <div class="col-md-3 col-sm-3 col-xs-12">
-                    <div class="col-item">
-                      <div class="photo">
-                        <img src="<?php echo $image_offer_prod_url2; ?>" class="img-responsive img-resized" alt="a" />
-                      </div>
-                      <div class="info">
-                        <div class="separator clear-left">
-                          <p class="btn-add">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="<?php echo $offer_prod_url2; ?>" class="hidden-sm">
-                              <?php echo ucwords($product_name2); ?>
-                            </a>
-                          </p>
-                          <p class="btn-details">
-                            <i class="fa fa-inr"></i>
-                            <a href="<?php echo $offer_prod_url2; ?>" class="hidden-sm">
-												Rs. <?php echo $new_price2; ?>
-												</a>
-                          </p>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <?php 
-							}
-						}
-					?>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="row">
-                <?php
-						if(!empty($product_offer3)){
-							foreach($product_offer3 as $product_offer_row3){
-								$product_name3=$product_offer_row3->product->product;
-								$old_price3=$product_offer_row3->product->old_price;
-								$new_price3=$product_offer_row3->product->price;
-								$offer_prod_url3=Yii::app()->baseUrl.'/index_new.php/site/productdetails/'.$product_offer_row3->product_id;
-								$image_offer_prod_url3=$url_offer_product.$product_offer_row3->product->image;
-						?>
-                  <div class="col-md-3 col-sm-3 col-xs-12">
-                    <div class="col-item">
-                      <div class="photo">
-                        <img src="<?php echo $image_offer_prod_url3; ?>" class="img-responsive img-resized" alt="a" />
-                      </div>
-                      <div class="info">
-                        <div class="separator clear-left">
-                          <p class="btn-add">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="<?php echo $offer_prod_url3; ?>" class="hidden-sm">
-                              <?php echo ucwords($product_name3); ?>
-                            </a>
-                          </p>
-                          <p class="btn-details">
-                            <i class="fa fa-inr"></i>
-                            <a href="<?php echo $offer_prod_url3; ?>" class="hidden-sm">
-												Rs. <?php echo $new_price3; ?>
-												</a>
-                          </p>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <?php 
-							}
-						}
-					?>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="clear"></div>
     <div class="social-part"></div>
