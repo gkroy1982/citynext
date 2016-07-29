@@ -50,26 +50,40 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
                 </div>
                 <div id="product-carousel">
                   <ul class="slides">
-                    <li>
-                      <a class="fancybox" rel="product-images" href="img/products/single1.jpg"></a>
-                      <img src="img/products/single1.jpg" data-large="img/products/single1.jpg" alt="" />
-                    </li>
-                    <li>
-                      <a class="fancybox" rel="product-images" href="img/products/single2.jpg"></a>
-                      <img src="img/products/single2.jpg" data-large="img/products/single2.jpg" alt="" />
-                    </li>
-                    <li>
-                      <a class="fancybox" rel="product-images" href="img/products/single3.jpg"></a>
-                      <img src="img/products/single3.jpg" data-large="img/products/single3.jpg" alt="" />
-                    </li>
-                    <li>
-                      <a class="fancybox" rel="product-images" href="img/products/single4.jpg"></a>
-                      <img src="img/products/single4.jpg" data-large="img/products/single4.jpg" alt="" />
-                    </li>
-                    <li>
-                      <a class="fancybox" rel="product-images" href="img/products/single5.jpg"></a>
-                      <img src="img/products/single5.jpg" data-large="img/products/single5.jpg" alt="" />
-                    </li>
+				   <?php 
+					if (file_exists($url_img.$product->image) and $product->image!='') 
+					{
+					?>
+						<li>
+						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image;?>"></a>
+						  <img src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
+						</li> 
+					<?php
+					}
+					?>
+					<?php 
+					if (file_exists($url_img.$product->image2) and $product->image2!='') 
+					{
+					?>
+						<li>
+						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image2;?>"></a>
+						  <img src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
+						</li> 
+					<?php
+					}
+					?>
+					<?php 
+					if (file_exists($url_img.$product->image3) and $product->image3!='') 
+					{
+					?>
+						<li>
+						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image3;?>"></a>
+						  <img src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
+						</li> 
+					<?php
+					}
+					?>
+					
                   </ul>
                   <div class="product-arrows">
                     <div class="left-arrow">
