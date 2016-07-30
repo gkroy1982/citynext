@@ -3204,6 +3204,7 @@ a .banner-item {
 }
 
 .page-content input[type="text"],
+.page-content input[type="password"],
 .page-content select {
   width: 100%;
   background: #f7f7f7;
@@ -4574,9 +4575,11 @@ input[type="checkbox"] {
   border: 1px solid #e6e6e6;
 }
 
+
+/*
 input[type="radio"] {
   display: none;
-}
+}*/
 
 input[type=radio]:checked + .radio-label:before {
   content: "\2022";
