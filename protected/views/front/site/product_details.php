@@ -38,14 +38,42 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
 
                 <div id="product-slider">
                   <ul class="slides">
-                    <li>
-                      <img class="cloud-zoom" src="img/products/single1.jpg" data-large="img/products/sample1.jpg" alt="" />
-                      <a class="fullscreen-button" href="img/products/single1.jpg">
-                        <div class="product-fullscreen">
-                          <i class="icons icon-resize-full-1"></i>
-                        </div>
-                      </a>
-                    </li>
+					<?php 
+						if (file_exists($url_img.$product->image) and $product->image!='') {
+					?> 
+						<li>
+						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
+						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image;?>">
+							<div class="product-fullscreen">
+							  <i class="icons icon-resize-full-1"></i>
+							</div>
+						  </a>
+						</li> 
+					<?php 
+						}else if (file_exists($url_img.$product->image2) and $product->image2!='') {
+					?>
+						<li>
+						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
+						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image2;?>">
+							<div class="product-fullscreen">
+							  <i class="icons icon-resize-full-1"></i>
+							</div>
+						  </a>
+						</li> 
+					<?php 		
+						}else if (file_exists($url_img.$product->image3) and $product->image3!='') {
+					?>
+						<li>
+						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
+						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image3;?>">
+							<div class="product-fullscreen">
+							  <i class="icons icon-resize-full-1"></i>
+							</div>
+						  </a>
+						</li> 					
+					<?php 		
+						} 
+					?>
                   </ul>
                 </div>
                 <div id="product-carousel">
@@ -184,85 +212,14 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
 
 
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
           <!-- /Product Tabs -->
-
         </div>
       </section>
 
-
-      <div class="product-info">
-
-        <div class="left">
-
-          <?php 
-          if (file_exists($url_img.$product->image) and $product->image!='') 
-          {
-              ?>
-            <div id='image1'>
-              <img style="width:350px;height:400px;" src="<?php echo $url_product.$product->image;?>" />
-
-            </div>
-            <?php
-          }
-          ?>
-              <?php 
-          if (file_exists($url_img.$product->image2) and $product->image2!='') 
-          {
-              ?>
-                <div id='image2' style="display:none;">
-                  <img style="width:350px;height:400px;" src="<?php echo $url_product.$product->image2;?>" />
-                </div>
-                <?php
-          }
-          ?>
-                  <?php 
-          if (file_exists($url_img.$product->image3) and $product->image3!='') 
-          {
-              ?>
-                    <div id='image3' style="display:none;">
-                      <img style="width:350px;height:400px;" src="<?php echo $url_product.$product->image3;?>" />
-                    </div>
-                    <?php
-          }
-          ?>
-
-                      <div class="image-additional">
-                        <?php 
-          if (file_exists($url_img.$product->image) and $product->image!='') 
-          {
-              ?>
-                          <a onClick='fun("image1")'> 
-              <img src="<?php echo $url_product.$product->image ?>" width="40" /></a>
-                          <?php
-          }
-          ?>
-                            <?php 
-          if (file_exists($url_img.$product->image2) and $product->image2!='') 
-          {
-              ?>
-                              <a onClick='fun("image2")'> 
-              <img src="<?php echo $url_product.$product->image2 ?>" width="40" /></a>
-                              <?php
-          }
-          ?>
-                                <?php 
-          if (file_exists($url_img.$product->image3) and $product->image3!='') 
-          {
-              ?>
-                                  <a onClick='fun("image3")'> 
-              <img src="<?php echo $url_product.$product->image3 ?>" width="40"/></a>
-                                  <?php
-          }
-          ?>
-                      </div>
-        </div>
+ 
         <script type="text/javascript">
           function fun(tmp) {
             if (tmp == 'image1') {
