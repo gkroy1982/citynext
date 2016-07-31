@@ -47,11 +47,17 @@ class Users extends CActiveRecord
 		);
 	}
 
+	public function unique_id($attribute,$params='') {
+		if($this->$attribute != '') {
 			if($attribute=='email') {
+				$admin=Users::model()->find(array('condition'=>"email=$this->$attribute  AND status='Active'"));
+				if(isset($admin)) {
+					if(($this->id!=$admin->id) || (empty($this->id) && empty($admin->id))) {
 						if($attribute=='email')
 							$this->addError($attribute, 'Email already exist.');
 					}
 				}
+			}
 	   }
 	}
 	
