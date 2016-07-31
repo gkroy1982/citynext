@@ -31,6 +31,7 @@ class Users extends CActiveRecord
 			array('user_type', 'required'),
 			array('first_name, last_name, email,question_id,post_code,address, answer,business_type,age, dob, password, contact_no, city, country', 'required','on'=>'personal'),
 			array('email', 'email'),
+			array('email', 'unique_id'),
 
 			array('first_name, last_name, email, password,question_id, answer, business_name, address, dob, contact_no, city, post_code, country', 'required','on'=>'seller'),
 			
@@ -46,6 +47,15 @@ class Users extends CActiveRecord
 		);
 	}
 
+			if($attribute=='email') {
+						if($attribute=='email')
+							$this->addError($attribute, 'Email already exist.');
+					}
+				}
+	   }
+	}
+	
+	
 	/**
 	 * @return array relational rules.
 	 */

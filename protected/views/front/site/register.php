@@ -62,22 +62,19 @@
 
 
 
-		    <div class="row">
-
+		<div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 register-account">
-
             <div class="carousel-heading no-margin">
               <h4>Register User/Customer Account</h4>
             </div>
 
             <div class="page-content">
               <div class="row">
-
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <p><strong>User/Customer Information</strong></p>
                 </div>
-
               </div>
+			  
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <p>First name*</p>
@@ -251,7 +248,7 @@
 			  
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  <p>Profile Image*</p>
+                  <p>Profile Image </p>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8">
 					<?php echo $form->fileField($model,'photo'); ?>
@@ -277,17 +274,16 @@
                   <label for="i-agree-to-terms"></label>
                 </div>
               </div>
+			  
               <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
                   <?php echo CHtml::submitButton('Register',array('class'=>'button big')); ?>
 				  <input class="big" type="reset" value="Cancel">
                 </div>
-
               </div>
+			  
             </div>
-
           </div>
-
         </div>
  
        
