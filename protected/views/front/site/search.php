@@ -1,14 +1,14 @@
-﻿<?php $this->pageTitle='Jhansishopping.com | Search';?>
+﻿<?php $this->pageTitle='Jhansishopping.com | Search'; ?>
 <?php 
-
-$url = Yii::app()->theme->baseUrl; 
-
+	$url = Yii::app()->theme->baseUrl;
 ?>
-
-  <div id="container">
-   <?php $this->renderPartial('left');?>
-    <!--Middle Part Start-->
-    <div id="content">   
+<div id="container" class="content">
+   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<?php $this->renderPartial('left');?>
+          <!--Middle Part Start-->
+	</div>
+	<section class="main-content col-lg-9 col-md-9 col-sm-9">
+    <!--div id="content"-->   
      
     <script type="text/javascript">
     $(document).ready(function() {
@@ -31,6 +31,7 @@ $url = Yii::app()->theme->baseUrl;
       </div>
       <!--Featured Product Part End-->
     </div>
+	</section>
     <!--Middle Part End-->
     <div class="clear"></div>
     <div class="social-part">
