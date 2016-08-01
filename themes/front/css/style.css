@@ -1497,7 +1497,7 @@ li.orange .parent-arrow:after {
 
 .sidebar-box-content>ul>li>a {
   display: block;
-  padding: 8px 35px 8px 20px;
+  padding: 4px 35px 4px 10px;
 }
 
 .sidebar-box-content>ul>li>a .icons {

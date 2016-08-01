@@ -38,89 +38,66 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
 
                 <div id="product-slider">
                   <ul class="slides">
-					<?php 
+                    <?php 
 						if (file_exists($url_img.$product->image) and $product->image!='') {
-					?> 
-						<li>
-						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
-						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image;?>">
-							<div class="product-fullscreen">
-							  <i class="icons icon-resize-full-1"></i>
-							</div>
-						  </a>
-						</li> 
-					<?php 
+					?>
+                      <li>
+                        <img class="cloud-zoom" src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
+                      </li>
+                      <?php 
 						}else if (file_exists($url_img.$product->image2) and $product->image2!='') {
 					?>
-						<li>
-						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
-						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image2;?>">
-							<div class="product-fullscreen">
-							  <i class="icons icon-resize-full-1"></i>
-							</div>
-						  </a>
-						</li> 
-					<?php 		
+                        <li>
+                          <img class="cloud-zoom" src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
+                        </li>
+                        <?php 		
 						}else if (file_exists($url_img.$product->image3) and $product->image3!='') {
 					?>
-						<li>
-						  <img class="cloud-zoom" src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
-						  <a class="fullscreen-button" href="<?php echo $url_product.$product->image3;?>">
-							<div class="product-fullscreen">
-							  <i class="icons icon-resize-full-1"></i>
-							</div>
-						  </a>
-						</li> 					
-					<?php 		
+                          <li>
+                            <img class="cloud-zoom" src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
+                          </li>
+                          <?php 		
 						} 
 					?>
                   </ul>
                 </div>
                 <div id="product-carousel">
                   <ul class="slides">
-				   <?php 
+                    <?php 
 					if (file_exists($url_img.$product->image) and $product->image!='') 
 					{
 					?>
-						<li>
-						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image;?>"></a>
-						  <img src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
-						</li> 
-					<?php
+                      <li>
+                        <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image;?>"></a>
+                        <img src="<?php echo $url_product.$product->image;?>" data-large="<?php echo $url_product.$product->image;?>" alt="" />
+                      </li>
+                      <?php
 					}
 					?>
-					<?php 
+                        <?php 
 					if (file_exists($url_img.$product->image2) and $product->image2!='') 
 					{
 					?>
-						<li>
-						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image2;?>"></a>
-						  <img src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
-						</li> 
-					<?php
+                          <li>
+                            <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image2;?>"></a>
+                            <img src="<?php echo $url_product.$product->image2;?>" data-large="<?php echo $url_product.$product->image2;?>" alt="" />
+                          </li>
+                          <?php
 					}
 					?>
-					<?php 
+                            <?php 
 					if (file_exists($url_img.$product->image3) and $product->image3!='') 
 					{
 					?>
-						<li>
-						  <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image3;?>"></a>
-						  <img src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
-						</li> 
-					<?php
+                              <li>
+                                <a class="fancybox" rel="product-images" href="<?php echo $url_product.$product->image3;?>"></a>
+                                <img src="<?php echo $url_product.$product->image3;?>" data-large="<?php echo $url_product.$product->image3;?>" alt="" />
+                              </li>
+                              <?php
 					}
 					?>
-					
+
                   </ul>
-                  <div class="product-arrows">
-                    <div class="left-arrow">
-                      <i class="icons icon-left-dir"></i>
-                    </div>
-                    <div class="right-arrow">
-                      <i class="icons icon-right-dir"></i>
-                    </div>
-                  </div>
                 </div>
               </div>
               <!-- /Product Images Carousel -->
@@ -219,33 +196,33 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
         </div>
       </section>
 
- 
-        <script type="text/javascript">
-          function fun(tmp) {
-            if (tmp == 'image1') {
-              $('#image3').hide();
-              $('#image2').hide();
-              $('#image1').show();
-            }
-            if (tmp == 'image2') {
-              $('#image3').hide();
-              $('#image1').hide();
-              $('#image2').show();
-            }
-            if (tmp == 'image3') {
-              $('#image1').hide();
-              $('#image2').hide();
-              $('#image3').show();
-            }
 
+      <script type="text/javascript">
+        function fun(tmp) {
+          if (tmp == 'image1') {
+            $('#image3').hide();
+            $('#image2').hide();
+            $('#image1').show();
           }
-        </script>
+          if (tmp == 'image2') {
+            $('#image3').hide();
+            $('#image1').hide();
+            $('#image2').show();
+          }
+          if (tmp == 'image3') {
+            $('#image1').hide();
+            $('#image2').hide();
+            $('#image3').show();
+          }
 
-        <div class="right">
+        }
+      </script>
+
+      <div class="right">
 
 
-        </div>
       </div>
+    </div>
 
 
     </div>
