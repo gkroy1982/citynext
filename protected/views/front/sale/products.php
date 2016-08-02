@@ -79,14 +79,14 @@ $url = Yii::app()->theme->baseUrl;
               <div class="cart">
                 <a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
               </div>
-<div class="product-actions">
-													<span class="add-to-cart">
-                                                        <span class="action-wrapper">
-                                                            <i class="icons icon-basket-2"></i>
-                                                            <span class="action-name">Add to cart</span>
-                                                        </span >
-                                                    </span>
-												</div>
+              <div class="product-actions">
+  <span class="add-to-cart">
+                      <span class="action-wrapper">
+                          <i class="icons icon-basket-2"></i>
+                          <span class="action-name">Add to cart</span>
+  </span>
+  </span>
+</div>
 
 -->
 
