@@ -10,15 +10,15 @@
 	$enquiry='';
 	$careers='';
 	if( $action=='aboutus')
-			$aboutus='class="home active"';
-			if( $action=='contactus')
-			$contactus='class="home active"';
-			if( $action=='feedback')
-			$feedback='class="home active"';
-			if( $action=='enquiry')
-			$enquiry='class="home active"';
-			if( $action=='careers')
-			$careers='class="home active"';
+		$aboutus='class="home active"';
+	if( $action=='contactus')
+		$contactus='class="home active"';
+	if( $action=='feedback')
+		$feedback='class="home active"';
+	if( $action=='enquiry')
+		$enquiry='class="home active"';
+	if( $action=='careers')
+		$careers='class="home active"';
 	if( $action=='index')
 			$home='class="home active"';
 ?>
@@ -232,14 +232,14 @@
           </li>
 
         </ul>
-
+ 
         <div id="search-bar">
 
           <div class="col-lg-12 col-md-12 col-sm-12">
             <table id="search-bar-table">
               <tr>
                 <td class="search-column-1">
-                  <input type="text" placeholder="search for a vendor, product, service or category">
+                  <input type="text" placeholder="search for a vendor, product, service or category" id="filter_name" name="search">
                 </td>
               </tr>
             </table>

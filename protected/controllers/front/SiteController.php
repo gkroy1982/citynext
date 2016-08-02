@@ -170,7 +170,7 @@ class SiteController extends Controller
 	public function actionSearch()
 	{
 		
-			$ads=Ads::model()->findAll( array('condition'=>'status ="active"'));
+		$ads=Ads::model()->findAll(array('condition'=>'status ="active"'));
 		$nav='search';
 		$model=array();
 
@@ -498,14 +498,6 @@ class SiteController extends Controller
 		$model = '';
 		$this->render('sitemap',array('model'=>$model));
 	}
-
-
-
-
-
-
-
-
 
 	/**
 	 * This is the action to handle external exceptions.
