@@ -31,7 +31,7 @@ $url = Yii::app()->theme->baseUrl;
       </script>-->
         <!--Slideshow Part End-->
         <!--Featured Product Part Start-->
-        <div style="margin:20px 0 5px;">
+        <div style="margin:15px -15px 5px 0;">
           <?php $this->renderPartial('post_sell');?>
         </div>
         <div class="box">
