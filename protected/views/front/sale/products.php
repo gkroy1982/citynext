@@ -71,7 +71,8 @@ $url = Yii::app()->theme->baseUrl;
 
                     </div>
                     <!-- Product Item -->
-                    <!-- <div class="rating">
+                </div>
+                <!-- <div class="rating">
 <div class="rating readonly-rating" data-score="4"></div>
                   <img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
               </div>
@@ -89,10 +90,9 @@ $url = Yii::app()->theme->baseUrl;
 
 -->
 
-                    <?php
+                <?php
           }
           ?>
-                </div>
               </div>
             </div>
           </div>
