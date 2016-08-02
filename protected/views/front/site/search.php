@@ -13,7 +13,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#yw0" ).removeClass( "list-view").addClass('box-content');
-        $( '.items').removeClass( "items").addClass('box-product');
+        $( '.items').removeClass( "items").addClass('box-product ');
 
         });
     </script>
@@ -25,12 +25,10 @@
         <?php $this->widget('zii.widgets.CListView', array(
           'dataProvider'=>$dataProvider,
           'itemView'=>'search_product',
-        )); ?>
-
-          
+        )); ?>          
       </div>
       <!--Featured Product Part End-->
-    </div>
+</div>
 	</section>
     <!--Middle Part End-->
     <div class="clear"></div>
