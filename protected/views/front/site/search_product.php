@@ -23,15 +23,16 @@
 </div>
 -->
   <!-- Product Item -->
-  <div class="col-lg-4 col-md-4 col-sm-4 product">
+<div class="col-lg-4 col-md-4 col-sm-4 product">
     <div class="product-image">
-      <img src="<?php echo $p_url.$data->image;?>" alt="Product">
+      <img src="<?php echo $p_url.$data->image;?>" alt="Product"/>
     </div>
 
     <div class="product-info">
-      <h5><a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$data->pid));?>"><?php echo substr(ucwords($data->product),0,18);?>..</a></h5>
+      <h5>
+		<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$data->pid));?>"><?php echo substr(ucwords($data->product),0,18);?>..</a>
+	  </h5>
       <span class="price">Rs.<?php echo $data->price;?></span>
     </div>
-
-  </div>
+</div>
   <!-- Product Item -->
