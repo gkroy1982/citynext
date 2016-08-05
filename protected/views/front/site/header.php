@@ -204,7 +204,7 @@
           </li>
 
           <li class="blue">
-            <a href="<?php echo Yii::app()->createUrl('site/classifieds')?>">
+            <a href="<?php echo Yii::app()->createUrl('site/classifiedtypes')?>">
               <span class="nav-caption">Classifieds</span>
             </a>
           </li>

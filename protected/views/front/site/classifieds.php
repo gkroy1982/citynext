@@ -6,11 +6,18 @@ $url = Yii::app()->theme->baseUrl;
 //$products=array();
 ?>
 
-  <div id="container">
-   <?php $this->renderPartial('left');?>
+  <div id="container" class="content">
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+		<?php $this->renderPartial('left');?>
+	  <!--Middle Part Start-->
+	</div>
+	
     <!--Middle Part Start-->
+	<section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <div id="content">
-       <?php $this->renderPartial('post_classifieds');?>
+		<div style="margin:15px -15px 5px 0;">
+			<?php $this->renderPartial('post_classifieds');?>
+        </div>
       <div class="box">
             <div class="box-heading"><div class="breadcrumb"> <?php  echo $nav;?></div></div>
             <div class="box-content"> 
@@ -43,16 +50,11 @@ $url = Yii::app()->theme->baseUrl;
                     <?php
                   }
                   ?>
-				  
-				 
-
                 </div>
             </div>
           </div>
-
-     
     </div>
-
+	</section>
       <div class="clear"></div>
       <div class="social-part"></div>
     </div>

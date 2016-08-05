@@ -242,16 +242,27 @@ class SiteController extends Controller
 
 	}
 	
-	public function actionClassifieds()
+	public function actionClassifiedtypes()
+	{
+		$nav="Classified's Types";
+		
+		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a>Classified's Types</a>";
+		
+		$classifiedtypes = Classifiedtype::model()->findAll( array('order'=>'name '));
+		
+		$this->render('classified_types',array('classifiedtypes'=>$classifiedtypes,'nav'=>$nav));
+
+	}
+	
+	public function actionClassifieds($id)
 	{
 		$nav="Classifieds";
 		
 		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a>Classifieds</a>";
 		
-		$classifieds = Classifieds::model()->findAll( array('condition'=>'status="Active"'));
-		
+		$classifieds = Classifieds::model()->findAll(array('condition'=>"classified_id=$id AND status='Active'"));
+		 
 		$this->render('classifieds',array('classifieds'=>$classifieds,'nav'=>$nav) );
-
 	}
 	
 	public function actionCondolences()
