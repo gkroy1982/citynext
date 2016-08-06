@@ -4657,6 +4657,46 @@ input[type="checkbox"]:checked + label:before {
   top: auto;
 }
 
+
+/* ==================================== */
+
+
+/*             CUSTOM CSS               */
+
+
+/* ==================================== */
+
+.classifieds {
+  margin-bottom: 10px;
+}
+
+.classifieds .name {
+  border: 1px dashed #c43f00;
+  min-height: 150px;
+  padding: 0 15px;
+}
+
+.name p {
+  overflow-wrap: break-word;
+}
+
+.vouchers .news-background {
+  height: 180px;
+}
+
+.vouchers .news-content h5 {
+  height: 20px;
+}
+
+
+/* ==================================== */
+
+
+/*             CUSTOM CSS               */
+
+
+/* ==================================== */
+
 @media(min-width:1200px) {
   .container {
     width: 1230px;
