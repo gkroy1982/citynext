@@ -25,7 +25,7 @@ $url = Yii::app()->theme->baseUrl;
                 <?php 
          $p_url=Yii::app()->baseUrl.'/upload/profile/';
           foreach($vendors as $user)
-          {
+          {			  
 			 $model = DiscountVouchers::model()->findAll( array( 'condition'=>' vender_id='.$user->uid.' and status="Active" and total > 0') );
 
 				/*$voucher_code ='';

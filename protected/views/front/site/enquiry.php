@@ -1,29 +1,22 @@
 <?php $this->pageTitle='Jhansishopping.com | Enquiry';?>
-  <div id="container">
-   <?php $this->renderPartial('left');?>
+<div id="container" class="content">
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+		<?php $this->renderPartial('left');?>
+	  <!--Middle Part Start-->
+	</div>
     <!--Middle Part Start-->
 
-    <div id="content">
+	<section class="main-content col-lg-9 col-md-9 col-sm-9">
       <!--Breadcrumb Part Start-->
-      <div class="breadcrumb"> <a href="<?php echo Yii::app()->createUrl('site/index')?>">Home</a> » <a href="#">Enquiry</a> </div>
+	  <div class="box">
+		<div class="box-heading">
+			<div class="breadcrumb"> 
+				<a href="<?php echo Yii::app()->createUrl('site/index')?>">Home</a> » <a href="#">Enquiry</a> 
+			</div>
+		</div>
+	  </div>
       <!--Breadcrumb Part End-->
-      <h1>Enquiry</h1>
-      <!--<h2>Our Location</h2>-->
-      <!--<div class="contact-info">
-        <div class="content">
-          <div class="left">
-            <h4><b>Address:</b></h4>
-            <p>401, Sample Plaza, New Way Road, Sample Address, Maharashtra<br>
-              Address 1</p>
-          </div>
-          <div class="right">
-            <h4><b>Telephone:</b></h4>
-            123456789<br>
-            <br>
-          </div>
-        </div>
-      </div>-->
-      <!--<h2>Feedback Form</h2>-->
+	    
 <?php 
 
 
@@ -43,58 +36,72 @@ $form=$this->beginWidget('CActiveForm', array(
   'id'=>'contactus-form',
   'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
   'enableAjaxValidation'=>false,
-)); ?>
+)); ?> 
+	
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 register-account">
+		<div class="carousel-heading no-margin">
+		  <h4>Enquiry</h4>
+		</div>
 
-      <div class="content"> 
-
-
-      <div class="row">
-    <label class="control-label">
-    <?php echo $form->labelEx($model,'name'); ?>
-    </label>
-    <div class="controls">
-    <?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200,'class'=>'large-field')); ?>
-    <?php echo $form->error($model,'name'); ?>
-    </div>
-  </div>
-
-  <div class="row">
-    <label class="control-label">
-    <?php echo $form->labelEx($model,'phone_no'); ?>
-    </label>
-    <div class="controls">
-    <?php echo $form->textField($model,'phone_no',array('size'=>15,'maxlength'=>15,'class'=>'large-field')); ?>
-    <?php echo $form->error($model,'phone_no'); ?>
-    </div>
-  </div>
-
-  <div class="row">
-    <label class="control-label">
-    <?php echo $form->labelEx($model,'email'); ?>
-    </label>
-    <div class="controls">
-    <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>200,'class'=>'large-field')); ?>
-    <?php echo $form->error($model,'email'); ?>
-    </div>
-  </div>
-
-  <div class="row">
-    <label class="control-label">
-    <?php echo $form->labelEx($model,'enquiry'); ?>
-    </label>
-    <div class="controls">
-    <?php echo $form->textArea($model,'enquiry',array('size'=>60,'maxlength'=>200,'class'=>'large-field','style'=>'width:34%;')); ?>
-    <?php echo $form->error($model,'enquiry'); ?>
-    </div>
-  </div>
-
-      <div class="buttons">
-        <div class="right">
-          
-          <?php echo CHtml::submitButton('Submit',array('class'=>'button')); ?>
-        </div>
-      </div>
+		<div class="page-content">
+		  <div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+			  <p><strong>Enquiry</strong></p>
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4">
+			  <p><?php echo $form->labelEx($model,'name'); ?> </p>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200,'class'=>'large-field')); ?>
+				<?php echo $form->error($model,'name'); ?>
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4">
+			  <p> <?php echo $form->labelEx($model,'phone_no'); ?> </p>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<?php echo $form->textField($model,'phone_no',array('size'=>15,'maxlength'=>15,'class'=>'large-field')); ?>
+				<?php echo $form->error($model,'phone_no'); ?>
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4">
+			  <p> <?php echo $form->labelEx($model,'email'); ?> </p>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>200,'class'=>'large-field')); ?>
+				<?php echo $form->error($model,'email'); ?>
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4">
+			  <p><?php echo $form->labelEx($model,'enquiry'); ?> </p>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<?php echo $form->textArea($model,'enquiry',array('size'=>60,'maxlength'=>200,'class'=>'large-field','rows'=>'2','cols'=>'2' )); ?>
+				<?php echo $form->error($model,'enquiry'); ?>
+			</div>
+		  </div>
+			
+		  <div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
+			  <?php echo CHtml::submitButton('Submit',array('class'=>'button')); ?>
+			  <input class="big" type="reset" value="Cancel">
+			</div>
+		  </div>
+		  
+		</div>
+	</div>
 </div>
+  
 <?php $this->endWidget();
 
 } ?>
@@ -103,4 +110,5 @@ $form=$this->beginWidget('CActiveForm', array(
     <div class="social-part">
      
     </div>
-  </div>
+  </section>
+</div>

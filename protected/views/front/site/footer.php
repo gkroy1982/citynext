@@ -96,8 +96,8 @@
               <h4>The Service</h4>
               <ul> 
                 <li><a href="<?php echo Yii::app()->createUrl('//sale/sell')?>"><i class="icons icon-right-dir"></i> Used Products</a></li>
-                <li><a href="<?php echo Yii::app()->createUrl('//sale/classifieds')?>"><i class="icons icon-right-dir"></i> Classifields</a></li>
-                <li><a href="<?php echo Yii::app()->createUrl('//sale/condolences')?>"><i class="icons icon-right-dir"></i> Condolences</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/classifiedtypes')?>"><i class="icons icon-right-dir"></i> Classifields</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('//site/condolences')?>"><i class="icons icon-right-dir"></i> Obituaries</a></li>
               </ul>
             </div>
             <!-- /The Service -->

@@ -39,7 +39,6 @@
             <div class="page-content">
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-right align-xs">
-                   
 					<a href="<?php echo Yii::app()->createUrl('site/register');?>">
 					<input type="radio" class="blue" checked="checked" value="1" name="newsletter">
 						User/Customer Account
