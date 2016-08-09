@@ -148,6 +148,10 @@ a:active {
   text-decoration: none;
 }
 
+#accordion a {
+  display: block;
+}
+
 span.green {
   color: #2ecc71;
 }
