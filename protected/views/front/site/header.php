@@ -99,12 +99,12 @@
 
 
 
-                  <li class="purple"><a href="#"><i class="icons icon-lock"></i> Login</a>
-                    <ul id="login-dropdown" class="box-dropdown">
-                      <li>
-                        <div class="box-wrapper">
-                          <h4>LOGIN</h4>
-                          <?php 
+                  <li class="purple"><a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal"><i class="icons icon-lock"></i> Login</a>
+                    <!--<ul id="login-dropdown" class="box-dropdown">
+  <li>
+    <div class="box-wrapper">
+      <h4>LOGIN</h4>
+      <?php 
 						$form=$this->beginWidget('CActiveForm', array(
 							'id'=>'login-form',
 							'enableClientValidation'=>true,
@@ -113,37 +113,37 @@
 						  )
 						);
 					  ?>
-                            <div class="iconic-input">
-                              <input id="LoginForm2_username" type="text" name="LoginForm2[username]" placeholder="Email" />
-                              <i class="icons icon-email"></i>
-                            </div>
-                            <div class="iconic-input">
-                              <input id="LoginForm2_password" type="password" name="LoginForm2[password]" placeholder="Password" />
-                              <i class="icons icon-lock"></i>
-                            </div>
+        <div class="iconic-input">
+          <input id="LoginForm2_username" type="text" name="LoginForm2[username]" placeholder="Email" />
+          <i class="icons icon-email"></i>
+        </div>
+        <div class="iconic-input">
+          <input id="LoginForm2_password" type="password" name="LoginForm2[password]" placeholder="Password" />
+          <i class="icons icon-lock"></i>
+        </div>
 
-                            <input id="remember" type="checkbox" />
-                            <label for="remember">Remember me</label>
+        <input id="remember" type="checkbox" />
+        <label for="remember">Remember me</label>
 
-                            <br/>
-                            <br/>
-                            <div class="pull-left">
+        <br/>
+        <br/>
+        <div class="pull-left">
 
-                              <input type="submit" id='login' class="orange" value="Login" />
-                            </div>
-                            <?php $this->endWidget(); ?>
-                              <div class="pull-right">
-                                <a href="#">Forgot your Password?</a>
-                                <br/>
-                              </div>
-                              <br class="clearfix" />
-                        </div>
-                        <div class="footer">
-                          <h4 class="pull-left">New User ?</h4>
-                          <a class="button pull-right" href="<?php echo Yii::app()->createUrl('/site/register');?>"> Register</a>
-                        </div>
-                      </li>
-                    </ul>
+          <input type="submit" id='login' class="orange" value="Login" />
+        </div>
+        <?php $this->endWidget(); ?>
+          <div class="pull-right">
+            <a href="#">Forgot your Password?</a>
+            <br/>
+          </div>
+          <br class="clearfix" />
+    </div>
+    <div class="footer">
+      <h4 class="pull-left">New User ?</h4>
+      <a class="button pull-right" href="<?php echo Yii::app()->createUrl('/site/register');?>"> Register</a>
+    </div>
+  </li>
+</ul>-->
                   </li>
 
                   <?php 
@@ -234,21 +234,21 @@
         </ul>
         <div id="search-bar">
 
-<form method="POST" action='<?php echo Yii::app()->createUrl('site/search');?>' name='search'>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <table id="search-bar-table">
-              <tr>
-                <td class="search-column-1">
-                  <input type="text" placeholder="search for a vendor, product, service or category" id="filter_name" name="search">
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div id="search-button">
-            <input type="submit" value="">
-            <i class="icons icon-search-1"></i>
-          </div>
-</form>
+          <form method="POST" action='<?php echo Yii::app()->createUrl(' site/search ');?>' name='search'>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <table id="search-bar-table">
+                <tr>
+                  <td class="search-column-1">
+                    <input type="text" placeholder="search for a vendor, product, service or category" id="filter_name" name="search">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="search-button">
+              <input type="submit" value="">
+              <i class="icons icon-search-1"></i>
+            </div>
+          </form>
         </div>
       </nav>
       <!-- /Main Navigation -->
