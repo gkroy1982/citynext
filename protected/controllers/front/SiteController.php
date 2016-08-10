@@ -268,12 +268,15 @@ class SiteController extends Controller
 	public function actionCondolences()
 	{
 		$nav="Condolences";
-		$todate=date('Y-m-d');
+		// $todate=date('Y-m-d');
 		
 		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a>Obituaries</a>";
 		
-		$Condolences = Condolences::model()->findAll(array('condition'=>"status='Active' AND '$todate'>=date AND '$todate'<=DATE_ADD(date,INTERVAL 3 DAY) "));
-		$this->render('condolences',array('condolences'=>$Condolences,'nav'=>$nav) );
+		// $condolences = Condolences::model()->findAll(array('condition'=>"status='Active' AND '$todate'>=date AND '$todate'<=DATE_ADD(date,INTERVAL 3 DAY) "));
+		
+		$condolences = Condolences::model()->findAllBySql("SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW(),'%Y-%m-%d')>=date AND DATE_FORMAT(NOW(),'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY)");
+		 
+		$this->render('condolences',array('condolences'=>$condolences,'nav'=>$nav));
 	}
 	
 	public function actionCondolencedetails($id)

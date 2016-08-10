@@ -11,9 +11,8 @@
         <!--Breadcrumb Part End-->
         <div class="content">
           <div class="panel-group" id="accordion">
-            <?php 
-      foreach ($model as $job)
-      {
+		<?php 
+		foreach ($model as $job) {
         ?>
               <div class="panel panel-default">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $job->cid ?>">
