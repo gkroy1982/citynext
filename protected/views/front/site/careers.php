@@ -68,7 +68,7 @@
 
                           <table>
                             <tr>
-                              <input href="<?php echo Yii::app()->createUrl('site/jobapply',array('id'=>$job->cid));?>" class="big" type="submit" value="Apply Here">
+                              <a href="<?php echo Yii::app()->createUrl('site/jobapply',array('id'=>$job->cid));?>"><input class="big" type="submit" value="Apply Here"></a>
                             </tr>
                           </table>
 
