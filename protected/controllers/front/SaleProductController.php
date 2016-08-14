@@ -174,7 +174,7 @@ class SaleProductController extends Controller
 			$model->attributes=$_GET['Product'];
 
 		$nav = 'Used Products >> List';
-		$this->render('admin',array('model'=>$model,'nav'=>$nav));
+		$this->render('admin_old',array('model'=>$model,'nav'=>$nav));
 	}
 
 	/**

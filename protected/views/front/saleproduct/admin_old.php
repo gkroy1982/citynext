@@ -9,8 +9,43 @@ $url = Yii::app()->theme->baseUrl;
     width: 98%;
 }
 </style>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+  
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4><?php echo $nav;?></h4>
+				<?php
+					Yii::app()->clientScript->registerScript('search', "
+					$('.search-button').click(function(){
+					  $('.search-form').toggle();
+					  return false;
+					});
+					$('.search-form form').submit(function(){
+					  $('#products-grid').yiiGridView('update', {
+						data: $(this).serialize()
+					  });
+					  return false;
+					});
+					");
+				?>
+
+			</div>
+			<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+			<div class="search-form" style="display:none;display:inline;">
+				<?php $this->renderPartial('_search',array(
+					  'model'=>$model,
+					)); ?>
+			</div>
+		</div>
+	</div>
+</section>
+  
+  
   <div id="container">
-    <?php $this->renderPartial('/products/left');?>
     <!--Middle Part Start-->
     <div id="content">
       <!--Featured Product Part Start-->
