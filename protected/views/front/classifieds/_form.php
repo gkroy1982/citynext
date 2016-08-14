@@ -8,8 +8,7 @@
 	'enableAjaxValidation'=>false,
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 )); ?>
-<div id="container" class="content">
-     
+
  <!-- Main Content -->
 <section class="main-content col-lg-12 col-md-12 col-sm-12  col-xs-12">
 	

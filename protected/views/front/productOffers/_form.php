@@ -11,100 +11,111 @@
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 	'enableAjaxValidation'=>false,
 )); ?>
-
-
-<p>Packages</p>            
-  <table class="table table-hover"  style="width:40%;">
-	<thead>
-	  <tr>
-		<th>Days</th>
-		<th>Price(in INR)</th>
-	  </tr>
-	</thead>
-	<tbody>
-	<?php
-	if(!empty($price_model)){
-		foreach($price_model as $price_model_row){
-	?>
-	  <tr>
-		<td><?php echo $price_model_row->days.' Days'; ?></td>
-		<td><?php echo 'Rs '.$price_model_row->amount; ?></td>
-	  </tr>
-	<?php }
-	} ?>
-	</tbody>
-  </table>
-
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'product_id'); ?>
-		</label>
-		<div class="controls">
-		<?php 
-
-		$products=CHtml::listData(Products::model()->findAll(array('condition'=>'status="active" and user_id='.Yii::app()->user->getState('uid'), "order"=>"product")),'pid', 'product');
-		 ?>
-		
-		<?php echo $form->dropDownList($model,'product_id',$products,array('empty'=>'select')); ?>
-		<br>
-		<span id="product_image"></span>
-		<?php echo $form->error($model,'product_id'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'offer_id'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->dropDownList($model,'offer_id',Offer::getOffer(),array('empty'=>'select')); ?>
-		<?php echo $form->error($model,'offer_id'); ?>
-		</div>
-	</div>
+<!-- Main Content -->
+<section class="main-content col-lg-12 col-md-12 col-sm-12  col-xs-12">
 	
 	<div class="row">
-		<label class="control-label">
-		<?php echo 'Amount'; ?>
-		</label>
-		<div class="controls offer_amt"></div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'description'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textArea($model,'description',array('class'=>'tinymce_full','rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'start_date'); ?>
-		</label>
-		<div class="controls">
 		
-		<?php 
-		if(!empty($model->start_date))
-			$model->start_date=date('d-m-Y',strtotime($model->start_date));
+		<div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 register-account">
+			<div class="page-content">
+				<h4> Packages </h4>
+				<table class="table">
+				  <thead>
+					<tr>
+					  <th>Days</th>
+					  <th>Price(In INR)</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  <?php
+					if(!empty($price_model)){
+						foreach($price_model as $price_model_row){
+					?>
+					<tr>
+					  <td><?php echo $price_model_row->days.' Days'; ?></td>
+					  <td><?php echo 'Rs '.$price_model_row->amount; ?></td>
+					</tr>
+				<?php }
+					} ?>
+				  </tbody>
+				</table>
+			
+
+					<div class="row">                                	
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<p><strong>Fields with * are required.</strong></p>
+						</div>                                    
+					</div>	
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo $form->labelEx($model,'product_id'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<?php 
+
+							$products=CHtml::listData(Products::model()->findAll(array('condition'=>'status="active" and user_id='.Yii::app()->user->getState('uid'), "order"=>"product")),'pid', 'product');
+							 ?>
+							
+							<?php echo $form->dropDownList($model,'product_id',$products,array('empty'=>'select')); ?>
+							
+							<?php echo $form->error($model,'product_id'); ?>
+						</div>
+					</div>		
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo $form->labelEx($model,'offer_id'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<?php echo $form->dropDownList($model,'offer_id',Offer::getOffer(),array('empty'=>'select')); ?>
+							<?php echo $form->error($model,'offer_id'); ?>
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo 'Amount'; ?></p>
+						</div>
+						<div class="offer_amt col-lg-8 col-md-8 col-sm-8 ">
+							
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo $form->labelEx($model,'description'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						  <?php echo $form->textArea($model,'description',array('class'=>'tinymce_full','rows'=>6, 'cols'=>50)); ?>
+							<?php echo $form->error($model,'description'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo $form->labelEx($model,'start_date'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						  <?php 
+							if(!empty($model->start_date))
+								$model->start_date=date('d-m-Y',strtotime($model->start_date));
+							
+							echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
+							<?php echo $form->error($model,'start_date'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
+							<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
+						</div>
+					</div>
+					
+				</div>
+                            
+		</div>
+		  
+	</div>
 		
-		echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
-		<?php echo $form->error($model,'start_date'); ?>
-		</div>
-	</div>
-
-
-	<div class="row buttons">
-		<div class="controls">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
-		</div>
-	</div>
-
+	
+</section>
+<!-- /Main Content -->
+ 
 <?php $this->endWidget(); ?>
 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.7.1.min.js"></script>

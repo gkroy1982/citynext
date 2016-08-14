@@ -1,152 +1,142 @@
 <?php
-/* @var $this AdsController */
-/* @var $model Ads */
-/* @var $form CActiveForm */
-?>
-<script src="<?php echo Yii::app()->baseUrl;?>/themes/back/vendors/jquery-1.9.1.min.js"></script>
 
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+$form=$this->beginWidget('CActiveForm', array(
 	'id'=>'ads-form',
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 	'enableAjaxValidation'=>false,
 )); ?>
-
-	
-  <p>Packages</p>            
-  <table class="table table-hover"  style="width:40%;">
-    <thead>
-      <tr>
-        <th>Slide Type</th>
-        <th>Days</th>
-        <th>Price(in INR)</th>
-      </tr>
-    </thead>
-    <tbody>
-	<?php
-	if(!empty($price_model)){
-		foreach($price_model as $price_model_row){
-	?>
-      <tr>
-        <td>
-			<?php 
-			if($price_model_row->slide_type==0)
-				echo "Big Home Page Slider"; 
-			else if($price_model_row->slide_type==1)
-				echo "Small Home Page Slider"; 
-			?>
-		</td>
-        <td><?php echo $price_model_row->days.' Days'; ?></td>
-        <td><?php echo 'Rs '.$price_model_row->amount; ?></td>
-      </tr>
-	<?php }
-	} ?>
-    </tbody>
-  </table>
- 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-	<p style="color:red;"><?php echo $err; ?></p>
+<!-- Main Content -->
+<section class="main-content col-lg-12 col-md-12 col-sm-12  col-xs-12">
 	
 	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'show_in'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->dropDownList($model,'show_in',array('0'=>'Big Slider on main page','1'=>'Small Slider on main page')); ?>
-		<?php echo $form->error($model,'show_in'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'image'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->fileField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'image'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'description'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'url'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'url'); ?>
-		<?php echo $form->error($model,'url'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'start_date'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
-		<?php echo $form->error($model,'start_date'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'validity_days'); ?>
-		</label>
-		<div class="controls">
 		
-		<?php 
-		
-		// $homePageSlidePriceSetting=CHtml::listData(HomePageSlidePriceSetting::model()->findAll(array('condition'=>"status='Active'","order"=>"days")),'id',function($price_setting) { return $price_setting->days . ' Days'; });		
-		echo $form->dropDownList($model,'home_page_slide_price_setting_id',$homePageSlidePriceSetting,array('empty'=>'select')); 		
-		// echo $form->dropDownList($model,'home_page_slide_price_setting_id','',array('empty'=>'select'));
-		?>		
-		</div>
-	</div>
-
+		<div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 register-account">
+			<div class="page-content">
+				<h4> Packages </h4>
+				<table class="table">
+				  <thead>
+					<tr>
+					  <th>Slide Type</th>
+					  <th>Days</th>
+					  <th>Price(in INR)</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  <?php
 	
-	<div class="row">
-		<label class="control-label">
-		<?php echo CHtml::label('Enter no of days you want to display your slider in home page','start_date'); ?>
-		<span class="required">*</span>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'validity_days',array('placeholder'=>'Enter no of days to check availability')); ?>
-		<?php echo $form->error($model,'validity_days'); ?>
-		<?php echo CHtml::Button('Check Availabilty',array('class'=>'btn btn-primary check_availability')); ?>
-		</div>
-	</div>
-	
-	<div class="row buttons">
-		<div class="controls">
-		<input type="hidden" id="count_response" name="count_response" value="0">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary','id'=>'btn_create')); ?>
-		
-		
-		<!--table class="table"  style="width:40%;">
-			<thead>
-				<tr class="info">
-					<th> Prev </th>
-					<th><?php echo date('m-d-Y'); ?></th>
-					<th>Next</th>
-				</tr>
-			</thead>
-		</table-->
-		<?php $max_limit=$max_slide_model->f_slide_limit; ?>
-		<table class="table table-hover slider_availability"  style="width:40%;">			
-		</table>	
+					if(!empty($price_model)){
+						foreach($price_model as $price_model_row){
+							if(!empty($price_model_row)){
+					?>
+					<tr>
+						<td>
+							<?php 
+							if($price_model_row->slide_type==0)
+								echo "Big Home Page Slider"; 
+							else if($price_model_row->slide_type==1)
+								echo "Small Home Page Slider"; 
+							?>
+						</td>
+						<td><?php echo $price_model_row->days.' Days'; ?></td>
+						<td><?php echo 'Rs '.$price_model_row->amount; ?></td>
+					  </tr>
+				<?php }}
+					} ?>
+				  </tbody>
+				</table>
 			
-		</div>
-	</div>
 
+					<div class="row">                                	
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<p><strong>Fields with * are required.</strong></p>
+							<p style="color:red;"><?php echo $err; ?></p>
+						</div>                                    
+					</div>	
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo $form->labelEx($model,'show_in'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<?php echo $form->dropDownList($model,'show_in',array('0'=>'Big Slider on main page','1'=>'Small Slider on main page')); ?>
+							<?php echo $form->error($model,'show_in'); ?>
+						</div>
+					</div>		
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo $form->labelEx($model,'image'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<?php echo $form->fileField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
+							<?php echo $form->error($model,'image'); ?>
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p><?php echo $form->labelEx($model,'description'); ?></p>
+						</div>
+						<div class=" col-lg-8 col-md-8 col-sm-8 ">
+							<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+							<?php echo $form->error($model,'description'); ?>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo $form->labelEx($model,'url'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						 <?php echo $form->textField($model,'url'); ?>
+							<?php echo $form->error($model,'url'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo $form->labelEx($model,'start_date'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						 <?php echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
+						<?php echo $form->error($model,'start_date'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo $form->labelEx($model,'validity_days'); ?></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+						 <?php 
+		
+							// $homePageSlidePriceSetting=CHtml::listData(HomePageSlidePriceSetting::model()->findAll(array('condition'=>"status='Active'","order"=>"days")),'id',function($price_setting) { return $price_setting->days . ' Days'; });		
+							echo $form->dropDownList($model,'home_page_slide_price_setting_id',$homePageSlidePriceSetting,array('empty'=>'select')); 		
+							// echo $form->dropDownList($model,'home_page_slide_price_setting_id','',array('empty'=>'select'));
+							?>	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+						  <p><?php echo CHtml::label('Enter no of days you want to display your slider in home page','start_date'); ?>
+							<span class="required">*</span></p>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8">
+							<?php echo $form->textField($model,'validity_days',array('placeholder'=>'Enter no of days to check availability')); ?>
+							<?php echo $form->error($model,'validity_days'); ?>
+							<?php echo CHtml::Button('Check Availabilty',array('class'=>'btn btn-primary check_availability')); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
+							<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
+						</div>
+					</div>
+					
+				</div>
+                            
+		</div>
+		  
+	</div>
+		
+	
+</section>
+<!-- /Main Content -->
+ 
 <?php $this->endWidget(); ?>
 
 <script>

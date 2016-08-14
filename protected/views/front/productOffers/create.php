@@ -2,41 +2,21 @@
 
 $url = Yii::app()->theme->baseUrl; 
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/bootstrap.min.css" media="screen"/>
-<style>
-.grid-view {
-    padding: 15px 0;
-    width: 98%;
-}
-</style>
-  <div id="container">
-   <?php $this->renderPartial('/products/left');?>
-    <!--Middle Part Start-->
-    <div id="content">
-      <!--Featured Product Part Start-->
-      <div class="box">
-	  <div class="box-heading"><?php echo $nav;?></div>
-       <?php //$this->renderPartial('/products/menu');?>
-
-        <div class="box-content">
-          <div class="box-product"> 
-		
-
-			<?php $this->renderPartial('_form', array('model'=>$model,'price_model'=>$price_model)); ?>
-
-
-          </div>
-        </div>
-      </div>
+ <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+  </div>
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4><?php echo $nav;?></h4>
+			</div>
+			<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+		</div>
       <!--Featured Product Part End-->
     </div>
     <!--Middle Part End-->
-    <div class="clear"></div>
-    <div class="social-part">
-     
-    </div>
-  </div>
-  
+</section> 
 <script src="<?php echo Yii::app()->baseUrl;?>/themes/back/vendors/jquery-1.9.1.min.js"></script>
 
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl;?>/themes/back/vendors/tinymce/js/tinymce/tinymce.min.js">

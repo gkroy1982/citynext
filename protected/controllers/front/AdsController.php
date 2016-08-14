@@ -164,14 +164,17 @@ class AdsController extends Controller
 	
 	public function actionCreate()
 	{
-		// print_r($_POST);exit;
+		 // print_r($_POST);exit;
 		$model=new Ads;
 		$nav = 'Ads >> Create';
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		$price_model=HomePageSlidePriceSetting::model()->findAllByAttributes(array('status'=>'Active'));
 		$count_response=trim($_POST['count_response']);
+		
 		if(isset($count_response) && $count_response==0) {
+			
+			
 			if(isset($_POST['Ads'])) {
 				$_POST['Ads']['start_date']=date('Y-m-d',strtotime($_POST['Ads']['start_date']));
 				$model->attributes=$_POST['Ads'];
@@ -191,6 +194,7 @@ class AdsController extends Controller
 			}
 			$err='';
 		}else{
+
 			if($count_response==1)
 				$err=$count_response.' date is not available from your selection. Please select available date only.';
 			else
@@ -209,9 +213,13 @@ class AdsController extends Controller
 		$arr_rates=array();
 		$i=0;
 		$rate=0;
-		foreach($price_model as $price_model_row) {
-			$arr_days[]=$price_model_row->days;
-			$arr_rates[]=$price_model_row->amount;
+		if(!empty($price_model)) {
+			foreach($price_model as $price_model_row) {
+				if(!empty($price_model_row)) {
+					$arr_days[]=$price_model_row->days;
+					$arr_rates[]=$price_model_row->amount;					
+				}				
+			}
 		}
 		
 		while($no_of_days>0) {

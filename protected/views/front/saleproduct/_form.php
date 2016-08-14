@@ -4,17 +4,11 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-    <div id="container" class="content">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <?php $this->renderPartial('/products/left');?>
-      </div>
+
 	<!-- Main Content -->
-<section class="main-content col-lg-9 col-md-9 col-sm-9  col-xs-12">
+<section class="main-content col-lg-12 col-md-12 col-sm-12  col-xs-12">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 register-account">
-			<div class="carousel-heading no-margin">
-				<h4><?php echo $form->labelEx($model,'main_category_id'); ?></h4>
-			</div>
 			
 			<div class="page-content">
 				<div class="row">                                	
@@ -128,10 +122,7 @@
 
 <!-- /Main Content -->
 <?php $this->endWidget(); ?>
- <div class="clear"></div>
-      <div class="social-part"></div>
-    </div>
-    <!--Middle Part End-->
+
 <script>
 	$('#Product_image').change(function()
     {

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $yii = dirname(__FILE__).'/yii/framework/yii.php';
 $config = dirname(__FILE__).'/protected/config/front.php';
  
