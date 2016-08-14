@@ -10,7 +10,7 @@ $url = Yii::app()->theme->baseUrl;
 }
 </style>
   <div id="container">
-    <?php $this->renderPartial('/products/left');?>
+    
     <!--Middle Part Start-->
     <div id="content">
       <!--Featured Product Part Start-->

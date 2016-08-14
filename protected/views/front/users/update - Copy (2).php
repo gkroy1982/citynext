@@ -6,25 +6,22 @@
 
 $url = Yii::app()->theme->baseUrl; 
 ?>
-
-    <div id="container" class="content">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <?php $this->renderPartial('/products/left');?> 
-      </div>
-      <!--Middle Part Start-->
-      <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div id="content">
-	<?php $form=$this->beginWidget('CActiveForm', array(
+<!-- Main Content -->
+      <section class="main-content col-lg-9 col-md-9 col-sm-9">
+<?php $this->renderPartial('/products/left');?> 
+        <div class="row">
+		
+<?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'users-form',
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 	'enableAjaxValidation'=>false,
-	)); ?>  
-            <div class="box">
-              <div class="box-heading">
-                <div class="breadcrumb">
-                  <?php echo $nav;?>
-                </div>
-              </div>
+)); ?>
+          <div class="col-lg-12 col-md-12 col-sm-12 register-account">
+
+            <div class="carousel-heading no-margin">
+              <h4><?php echo $nav;?></h4>
+            </div>
+
             <div class="page-content">
 			<div class="row">
 				<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -131,14 +128,10 @@ $url = Yii::app()->theme->baseUrl;
           </div>
 <?php $this->endWidget(); ?>
         </div>
-            </div>
-        </div>
-      </section>
 
-      <div class="clear"></div>
-      <div class="social-part"></div>
-    </div>
-    <!--Middle Part End-->
+
+      </section>
+<!-- /Main Content -->
 <script>
 	$('#Users_photo').change(function()
     {

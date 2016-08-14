@@ -2,22 +2,16 @@
 
 $url = Yii::app()->theme->baseUrl; 
 ?>
-
-    <div id="container" class="content">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <?php $this->renderPartial('/products/left');?>
-      </div>
-      <!--Middle Part Start-->
-      <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div id="content">
-           
-            <div class="box">
-              <div class="box-heading">
-                <div class="breadcrumb">
-                  <?php echo $nav;?>
-                </div>
-              </div>
-              <div class="col-lg-9 col-md-9 col-sm-9">
+<!-- Main Content -->
+<section class="main-content col-lg-9 col-md-9 col-sm-9  col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+		<div class="row">
+			<div class="carousel-heading no-margin">
+				<h4><?php echo $nav;?></h4>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-lg-9 col-md-9 col-sm-9">
 				<?php  if(Yii::app()->user->hasFlash('success')):  ?>    <div class="alert alert-success">
 				<?php echo Yii::app()->user->getFlash('success');  ?>    </div>
 				<?php  endif;  ?>
@@ -106,7 +100,7 @@ $url = Yii::app()->theme->baseUrl;
 				
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<div class="carousel-heading">
-						<h4>Image</h4>
+						<h4>Profile Image</h4>
 					</div>
 					
 					<table class="orderinfo-table ">
@@ -124,11 +118,10 @@ $url = Yii::app()->theme->baseUrl;
 					</table>
 				</div>
 				
-            </div>
-        </div>
-      </section>
+			</div>
+					
+		</div>
 
-      <div class="clear"></div>
-      <div class="social-part"></div>
-    </div>
-    <!--Middle Part End-->
+	</section>
+<!-- /Main Content -->
+              
