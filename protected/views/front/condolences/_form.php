@@ -1,5 +1,3 @@
-<script src="<?php echo Yii::app()->baseUrl;?>/themes/back/vendors/jquery-1.9.1.min.js"></script>
- 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'condolences-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -9,57 +7,74 @@
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-		<?php //echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'title'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'title'); ?>
-		</div>
-	</div>
+<!-- Main Content -->
+<section class="main-content col-lg-9 col-md-9 col-sm-9  col-xs-12">
 	
 	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'description'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textArea($model,'description',array('size'=>60,'rows'=>6, 'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'description'); ?>
+		
+		<div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 register-account">
+			
+			<div class="carousel-heading no-margin">
+				<h4>PRODUCT >> CREATE</h4>
+			</div>
+			
+			<div class="page-content">
+				<div class="row">                                	
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<p><strong>Fields with * are required.</strong></p>
+					</div>                                    
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'title'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'title'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'description'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textArea($model,'description',array('size'=>60,'rows'=>6, 'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'description'); ?>
+					</div>
+				</div>								
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'date'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'date',array('class'=>'datepicker')); ?>
+						<?php echo $form->error($model,'date'); ?>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'image'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->fileField($model,'image'); ?>
+						<?php echo $form->error($model,'image'); ?>
+					</div>
+				</div>	
+				
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:right">
+						<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
+					</div>
+				</div>
+			</div>
+			
 		</div>
+		  
 	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'date'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'date',array('class'=>'datepicker')); ?>
-		<?php echo $form->error($model,'date'); ?>
-		</div>
-	</div>
-
-
-		<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'image'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->fileField($model,'image'); ?>
-		<?php echo $form->error($model,'image'); ?>
-		</div>
-	</div>
-
-	<div class="row buttons">
-		<div class="controls">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
-		</div>
-	</div>
-
+		
+	
+</section>
+<!-- /Main Content -->
 <?php $this->endWidget(); ?>
 
 <script>
@@ -104,4 +119,4 @@
             return false;
         }
 	});
-</script>
+</script> 

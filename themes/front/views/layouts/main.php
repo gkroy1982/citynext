@@ -16,6 +16,9 @@
     
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
    <!-- CSS Part Start-->
+   <!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 		 <link rel="stylesheet" href="<?php echo $url; ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo $url; ?>/css/perfect-scrollbar.css">
   <link rel="stylesheet" href="<?php echo $url; ?>/css/style.css">
@@ -133,15 +136,18 @@
 
 $( document ).ready(function() {
    
-	function ValidateEmail(email) {
-        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-        return expr.test(email);
-    };
-
-    $('#login').click(function(evt){
-		evt.preventDefault();
+});
+function ValidateEmail(email) {
+		var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		return expr.test(email);
+	};
+	
+    $('#login').click(function(){
+		/*evt.p	reventDefault();*/
 		var data= $('#login-form');
-
+		
+		 
+		
    
 		if ($("#LoginForm2_username").val()=='') {
 			alert("Enter email address.");
@@ -153,38 +159,55 @@ $( document ).ready(function() {
 			$("#LoginForm2_username").focus;
 			return false;			
 		}
-		if ($("#LoginForm2_password").val()) {
+		if ($("#LoginForm2_password").val()=='') {
 			alert("Enter password.");
 			$("#LoginForm2_password").focus;
 			return false;			
 		}
    
 	  
-      $.ajax( {
+		$.ajax({
 		  type: "POST",
 		  url: "<?php echo Yii::app()->createUrl('site/login');?>",
 		  data: data.serialize(),
 		  async:false,
 		  success: function( response ) {
-		   var response = response.split(",");
-				var  res = response[1];
-				var res1 = response[0];
-		  // alert(res.trim());//exit;
-		  // alert(res1.trim());exit;
-			  if(res.trim()==1 || res1.trim()==1) {
-				  window.location.reload();
-				//window.location="<?php echo Yii::app()->createUrl('/users/view');?>";
-				
-			  } else {				  
-				alert('Invalid Username and Password !');
-				return false;				
-			  }
-			}
-      });
-    });
-});
+			var base_url="<?php echo Yii::app()->getHomeUrl();?>";/*For Local*/
+			var response = response.split(",");
 
-  
+			var res = response[1];
+			var res1 = response[0];
+			var controller_name = response[2];
+			var action_name = response[3];
+			var flag_redirect=0;
+			if(res.trim()==1 || res1.trim()==1) {
+				if(controller_name=='sale' && (action_name=='sell' || action_name=='products' || action_name=='productdetails')){
+					window.location=base_url+'/saleproduct/create';
+					flag_redirect=1;
+				}
+				
+				if(controller_name=='site' && (action_name=='classifiedtypes' || action_name=='classifieds')){
+					window.location=base_url+'/classifieds/create';
+					flag_redirect=1;
+				}
+				
+				if(controller_name=='site' && (action_name=='condolences' || action_name=='condolencedetails')){
+					window.location=base_url+'/condolences/create';
+					flag_redirect=1;
+				}
+				 
+				if(flag_redirect==0){
+					window.location.reload();
+				}
+				// window.location="<?php echo Yii::app()->createUrl('/users/view');?>";
+
+			} else {				  
+			alert('Invalid Username and Password !');
+			return false;				
+			}
+		}
+		});
+    });
 
       $('#forgot').click(function(){
       	

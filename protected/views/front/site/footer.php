@@ -163,60 +163,69 @@
   <!-- Footer -->
 
   <div class="modal fade" id="loginModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">LOGIN</h4>
         </div>
         <div class="modal-body">
-          <div class="user_login">
-            <?php 
-            // $form=$this->beginWidget('CActiveForm', array(
-                // 'id'=>'login-form',
-                // 'enableClientValidation'=>true,
-                // 'clientOptions'=>array('validateOnSubmit'=>true),
-                // 'htmlOptions'=>array("class"=>"form-signin"),
-              // )
-            // );
-          ?>
-              <label>Email </label>
-
-              <input id="LoginForm2_username" type="text" name="LoginForm2[username]" />
-              <br/>
-
-              <label>Password</label>
-              <input id="LoginForm2_password" type="password" name="LoginForm2[password]" />
-              <br/>
-
-              <div class="checkbox">
-                <input id="remember" type="checkbox" />
-                <label for="remember">Remember me on this computer</label>
-              </div>
-
-              <div class="action_btns">
-                <div class="one_half"><a href="#" class="btn modal_close">Cancel</a></div>
-                <div class="one_half last"><a id='login' class="btn btn_red">Login</a></div>
-
-              </div>
-              <?php //$this->endWidget(); ?>
-                </br>
-                <a href="#" id="forgot" style="float:left">Forgot password?</a>
-
-                <a href="<?php //echo Yii::app()->createUrl('/site/register');?>" style="float:right">New User ? Register</a>
-                </br>
-          </div>
+            <div class="box-wrapper">
+				  <?php 
+					$form=$this->beginWidget('CActiveForm', array(
+						'id'=>'login-form',
+						'enableClientValidation'=>true,
+						'clientOptions'=>array('validateOnSubmit'=>true),
+						'htmlOptions'=>array("class"=>"form-signin"),
+					  )
+					);
+				  ?>
+				  
+				<div class="iconic-input">
+				  <input id="LoginForm2_username" type="text" placeholder = "User Name" name="LoginForm2[username]" />
+				  <i class="icons icon-user"></i>
+				</div>
+				<div class="iconic-input">
+				  <input id="LoginForm2_password" type="password" placeholder = "Password" name="LoginForm2[password]" />
+				  <i class="icons icon-lock"></i>
+				</div>
+				
+				
+				<div class="pull-right">
+					<input type="checkbox" id="remember">
+					<label for="remember">Remember me</label>
+				</div>	
+				<div class="pull-left">
+				  <a id='login' class="orange btn btn_red">Login</a>
+				</div>
+				
+				<div class="label" >
+				  <input id="LoginForm2_cname" type="hidden" name="LoginForm2[cname]" value="<?php echo $this->uniqueid;?>"/>
+				</div>
+				<div class="label" >
+				  <input id="LoginForm2_aname" type="hidden" name="LoginForm2[aname]" value="<?php echo $this->action->Id;?>" />
+				</div> 
+					<br class="clearfix">
+			  </div>
         </div>
+				<?php $this->endWidget(); ?>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="pull-left">
+				<a href="<?php echo Yii::app()->createUrl('/site/register');?>">New User ? Register</a>
+			</div>
+			<div class="pull-right">
+				<a id="forgot" href="#">Forgot password?</a>
+			</div>
         </div>
       </div>
 
     </div>
   </div>
 
+  
+  
   <!--div id="modal" class="popupContainer" style="display:none;position: absolute!important;">
     <header class="popupHeader ">
       <span class="header_title">Login</span>

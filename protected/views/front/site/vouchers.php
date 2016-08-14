@@ -13,12 +13,11 @@ $url = Yii::app()->theme->baseUrl;
       </div>
       <!--Middle Part Start-->
       <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div id="content">
-          <!--Featured Product Part Start-->
-          <div class="box">
-            <div class="box-heading">
-              <?php echo $nav;?>
-            </div>
+      
+			<div class="carousel-heading no-margin">
+             <h4> <?php echo $nav;?> </h4>
+             </div>
+			 
             <div class="box-content">
               <div class="box-product">
 
@@ -43,7 +42,7 @@ $url = Yii::app()->theme->baseUrl;
 					{
 				?>
 
-                  <div class="vouchers">
+                  <div class="vouchers col-lg-6 col-md-6 col-sm-6">
                     <article class="news">
                       <div class="news-background" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('
                         <?php echo $obj->id;?>')"
@@ -79,9 +78,8 @@ $url = Yii::app()->theme->baseUrl;
 
               </div>
             </div>
-          </div>
-          <!--Featured Product Part End-->
-        </div>
+          
+          
       </section>
       <!--Middle Part End-->
       <div class="clear"></div>

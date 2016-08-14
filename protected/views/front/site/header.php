@@ -234,7 +234,7 @@
         </ul>
         <div id="search-bar">
 
-          <form method="POST" action='<?php echo Yii::app()->createUrl(' site/search ');?>' name='search'>
+          <form method="POST" action='<?php echo Yii::app()->createUrl('site/search ');?>' name='search'>
             <div class="col-lg-12 col-md-12 col-sm-12">
               <table id="search-bar-table">
                 <tr>

@@ -7,7 +7,7 @@
         
       <?php
       } else {?>
-          <a class="button" id="login_buy_now" onclick="login()">Post Obituaries</a> 
+          <a href="#" class="button" data-toggle="modal" data-target="#loginModal">Post Obituaries</a>
       <?php
       } ?>   
 </div>

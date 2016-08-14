@@ -30,21 +30,27 @@ $url = Yii::app()->theme->baseUrl;
                   {
                     ?>
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classifieds">
-                      <a href="<?php echo Yii::app()->createUrl('site/condolencedetails',array('id'=>$condolence->id));?>">
-                        <div class="image" style="float:left;">
-                          <?php if($condolence->image!='' and file_exists($url_img.$condolence->image) ){?>
-                            <img style='width:100px;height:110px;' src="<?php echo $p_url.$condolence->image;?>" />
-                            <?php } else {?>
-                              <img style='width:100px;height:110px;' src="<?php echo $p_url.'images.jpg';?>" />
-                              <?php } ?>
-                        </div>
-                        <div class="name">
-                          <h4><?php echo substr(ucwords($condolence->title),0,20);?>...</h4>
-                        </div>
-                      </a>
-                    </div>
-                    <?php
+                <!-- Product Item -->
+                <div class="col-lg-4 col-md-4 col-sm-4 product">
+                  <div class="product-image">
+                    <?php if($condolence->image!='' and file_exists($url_img.$condolence->image) ){?>
+						<img src="<?php echo $p_url.$condolence->image;?>" alt="Product">
+					 <?php } else {?>
+						<img src="<?php echo $p_url.'images.jpg';?>" alt="Product">
+					 <?php } ?>
+                  </div>
+
+                  <div class="product-info">
+                    <h5>
+						<a href="<?php echo Yii::app()->createUrl('site/condolencedetails',array('id'=>$condolence->id));?>">
+							<?php echo substr(ucwords($condolence->title),0,20);?>...
+						</a>
+					</h5>
+                   
+                  </div>
+
+                </div>
+                 <?php
                   }
                   ?>
 

@@ -1,5 +1,6 @@
 ﻿<div style="float:right;">
   <?php
+  
     if(Yii::app()->user->getState('uid')!=null)
     {  ?>   
        <!-- <a class="button" id="trigger_sale_modal" href="#sale_modal">Sell Now</a> -->
@@ -7,7 +8,7 @@
         
       <?php
       } else {?>
-          <a class="button" id="login_buy_now" onclick="login()">Post Product To Sell</a> 
+		<a href="#" class="button" data-toggle="modal" data-target="#loginModal">Post Product To Sell</a> 
       <?php
       } ?>   
 </div>

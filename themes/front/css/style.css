@@ -3214,6 +3214,7 @@ a .banner-item {
   width: 100%;
   background: #f7f7f7;
   font-size: 14px;
+      margin: 0 0 3px 0;
 }
 
 .page-content textarea {
@@ -3230,7 +3231,7 @@ a .banner-item {
 
 .register-account label {
   position: relative;
-  top: 15px;
+  /*top: 15px;*/
 }
 
 .register-account input[type="submit"] {

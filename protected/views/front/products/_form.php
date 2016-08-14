@@ -1,161 +1,162 @@
-
+ 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'products-form',
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 	'enableAjaxValidation'=>false,
 )); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'main_category_id'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->dropDownList($model,'main_category_id',MainCategory::getMainCategory(),
-
-			array(
-				'empty'=>'Select ',
-				'ajax' => array(
-					'type'=>'POST',
-					'url'=>CController::createUrl('site/subcategory'),
-					'data'=> array('pid'=>'js:this.value'),
-					'update'=>"#Products_sub_category_id",
-					)
-				));?>
-		
-		<?php echo $form->error($model,'main_category_id'); ?>
-		</div>
-	</div>
-
+<!-- Main Content -->
+<section class="main-content col-lg-9 col-md-9 col-sm-9  col-xs-12">
 	
 	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'sub_category_id'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->dropDownList($model,'sub_category_id',SubCategory::getSubCategory(),array('empty'=>'select')); ?>
 		
-		<?php echo $form->error($model,'sub_category_id'); ?>
-		</div>
-	</div>
+		<div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 register-account">
+			
+			<div class="carousel-heading no-margin">
+				<h4>PRODUCT >> CREATE</h4>
+			</div>
+			
+			<div class="page-content">
+				<div class="row">                                	
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<p><strong>Fields with * are required.</strong></p>
+					</div>                                    
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'main_category_id'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->dropDownList($model,'main_category_id',MainCategory::getMainCategory(),
 
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'product'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'product',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'product'); ?>
+							array(
+								'empty'=>'Select ',
+								'ajax' => array(
+									'type'=>'POST',
+									'url'=>CController::createUrl('site/subcategory'),
+									'data'=> array('pid'=>'js:this.value'),
+									'update'=>"#Products_sub_category_id",
+									)
+								));?>
+						
+						<?php echo $form->error($model,'main_category_id'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'sub_category_id'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->dropDownList($model,'sub_category_id',SubCategory::getSubCategory(),array('empty'=>'select')); ?>
+		
+						<?php echo $form->error($model,'sub_category_id'); ?>
+					</div>
+				</div>								
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'product'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'product',array('size'=>60,'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'product'); ?>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'version_id'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->dropDownList($model,'version_id',Version::getVersion(),array('empty'=>'select')); ?>
+						<?php echo $form->error($model,'version_id'); ?>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'image'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->fileField($model,'image'); ?>
+						<?php echo $form->error($model,'image'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'image2'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->fileField($model,'image2'); ?>
+						<?php echo $form->error($model,'image2'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'image3'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->fileField($model,'image3'); ?>
+						<?php echo $form->error($model,'image3'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'old_price'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'old_price',array('size'=>60,'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'old_price'); ?>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'price'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'price',array('size'=>60,'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'price'); ?>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'quantity'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textField($model,'quantity',array('size'=>60,'maxlength'=>200)); ?>
+						<?php echo $form->error($model,'quantity'); ?>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'description'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->textArea($model,'description',array( 'class'=>'tinymce_full', 'rows'=>6, 'cols'=>50)); ?>
+						<?php echo $form->error($model,'description'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<?php echo $form->labelEx($model,'status'); ?>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<?php echo $form->dropDownList($model,'status',Products::getStatus()); ?>
+						<?php echo $form->error($model,'status'); ?>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:right">
+						<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
+					</div>
+				</div>
+			</div>
+			
 		</div>
+		  
 	</div>
+		
 	
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'version_id'); ?>
-		</label>
-		<div class="controls">
-		
-		<?php echo $form->dropDownList($model,'version_id',Version::getVersion(),array('empty'=>'select')); ?>
-		<?php echo $form->error($model,'version_id'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'image'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->fileField($model,'image'); ?>
-		<?php echo $form->error($model,'image'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'image2'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->fileField($model,'image2'); ?>
-		<?php echo $form->error($model,'image2'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'image3'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->fileField($model,'image3'); ?>
-		<?php echo $form->error($model,'image3'); ?>
-		</div>
-	</div>
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'old_price'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'old_price',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'old_price'); ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'price'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'price',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'price'); ?>
-		</div>
-	</div>
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'quantity'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'quantity',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'quantity'); ?>
-		</div>
-	</div>
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'description'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textArea($model,'description',array( 'class'=>'tinymce_full', 'rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-		</div>
-	</div>
-
-	<!--div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'rating'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textField($model,'rating'); ?>
-		<?php echo $form->error($model,'rating'); ?>
-		</div>
-	</div-->
-
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'status'); ?>
-		</label>
-		<div class="controls">
-		
-		<?php echo $form->dropDownList($model,'status',Products::getStatus()); ?>
-		<?php echo $form->error($model,'status'); ?>
-		</div>
-	</div>
-
-	<div class="row buttons">
-		<div class="controls">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
-		</div>
-	</div>
-
+</section>
+<!-- /Main Content -->
+ 
 <?php $this->endWidget(); ?>
 
 <script>

@@ -586,9 +586,9 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm2'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				echo ',1';
+				echo ',1,'.$_POST['LoginForm2']['cname'].','.$_POST['LoginForm2']['aname'];
 			else
-				echo ',0';
+				echo ',0,'.$_POST['LoginForm2']['cname'].','.$_POST['LoginForm2']['aname'];
 				//$this->redirect(Yii::app()->user->returnUrl);
 		}
 		else
