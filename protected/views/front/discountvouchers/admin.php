@@ -1,34 +1,19 @@
+<!--- -->
 <?php 
 
 $url = Yii::app()->theme->baseUrl; 
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/bootstrap.min.css" media="screen"/>
-<style>
-.grid-view {
-    padding: 15px 0;
-    width: 98%;
-}
 
-.btn_pay_now_margin{
-	margin-right: 75px;
-}
-</style>
-  <div id="container">
-   <?php $this->renderPartial('/products/left');?>
-    <!--Middle Part Start-->
-    <div id="content">
-      <!--Featured Product Part Start-->
-      <div class="box">
-	  <div class="box-heading"><?php echo $nav;?></div>
-
-      <?php //$this->renderPartial('/products/menu');?>
-
-        <div class="box-content">
-			<div align="right" >
-				<input type="button" name="Pay Now" value="Pay Now" class="btn btn-primary btn_pay_now_margin" id="btn_pay">
-			</div>
-          <div class="box-product"> 
-          <?php
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+  
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4><?php echo $nav;?></h4>
+				<?php
 
 				Yii::app()->clientScript->registerScript('search', "
 				$('.search-button').click(function(){
@@ -46,14 +31,35 @@ $url = Yii::app()->theme->baseUrl;
 				$this->title="List Discount vouchers";
 				?>
 
-				<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-				<div class="search-form" style="display:none">
-				<?php $this->renderPartial('_search',array(
-					'model'=>$model,
-				)); ?>
-				</div><!-- search-form -->
+			</div>
+			<!--
+			<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+			<div class="search-form" style="display:none;display:inline;">
+				<?php //$this->renderPartial('_search',array('model'=>$model,)); ?>
+			</div>
+			-->
 
-				<?php $this->widget('zii.widgets.grid.CGridView', array(
+			<div class="panel-group" id="1accordion">
+				<div class="panel panel-default">
+				  <div class=" carousel-heading " style="margin-bottom:0px">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#1accordion" href="#collapsez" >Advanced Search</a>
+					</h4>
+				  </div>
+				  <div id="collapsez" class="panel-collapse collapse ">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<?php $this->renderPartial('_search',array(
+								  'model'=>$model,
+								)); ?>
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<?php $this->widget('zii.widgets.grid.CGridView', array(
 					'id'=>'discountvouchers-grid',
 					'dataProvider'=>$model->search( array('condition'=>'vender_id='.Yii::app()->user->getState('uid')) ),
 					'itemsCssClass'=>'table table-bordered',
@@ -135,18 +141,11 @@ $url = Yii::app()->theme->baseUrl;
 						),
 					),
 				)); ?>
-			</div>
-        </div>
-      </div>
-      <!--Featured Product Part End-->
-    </div>
-    <!--Middle Part End-->
-    <div class="clear"></div>
-    <div class="social-part">
-     
-    </div>
-  </div>
+		</div>
+	</div>
+</section>
   
+
   
   
   <?php $action = PAYU_BASE_URL . '/_payment';//PAYU_BASE_URL ?>

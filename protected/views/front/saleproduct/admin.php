@@ -2,57 +2,60 @@
 
 $url = Yii::app()->theme->baseUrl; 
 ?>
-<!-- Main Content -->
-	<section class="main-content col-lg-9 col-md-9 col-sm-9">
-<?php $this->renderPartial('/products/left');?>		
-		<div class="row">
+<link rel="stylesheet" type="text/css" href="<?php echo $url; ?>/css/bootstrap.min.css" media="screen"/>
+<style>
+.grid-view {
+    padding: 15px 0;
+    width: 98%;
+}
+</style>
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+  
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="carousel-heading no-margin">
 				<h4><?php echo $nav;?></h4>
+				<?php
+					Yii::app()->clientScript->registerScript('search', "
+					$('.search-button').click(function(){
+					  $('.search-form').toggle();
+					  return false;
+					});
+					$('.search-form form').submit(function(){
+					  $('#products-grid').yiiGridView('update', {
+						data: $(this).serialize()
+					  });
+					  return false;
+					});
+					");
+				?>
+
 			</div>
-			<br />
-			
-			<div class="panel-group" id="accordion">
+			<!--
+			<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+			<div class="search-form" style="display:none;display:inline;">
+				<?php //$this->renderPartial('_search',array('model'=>$model,)); ?>
+			</div>
+			-->
+
+			<div class="panel-group" id="1accordion">
 				<div class="panel panel-default">
-			<?php
-
-			Yii::app()->clientScript->registerScript('search', "
-			$('.search-button').click(function(){
-			  $('.search-form').toggle();
-			  return false;
-			});
-			$('.search-form form').submit(function(){
-			  $('#products-grid').yiiGridView('update', {
-			    data: $(this).serialize()
-			  });
-			  return false;
-			});
-			");
-
-			?>
 				  <div class=" carousel-heading " style="margin-bottom:0px">
 					<h4 class="panel-title">
-					  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >Advanced Search</a>
+					  <a data-toggle="collapse" data-parent="#1accordion" href="#collapsez" >Advanced Search</a>
 					</h4>
 				  </div>
-				  <div id="collapse1" class="panel-collapse collapse in">
+				  <div id="collapsez" class="panel-collapse collapse ">
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12">
-								
-								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<p>Product</p>
-									</div>
-									<div class="col-lg-8 col-md-8 col-sm-8">
-										<input type="text" placeholder="">
-									</div>	
-								</div>
-									
-								<div class="row">
-									<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
-										<input class="big" type="submit" value="Search">
-									</div>
-								</div>
+								<?php $this->renderPartial('_search',array(
+								  'model'=>$model,
+								)); ?>
 							</div>
 						</div>
 					</div>
@@ -60,60 +63,77 @@ $url = Yii::app()->theme->baseUrl;
 				</div>
 			</div>
 			
-			<table class="table">
-			  <thead>
-				<tr>
-				  <th>#</th>
-				  <th>Image</th>
-				  <th>Product</th>
-				  <th>Category</th>
-				  <th>Description</th>
-				  <th>Quantity</th>
-				  <th>Status</th>
-				  <th>Created On</th>
-				  <th>Actions</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <th scope="row">1</th>
-				  <td><img src="img/products/sample1.jpg" class="pro-list"></td>
-				  <td>Shop Avenue Casual Printed Women's Kurti</td>
-				  <td>Appareals</td>
-				  <td>Box the sartorial elegance and push it down the road wearing pink coloured anarkali by Ives.</td>
-				  <td>10</td>
-				  <td>Enabled</td>
-				  <td>20/06/2016</td>
-				  <td>
-					<span>
-						<i class="icons icon-search-1" title="View"></i>
-						<i class="icon-pencil" title="Edit"></i> 
-						<i class="fa fa-cog" aria-hidden="true"></i>
-					</span>
-				  </td>
-				</tr>
+			<?php 
+			
+			$dataProvider=$model->search();
+			$dataProvider->criteria->addCondition("user_id=".Yii::app()->user->getState('uid'));
+			$dataProvider->criteria->addCondition("'".date('Y-m-d')."'>=activation_date AND '".date('Y-m-d')."'<=DATE_ADD(activation_date, INTERVAL 1 month)");
+			
+			
+			$this->widget('zii.widgets.grid.CGridView', array(
+			  'id'=>'products-grid',
+			  'dataProvider'=>$dataProvider,
+			  'itemsCssClass'=>'table table-bordered',
+			  'enableSorting'=>false,
+			  
+			  'columns'=>array(
+			array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
+			    array(
+				  'name'=>'Image',
+				  'type' => 'raw',
+				  'value' => 'CHtml::image(Yii::app()->baseUrl . "/upload/sell/" . $data->image, "", array("style"=>"width:32px;height:32px;"))'
+				),
+			    'product',
+			    'mainCategory.category',
+			    //'subCategory.sub_category',
+			    'quantity',
+			    'status',
+				array(
+					'name'=>'Created on',
+					'header'=>'Created on',
+					'value'=>'date("d-m-Y H:i:s", strtotime($data->created_on))',
+				),
+			    /*
+			    'image',
+			    'price',
+			    'description',
+			    'rating',
+			    'created_on',
+			    */
+			    // array(
+			      // 'class'=>'CButtonColumn',
+			    // ),
 				
-				<tr>
-				  <th scope="row">2</th>
-				  <td><img src="img/products/sample2.jpg" class="pro-list"></td>
-				  <td>Shop Avenue Casual Printed Women's Kurti</td>
-				  <td>Appareals</td>
-				  <td>Box the sartorial elegance and push it down the road wearing pink coloured anarkali by Ives.</td>
-				  <td>10</td>
-				  <td>Enabled</td>
-				  <td>20/06/2016</td>
-				  <td>
-					<span>
-						<i class="icons icon-search-1" title="View"></i>
-						<i class="icon-pencil" title="Edit"></i> 
-						<i class="fa fa-cog" aria-hidden="true"></i>
-					</span>
-				  </td>
-				</tr>
-			  </tbody>
-			</table>
+				
+				array(
+                'class'=>'CButtonColumn',
+					'deleteButtonUrl'=>'Yii::app()->controller->createUrl("delete",array("id"=>$data->pid,)
+				)',
+				
+				// array(
+					// 'submit'=>array('image/delete', 'id'=>$image->id),
+					// 'class' => 'delete','confirm'=>'This will remove the image. Are you sure?'
+				  // )
+                // 'deleteButtonImageUrl'=>Yii::app()->request->baseUrl.'../images/delete-green.png',
+                //'deleteConfirmation'=>"js:'Report will be deleted! Continue?'",
+                        //'afterDelete'=>'function(link,success,data){ if(success) $("#statusMsg").html(data); }',
+                //'updateButtonUrl'=>'Yii::app()->controller->createUrl("download",array("userID"=>$data->userID,"filename"=>$data->filename))',
+                        
+                        
+                
+					'template'=>'{view}{update}{delete}',
+					'buttons'=>array(
+                        
+					),
+                ),
+				
+				
+				
+				
+			  ),
+			)); ?>
 			
 		</div>
-
-	</section>
-<!-- /Main Content -->
+	</div>
+</section>
+  

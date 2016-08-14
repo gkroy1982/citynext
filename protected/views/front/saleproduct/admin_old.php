@@ -9,6 +9,7 @@ $url = Yii::app()->theme->baseUrl;
     width: 98%;
 }
 </style>
+
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	<?php $this->renderPartial('/products/left');?>
 </div>
@@ -34,57 +35,33 @@ $url = Yii::app()->theme->baseUrl;
 				?>
 
 			</div>
-			<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+			<!--
+			<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 			<div class="search-form" style="display:none;display:inline;">
-				<?php $this->renderPartial('_search',array(
-					  'model'=>$model,
-					)); ?>
+				<?php //$this->renderPartial('_search',array('model'=>$model,)); ?>
 			</div>
-		</div>
-	</div>
-</section>
-  
-  
-  <div id="container">
-    <!--Middle Part Start-->
-    <div id="content">
-      <!--Featured Product Part Start-->
-      <div class="box">
-		<div class="box-heading"><?php echo $nav;?></div>
-      <?php //$this->renderPartial('/products/menu');?>
-
-        <div class="box-content">
-          <div class="box-product"> 
-			<?php
-
-
-			Yii::app()->clientScript->registerScript('search', "
-			$('.search-button').click(function(){
-			  $('.search-form').toggle();
-			  return false;
-			});
-			$('.search-form form').submit(function(){
-			  $('#products-grid').yiiGridView('update', {
-			    data: $(this).serialize()
-			  });
-			  return false;
-			});
-			");
-
-			?>
-
-
-			<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-			<div class="search-form" style="display:none;display:inline;">
-			<?php $this->renderPartial('_search',array(
-			  'model'=>$model,
-			)); ?>
-			</div><!-- search-form 
-			
-						  'dataProvider'=>$model->search(array('condition'=>"user_id=Yii::app()->user->getState('uid') AND activation_date>='date('Y-m-d',strtotime(activation_date))' AND activation_date<='date('Y-m-d',strtotime(DATE_ADD(activation_date, INTERVAL 1 month)))'")),
 			-->
 
-			
+			<div class="panel-group" id="1accordion">
+				<div class="panel panel-default">
+				  <div class=" carousel-heading " style="margin-bottom:0px">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#1accordion" href="#collapsez" >Advanced Search</a>
+					</h4>
+				  </div>
+				  <div id="collapsez" class="panel-collapse collapse ">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<?php $this->renderPartial('_search',array(
+								  'model'=>$model,
+								)); ?>
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+			</div>
 			
 			<?php 
 			
@@ -128,18 +105,8 @@ $url = Yii::app()->theme->baseUrl;
 			    ),
 			  ),
 			)); ?>
-
-
-          </div>
-        </div>
-      </div>
-      <!--Featured Product Part End-->
-    </div>
-    <!--Middle Part End-->
-    <div class="clear"></div>
-    <div class="social-part">
-     
-    </div>
-  </div>
-
-
+			
+		</div>
+	</div>
+</section>
+  

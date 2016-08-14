@@ -1,37 +1,37 @@
-<?php
-/* @var $this CondolencesController */
-/* @var $model Condolences */
-
-$this->breadcrumbs=array(
-	'Condolences'=>array('index'),
-	$model->title,
-);
-
-$this->menu=array(
-	array('label'=>'List Condolences', 'url'=>array('index')),
-	array('label'=>'Create Condolences', 'url'=>array('create')),
-	array('label'=>'Update Condolences', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Condolences', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Condolences', 'url'=>array('admin')),
-);
+<?php 
+$url = Yii::app()->theme->baseUrl; 
 ?>
 
-<h1>View Condolences #<?php echo $model->id; ?></h1>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4>View Condolences #<?php echo $model->id; ?></h4>
+			</div>
+			
+			<?php $this->widget('zii.widgets.CDetailView', array(
+				'data'=>$model,
+				'attributes'=>array(
+					'id',
+					'title',
+					'description',
+					'image',
+					array(
+						'name'=>'date',
+						'value'=>date("d-m-Y",strtotime($model->date)) ,
+					),
+					array(
+						'name'=>'created_on',
+						'value'=>date("d-m-Y H:i:s",strtotime($model->created_on)) ,
+					),
+					)
+			)); ?>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'description',
-		'image',
-		array(
-			'name'=>'date',
-			'value'=>date("d-m-Y",strtotime($model->date)) ,
-		),
-		array(
-			'name'=>'created_on',
-			'value'=>date("d-m-Y H:i:s",strtotime($model->created_on)) ,
-		),
-		)
-)); ?>
+		</div>
+      <!--Featured Product Part End-->
+    </div>
+    <!--Middle Part End-->
+</section>

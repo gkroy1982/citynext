@@ -1,43 +1,39 @@
-<?php
-/* @var $this ProductsController */
-/* @var $model Products */
-/* @var $form CActiveForm */
-?>
+<!-- search-form -->
 
-<div class="wide form" style="display:inline;">
-
+ <div class="page-content">
+ 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
 
-<br><br>
-
-	<table width="99%">
-	<tr>
-		<th>
-	
-		<?php echo $form->label($model,'sub_category_id'); ?>
-		</th>
-		<td>
-		<?php echo $form->dropDownList($model,'sub_category_id',SubCategory::getSubCategory(),array('empty'=>'select')); ?>
-		<td>
-	
-		
-		<th>
-		<?php echo $form->label($model,'product'); ?>
-		</th>
-		<td>
-		<?php echo $form->textField($model,'product'); ?>
-	<td>
-	</tr>
-	</table>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search',array('class'=>'btn btn-primary')); ?>
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'sub_category_id'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->dropDownList($model,'sub_category_id',SubCategory::getSubCategory(),array('empty'=>'select')); ?>
+		</div>	
 	</div>
-
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'product'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'product'); ?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
+			<?php echo CHtml::submitButton('Search',array('class'=>'btn btn-primary')); ?>
+		</div>
+	</div>
+	
 <?php $this->endWidget(); ?>
 
-</div><!-- search-form -->
+
+</div>
+                            

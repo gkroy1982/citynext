@@ -15,7 +15,7 @@ class SaleProductController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			// 'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -145,11 +145,13 @@ class SaleProductController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		// var_dump($_GET);exit;	
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		
 	}
 
 	/**
@@ -174,7 +176,7 @@ class SaleProductController extends Controller
 			$model->attributes=$_GET['Product'];
 
 		$nav = 'Used Products >> List';
-		$this->render('admin_old',array('model'=>$model,'nav'=>$nav));
+		$this->render('admin',array('model'=>$model,'nav'=>$nav));
 	}
 
 	/**

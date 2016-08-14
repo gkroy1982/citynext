@@ -1,50 +1,74 @@
-<?php
-/* @var $this CondolencesController */
-/* @var $model Condolences */
-/* @var $form CActiveForm */
-?>
+<!-- search-form -->
 
-<div class="wide form">
-
+ <div class="page-content">
+ 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'id'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'id'); ?>
+		</div>	
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'title'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
+		</div>
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'description'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+		</div>	
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>400)); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'image'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>400)); ?>
+		</div>	
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'date'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'date'); ?>
+		</div>	
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'created_on'); ?>
-		<?php echo $form->textField($model,'created_on'); ?>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<p><?php echo $form->label($model,'created_on'); ?>
+		</p>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8">
+			<?php echo $form->textField($model,'created_on'); ?>
+		</div>	
 	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
+			<?php echo CHtml::submitButton('Search'); ?>
+		</div>
 	</div>
-
+	
 <?php $this->endWidget(); ?>
 
-</div><!-- search-form -->
+
+</div>
+                            

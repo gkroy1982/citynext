@@ -1,24 +1,17 @@
-<?php
-/* @var $this CityupdateController */
-/* @var $model Cityupdate */
-
-$this->breadcrumbs=array(
-	'Cityupdates'=>array('index'),
-	$model->title,
-);
-
-$this->menu=array(
-	array('label'=>'List Cityupdate', 'url'=>array('index')),
-	array('label'=>'Create Cityupdate', 'url'=>array('create')),
-	array('label'=>'Update Cityupdate', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Cityupdate', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Cityupdate', 'url'=>array('admin')),
-);
+<?php 
+$url = Yii::app()->theme->baseUrl; 
 ?>
 
-<h1>View Cityupdate #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4>View Cityupdate #<?php echo $model->id; ?></h4>
+			</div>
+			<?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -37,3 +30,8 @@ $this->menu=array(
 		'status',
 	),
 )); ?>
+		</div>
+      <!--Featured Product Part End-->
+    </div>
+    <!--Middle Part End-->
+</section>
