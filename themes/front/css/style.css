@@ -4627,7 +4627,7 @@ input[type=radio]:checked + .radio-label:before {
 }
 
 input[type="checkbox"] {
-  display: none;
+  /*display: none;*/
 }
 
 input[type="checkbox"]+label {
