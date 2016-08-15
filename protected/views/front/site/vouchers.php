@@ -13,15 +13,15 @@ $url = Yii::app()->theme->baseUrl;
       </div>
       <!--Middle Part Start-->
       <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      
-			<div class="carousel-heading no-margin">
-             <h4> <?php echo $nav;?> </h4>
-             </div>
-			 
-            <div class="box-content">
-              <div class="box-product">
 
-                <?php 
+        <div class="carousel-heading no-margin">
+          <h4> <?php echo $nav;?> </h4>
+        </div>
+
+        <div class="box-content">
+          <div class="box-product">
+
+            <?php 
          $p_url=Yii::app()->baseUrl.'/upload/profile/';
           foreach($vendors as $user)
           {			  
@@ -42,44 +42,45 @@ $url = Yii::app()->theme->baseUrl;
 					{
 				?>
 
-                  <div class="vouchers col-lg-6 col-md-6 col-sm-6">
-                    <article class="news">
-                      <div class="news-background" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('
-                        <?php echo $obj->id;?>')"
-                          <?php } else { ?> onclick='login()'
-                            <?php } ?>>
-                              <a class="row" href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
-                                <div class="col-lg-3 col-md-4 col-sm-6 news-thumbnail">
-                                  <a href="#"><img src="<?php echo $p_url.$user->photo;?>" alt=""></a>
-                                </div>
-                                <div class="col-lg-9 col-md-8 col-sm-6 news-content">
-                                  <h5><a href="blog_post.html"><?php
+              <div class="vouchers col-lg-6 col-md-6 col-sm-6">
+                <article class="news">
+                  <div class="news-background" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('
+                    <?php echo $obj->id;?>')"
+                      <?php } else { ?> onclick='login()'
+                        <?php } ?>>
+                          <a class="row" href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
+                            <div class="col-lg-3 col-md-4 col-sm-6 news-thumbnail">
+                              <a href="#"><img src="<?php echo $p_url.$user->photo;?>" alt=""></a>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-sm-6 news-content">
+                              <h5><a href="blog_post.html"><?php
 									if($user->business_name!='')
 										echo ucwords($user->business_name);
 									else
 										echo ucwords($user->first_name.' '.$user->last_name);
 									
 									?>	</a></h5>
-                                  <span class="date"><i class="icons icon-location-7"></i><?php echo $user->address.', '.$user->area->area_name.', '.$user->cities->city_name.', '.$user->cities->state->state_name; ?></span>
-                                  <p>
-                                    <?php echo substr($obj->description,0,150); ?>
-                                  </p>
-                                  <p><b><?php echo " Valid Upto :". date('d-M-Y',strtotime($obj->to_date)).', '." Remaining Vouchers : $rem_voucher of $obj->total ";?></b></p>
-                                </div>
-                              </a>
-                      </div>
-                    </article>
+                              <span class="date"><i class="icons icon-location-7"></i><?php echo $user->address.', '.$user->area->area_name.', '.$user->cities->city_name.', '.$user->cities->state->state_name; ?></span>
+                              <p>
+                                <?php echo substr($obj->description,0,150); ?>
+                              </p>
+                              <p><b><?php echo " Valid Upto :". date('d-M-Y',strtotime($obj->to_date)).', '." Remaining Vouchers : $rem_voucher of $obj->total ";?></b></p>
+                            </div>
+                          </a>
                   </div>
-                  <?php
+                </article>
+                <a href="#" class="voucherClick"><h3>Click to get Voucher</h3></a>
+              </div>
+              <?php
 				}
 			}
           }
           ?>
 
-              </div>
-            </div>
-          
-          
+          </div>
+        </div>
+
+
       </section>
       <!--Middle Part End-->
       <div class="clear"></div>
@@ -99,20 +100,3 @@ $url = Yii::app()->theme->baseUrl;
         });
       }
     </script>
-    <style>
-      .voucher:hover {
-        background-image: url('<?php echo Yii::app()->theme->baseUrl.'/image/voucher.png';?>');
-        height: 100px;
-        width: 400px;
-        opacity: 0.5;
-        -webkit-opacity: 0.5;
-        -moz-opacity: 0.5;
-        transition: 0.5s ease;
-        -webkit-transition: 0.5s ease;
-        -moz-transition: 0.5s ease;
-      }
-      
-      .voucher:hover:nth-child(1) {
-        display: none;
-      }
-    </style>
