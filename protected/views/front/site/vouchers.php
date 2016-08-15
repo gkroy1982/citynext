@@ -44,10 +44,7 @@ $url = Yii::app()->theme->baseUrl;
 
               <div class="vouchers col-lg-6 col-md-6 col-sm-6">
                 <article class="news">
-                  <div class="news-background" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('
-                    <?php echo $obj->id;?>')"
-                      <?php } else { ?> onclick='login()'
-                        <?php } ?>>
+                  <div class="news-background" >
                           <a class="row" href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
                             <div class="col-lg-3 col-md-4 col-sm-6 news-thumbnail">
                               <a href="#"><img src="<?php echo $p_url.$user->photo;?>" alt=""></a>
@@ -69,7 +66,11 @@ $url = Yii::app()->theme->baseUrl;
                           </a>
                   </div>
                 </article>
-                <a href="#" class="voucherClick"><h3>Click to get Voucher</h3></a>
+                <a href="#" class="voucherClick" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('<?php echo $obj->id;?>')"
+                      <?php } else { ?> data-toggle="modal" data-target="#loginModal"
+                        <?php } ?>>
+						<h3>Click to get Voucher</h3>
+				</a>
               </div>
               <?php
 				}
