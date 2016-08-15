@@ -408,6 +408,37 @@ li.purple .box-dropdown:after {
   overflow: hidden;
 }
 
+.modal-header .close {
+  float: right;
+  background: rgba(245, 128, 43, 0.6);
+  border: 2px solid #ccc;
+  color: #fff;
+  padding: 3px 10px;
+}
+
+.modal-header .close:hover {
+  background: #f5802b;
+  border: 2px solid #000;
+}
+
+.modal-footer {
+  padding: 10px 15px 30px 15px;
+}
+
+#loginModal .modal-body input[type="checkbox"]+label {
+  margin-top: 0;
+}
+
+#login {
+  color: #000;
+  background: #f5791f;
+  padding: 2px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid #000;
+  margin-top: -2px;
+}
+
 
 /* Main Header */
 
