@@ -22,13 +22,12 @@ $url = Yii::app()->theme->baseUrl;
               </div>
               <div class="box-content">
                 <div class="box-product">
-
-                  <?php 
+			  <?php 
                  $url_img = Yii::app()->basePath.'/../upload/condolence/'; 
                  $p_url=Yii::app()->baseUrl.'/upload/condolence/';
                   foreach($condolences as $condolence)
                   {
-                    ?>
+				?>
 
                 <!-- Product Item -->
                 <div class="col-lg-4 col-md-4 col-sm-4 product">

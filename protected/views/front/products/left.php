@@ -121,6 +121,13 @@ $url = Yii::app()->theme->baseUrl;
 						</div>
 					  </div>
 					</div>
+	<?php 
+		$record=Users::model()->findByPk(Yii::app()->user->getState('uid'));
+
+		if(2==$record->user_type)
+		{
+	?>
+					
 					<div class="panel panel-default">
 					  <div class=" carousel-heading " style="margin-bottom:0px">
 						<h5 class="panel-title" style="padding: 4px;">
@@ -197,6 +204,9 @@ $url = Yii::app()->theme->baseUrl;
 						</div>
 					  </div>
 					</div>
+	<?php 
+		}
+	?>			
 				</div>
 					
 			</div>

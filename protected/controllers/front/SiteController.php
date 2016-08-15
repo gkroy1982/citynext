@@ -296,29 +296,31 @@ class SiteController extends Controller
 		$model = Cityupdate::model()->findByPk($id);
 		$this->render('news',array('model'=>$model));
 	}
-	public function actionRegister()
-	{
+	public function actionRegister() {
 		$model=new Users;
 		$model->scenario='personal';
-		if(isset($_POST['Users']))
-		{
-			$model->attributes=$_POST['Users'];		
+		if(isset($_POST['Users'])) {
+			
+			$model->attributes=$_POST['Users'];
 			$model->full_name=ucwords($model->first_name.' '.$model->last_name );
 			$model->dob=date('Y-m-d',strtotime($model->dob));
-			if($model->save())
-			{
+		
+			if($model->save()) {
+			
+				// echo '<pre>';
+				// print_r($_POST);
+				// print_r($model->attributes);exit;
 				
 				$sms_cust_reg='Dear '.ucwords($model->first_name).', ';
 				$sms_cust_reg.='Thank you for showing your interest in CITYNEXT. Your account would be activated within 24 hrs.';
 				$cust_reg_mobile=$model->contact_no;
 				$this->SMS($sms_cust_reg, $cust_reg_mobile, $default_user_id=0);
 				
-				$imgLocation=Yii::app()->basePath.'/../upload/profile/';			
+				$imgLocation=Yii::app()->basePath.'/../upload/profile/';
 				$fileNameImag=CommonFunctions::FileUpload($model,'photo',$imgLocation);
 				if(!empty($fileNameImag)){ $model->photo = $fileNameImag;}
 					
 				$this->redirect(array('site/index'));
-				
 			}
 		}
 		$this->render('register',array('model'=>$model));

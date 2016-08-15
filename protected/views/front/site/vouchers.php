@@ -77,11 +77,8 @@ $url = Yii::app()->theme->baseUrl;
 			}
           }
           ?>
-
           </div>
         </div>
-
-
       </section>
       <!--Middle Part End-->
       <div class="clear"></div>
