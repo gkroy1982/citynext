@@ -305,7 +305,7 @@ class SiteController extends Controller
 			$model->full_name=ucwords($model->first_name.' '.$model->last_name );
 			$model->dob=date('Y-m-d',strtotime($model->dob));
 		
-			if($model->save()) {
+			if($model->save(false)) {
 			
 				// echo '<pre>';
 				// print_r($_POST);

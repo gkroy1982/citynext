@@ -277,7 +277,7 @@
 			  
               <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
-                  <?php echo CHtml::submitButton('Register',array('class'=>'button big')); ?>
+                  <?php echo CHtml::submitButton('Register',array('class'=>'button big','id'=>'btn_register')); ?>
 				  <input class="big" type="reset" value="Cancel">
                 </div>
               </div>
@@ -295,6 +295,124 @@
      
     </div>
   </div>
+<script language="JavaScript" type="text/javascript">
+$('#btn_register').click(function(){
+	 
+/*	
+	var first_name 		= $('#Users_first_name').val();
+	// var last_name 		= $('#Users_last_name').val();
+	// var dob 			= $('#Users_dob').val();
+	// var age 			= $('#Users_age').val();
+	// var business_type 	= $('#Users_business_type').val();
+	// var contact_no 		= $('#Users_contact_no').val();
+	// var email 			= $('#Users_email').val();
+	// var password 		= $('#Users_password').val();
+	// var confirm_pw 		= $('#Users_confirm_pw').val();
+	// var question_id 	= $('#Users_question_id').val();
+	// var answer			= $('#Users_answer').val();
+	// var address			= $('#Users_address').val();
+	// var state			= $('#Users_country').val();
+	// var city			= $('#Users_city').val();
+	// var post_code			= $('#Users_post_code').val();
+	
+	if(first_name=='') {
+		alert('Enter first name');
+		$('#Users_first_name.').focus();
+		return false;
+	}
+	if(last_name=='') {
+		alert('Enter last name.');
+		$('#Users_last_name').focus();
+		return false;
+	}
+	
+	if(dob=='') {
+		alert('Enter date of birth.');
+		$('#Users_dob').focus();
+		return false;
+	}
+	
+	if(age=='') {
+		alert('Enter age.');
+		$('#Users_age').focus();
+		return false;
+	}
+	
+	if(business_type=='') {
+		alert('Select profession.');
+		$('#Users_business_type').focus();
+		return false;
+	}
+	
+	if(contact_no=='') {
+		alert('Enter contact no.');
+		$('#Users_contact_no').focus();
+		return false;
+	}
+	
+	if(email=='') {
+		alert('Enter email.');
+		$('#Users_email').focus();
+		return false;
+	}
+	
+	if(password=='') {
+		alert('Enter password.');
+		$('#Users_password').focus();
+		return false;
+	}
+
+	if(confirm_pw=='') {
+		alert('Enter confirm password.');
+		$('#Users_confirm_pw').focus();
+		return false;
+	}
+	
+	if(password!=confirm_pw) {
+		alert('Password mismatched re-try.');
+		$('#Users_confirm_pw').focus();
+		return false;
+	}
+	
+	if(question_id=='') {
+		alert('Select security question.');
+		$('#Users_question_id').focus();
+		return false;
+	}
+	
+	if(answer=='') {
+		alert('Enter answer.');
+		$('#Users_answer').focus();
+		return false;
+	}
+
+	if(address=='') {
+		alert('Enter address.');
+		$('#Users_address').focus();
+		return false;
+	}
+	
+	if(state=='') {
+		alert('Select state.');
+		$('#Users_country').focus();
+		return false;
+	}
+
+	if(city=='') {
+		alert('Select city.');
+		$('#Users_city').focus();
+		return false;
+	}
+
+	if(post_code=='') {
+		alert('Enter pin code.');
+		$('#Users_post_code').focus();
+		return false;
+	}
+*/
+	// return true;
+});
+</script>
   <!--
 <script language="JavaScript" type="text/javascript">
 var dt =  $.noConflict(); 
