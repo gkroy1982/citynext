@@ -1,3 +1,4 @@
+
 <?php $this->pageTitle='Jhansishopping.com | Custemor Account';?>   
 	<div id="container" class="content">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -301,3 +302,8 @@ dt(document).ready(function(){
      $('.date').datepicker({changeMonth:true, changeYear:true, dateFormat: "yy-mm-dd"}); 
  });
 </script>-->
+<style>
+input[type="checkbox"] {
+    display: none;
+}
+</style>

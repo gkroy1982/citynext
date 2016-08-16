@@ -1,3 +1,8 @@
+<style>
+input[type="checkbox"] {
+    display: block !important;
+}
+</style>
 <!--- -->
 <?php 
 

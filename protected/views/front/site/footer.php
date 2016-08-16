@@ -276,3 +276,8 @@
   
   
 <!--Footer Part End-->
+<style>
+input[type="checkbox"] {
+    display: none;
+}
+</style>
