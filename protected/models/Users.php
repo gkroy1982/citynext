@@ -29,9 +29,9 @@ class Users extends CActiveRecord
 			array('first_name, last_name, full_name, email,business_type, answer,password, business_name, solution, company, status', 'length', 'max'=>200),
 			array('contact_no', 'length', 'max'=>20),
 			array('user_type', 'required'),
-			array('first_name, last_name, email,question_id,post_code,address, answer,business_type,age, dob, password, contact_no, city, country', 'required','on'=>'personal'),
 			array('email', 'email'),
 			array('email', 'unique_id'),
+			array('first_name, last_name, email,question_id,post_code,address, answer,business_type,age, dob, password, contact_no, city, country', 'required','on'=>'personal'),
 
 			array('first_name, last_name, email, password,question_id, answer, business_name, address, dob, contact_no, city, post_code, country', 'required','on'=>'seller'),
 			
@@ -50,9 +50,12 @@ class Users extends CActiveRecord
 	public function unique_id($attribute,$params='') {
 		if($this->$attribute != '') {
 			if($attribute=='email') {
-				$admin=Users::model()->find(array('condition'=>"email=$this->$attribute  AND status='Active'"));
+				$email_id=$this->$attribute;
+				$admin=Users::model()->find(array('condition'=>"email='$email_id'  AND status='Active'"));
+
 				if(isset($admin)) {
-					if(($this->id!=$admin->id) || (empty($this->id) && empty($admin->id))) {
+			// echo $this->$attribute;exit;
+					if(($this->uid!=$admin->uid) || (empty($this->uid) && empty($admin->uid))) {
 						if($attribute=='email')
 							$this->addError($attribute, 'Email already exist.');
 					}
