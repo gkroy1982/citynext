@@ -35,7 +35,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
             <div class="card" style="text-align:center;margin-bottom: 2px;">
-              <marquee style="height:20px;" onmouseover="this.stop();" onmouseout="this.start();">
+              <marquee style="height:20px;" >
                 <p style="color:#CB6465;margin-top:-5px">
                   <?php 
 
