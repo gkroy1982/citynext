@@ -44,9 +44,9 @@
     foreach ($links as $link ) {
 
     	if($cnt==1)
-    		echo ' <b> <a href="'.$link->link .'">'.$link->title .'</a> </b>';
+    		echo '   <a href="'.$link->link .'">'.$link->title .'</a>  ';
     	else
-    		echo ' &nbsp;&nbsp;|&nbsp;&nbsp;  <b> <a href="'.$link->link .'">'.$link->title .'</a> </b>';	
+    		echo ' &nbsp;&nbsp;|&nbsp;&nbsp;    <a href="'.$link->link .'">'.$link->title .'</a>  ';	
     	$cnt++;
     }
 
@@ -239,7 +239,7 @@
               <table id="search-bar-table">
                 <tr>
                   <td class="search-column-1">
-                    <input type="text" placeholder="search for a vendor, product, service or category" id="filter_name" name="search">
+                    <input type="text" placeholder="What are you looking for?" id="filter_name" name="search">
                   </td>
                 </tr>
               </table>

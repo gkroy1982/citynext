@@ -295,7 +295,13 @@
      
     </div>
   </div>
+<script>
+	// $(function() {
+		// $( ".datepicker" ).datepicker();
+	// });
+</script>
 <script language="JavaScript" type="text/javascript">
+
 $('#btn_register').click(function(){
 	 
 /*	

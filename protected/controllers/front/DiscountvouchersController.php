@@ -72,6 +72,10 @@ class DiscountvouchersController extends Controller
 		if(isset($_POST['Discountvouchers']))
 		{
 			$model->attributes=$_POST['Discountvouchers'];
+			$model->created_on=date('Y-m-d H:i:s',strtotime($model->created_on));
+			$model->from_date=date('Y-m-d',strtotime($model->from_date));
+			$model->to_date=date('Y-m-d',strtotime($model->to_date));
+			
 			$model->vender_id = Yii::app()->user->getState('uid');
 			// $model->status = 'Active';
 			$model->code = rand(111111,999999);

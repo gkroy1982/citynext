@@ -21,25 +21,28 @@ $url = Yii::app()->theme->baseUrl;
         <div class="box-content">
           <div class="box-product">
 
-            <?php 
-         $p_url=Yii::app()->baseUrl.'/upload/profile/';
+		<?php 
+          $p_url=Yii::app()->baseUrl.'/upload/profile/';
+		  $current_date=date('Y-m-d');
           foreach($vendors as $user)
-          {			  
-			 $model = DiscountVouchers::model()->findAll( array( 'condition'=>' vender_id='.$user->uid.' and status="Active" and total > 0') );
+          {
+			 $model = DiscountVouchers::model()->findAll( array( 'condition'=>" vender_id=$user->uid and status='Active' and to_date>='$current_date' and total > 0") );
 
 				/*$voucher_code ='';
 				foreach( $model as $u )
 				{
 					$voucher_code .=$u->code.',';
 				}	*/
-					 
+
 				foreach( $model as $obj )
-				{ 
-					$rem_voucher= Reservevouchers::model()->findAll(array('condition'=>"user_id=$user->uid and voucher_id= $obj->id"));
-				
-					$rem_voucher = $obj->total - count( $rem_voucher );
-					if( $rem_voucher>0)
+				{
+					if($obj->paymentstatus->status=='success')
 					{
+						$rem_voucher= Reservevouchers::model()->findAll(array('condition'=>"user_id=$user->uid and voucher_id= $obj->id"));
+
+						$rem_voucher = $obj->total - count( $rem_voucher );
+						if( $rem_voucher>0)
+						{
 				?>
 
               <div class="vouchers col-lg-6 col-md-6 col-sm-6">
@@ -73,6 +76,7 @@ $url = Yii::app()->theme->baseUrl;
 				</a>
               </div>
               <?php
+					}
 				}
 			}
           }

@@ -709,13 +709,10 @@ class SiteController extends Controller
 		}
 	}
 	
-	public function actionVouchers()
-	{
+	public function actionVouchers() {
 		$nav = 'Discount Vouchers';
-			
 		$model = Users::model()->findAll(array('condition'=>'status="Active"'));
-
-		$this->render('vouchers',array('vendors'=>$model,'nav'=>$nav ));		
+		$this->render('vouchers',array('vendors'=>$model,'nav'=>$nav ));
 	}
 	
 	public function actionVoucherdetails( $id )

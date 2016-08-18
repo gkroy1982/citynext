@@ -72,8 +72,13 @@
 	
   <!-- JavaScript -->
   <script src="<?php echo $url; ?>/js/modernizr.min.js"></script>
-  <script src="<?php echo $url; ?>/js/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="<?php echo $url; ?>/js/jquery-ui.min.js"></script>
+  <!--script src="<?php //echo $url; ?>/js/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="<?php //echo $url; ?>/js/jquery-ui.min.js"></script-->
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	  <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>  
   <script type="text/javascript" src="<?php echo $url; ?>/js/jquery.raty.min.js"></script>
 
   <!-- Scroll Bar -->
@@ -131,8 +136,9 @@
 	$('.button-search').click(function(){
 		document.frm_search.submit();
 	});
-	// $(".datepicker").datepicker({dateFormat: 'dd-mm-yy',changeMonth: true, changeYear: true,yearRange: "-100:+0"});
 	
+	$(".datepicker").datepicker({dateFormat: 'dd-mm-yy',changeMonth: true, changeYear: true,yearRange: "-100:+0"});
+	// $(".datepicker").datepicker( );
 
 $( document ).ready(function() {
    
