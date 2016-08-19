@@ -105,7 +105,7 @@
           <!-- City Updates -->
           <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
             <h4>City Updates </h4>
-            <marquee style="height:200px;" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+            <marquee style="height:200px;" direction="up">
               <?php
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 				// var_dump($news[0]->attributes);exit;
