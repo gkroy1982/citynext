@@ -443,8 +443,7 @@ li.purple .box-dropdown:after {
 /* Main Header */
 
 #logo {
-  padding-top: 15px;
-  padding-left: 30px;
+  padding: 0 15px;
 }
 
 #main-header {
@@ -457,7 +456,7 @@ li.purple .box-dropdown:after {
 }
 
 nav.login {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 nav.login ul {
@@ -2410,7 +2409,7 @@ input[type="checkbox"]:checked + label.color-checkbox {
 .carousel-heading h4 {
   margin: 0;
   display: inline-block;
-  padding: 6px 20px;
+  padding: 12px 20px;
 }
 
 .carousel-arrows {
@@ -5247,6 +5246,9 @@ input[type="checkbox"]:checked + label:before {
   }
   #sideMenuContent {
     width: 50%;
+  }
+  nav.login {
+    margin-top: 0;
   }
 }
 

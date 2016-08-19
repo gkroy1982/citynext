@@ -35,8 +35,8 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
             <div class="card" style="text-align:center;margin-bottom: 2px;">
-              <marquee style="height:20px;" >
-                <p style="color:#CB6465;margin-top:-5px">
+              <marquee style="height:20px;">
+                <p style="color:#CB6465;margin-top:0; margin-bottom: -10px;">
                   <?php 
 
     $links=Marquee::model()->findAll();
@@ -234,7 +234,7 @@
         </ul>
         <div id="search-bar">
 
-          <form method="POST" action='<?php echo Yii::app()->createUrl('site/search ');?>' name='search'>
+          <form method="POST" action='<?php echo Yii::app()->createUrl('site/search');?>' name='search'>
             <div class="col-lg-12 col-md-12 col-sm-12">
               <table id="search-bar-table">
                 <tr>
