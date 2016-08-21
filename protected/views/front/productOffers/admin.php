@@ -63,6 +63,9 @@ $url = Yii::app()->theme->baseUrl;
 				</div>
 			</div>
 			
+			<div align="right" >
+				<input type="button" name="Pay Now" value="Pay Now" class="btn btn-primary btn_pay_now_margin" id="btn_pay">
+			</div>
 			
 			<?php $this->widget('zii.widgets.grid.CGridView', array(
 					'id'=>'product-offers-grid',

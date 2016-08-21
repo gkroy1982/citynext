@@ -180,6 +180,7 @@ class DiscountvouchersController extends Controller
 	
 	#Start Payment Log insertion
 	public function actionInsertpaymentinfo(){
+	
 	// print_r($_POST['selectedIds'])	;exit;
 		// $domain_name=Yii::app()->getBaseUrl(true);
 		
@@ -203,6 +204,8 @@ class DiscountvouchersController extends Controller
 			
 			$current_user=$discountvouchers_model->vender_id;
 		}
+		
+		// print_r($discountvouchers_rates)	;exit;
 		$discountvouchers_rates=@implode(',',$discountvouchers_rates);
 		$discountvouchers_ids=@implode(',',$discountvouchers_ids);
 		 

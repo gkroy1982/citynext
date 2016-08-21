@@ -297,7 +297,7 @@ class AdsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$nav = 'Ads >> List';
+		$nav = 'Home Page Image >> List';
 		// $surl="http://$_SERVER[HTTP_HOST]/index_new.php/ads/success";#For Live
 		// $furl="http://$_SERVER[HTTP_HOST]/index_new.php/ads/failure";#For Live
 		$surl="http://$_SERVER[HTTP_HOST]/citynext/index_new.php/ads/success";#For Local
@@ -318,7 +318,7 @@ class AdsController extends Controller
 	public function actionInsertpaymentinfo(){
 	// print_r($_POST['selectedIds'])	;exit;
 		// $domain_name=Yii::app()->getBaseUrl(true);
-		
+		// print_r($_POST);exit;
 		if(empty($_POST['selectedIds'])){
 			echo 'Ads ids not found.';exit;			
 		}
@@ -348,6 +348,7 @@ class AdsController extends Controller
 			
 			$current_user=$ads_model->user_id;
 		}
+		
 		$ads_rates=@implode(',',$ads_rates);
 		$ads_ids=@implode(',',$ads_ids);
 		$service_type_ids=@implode(',',$service_type_ids);
@@ -372,6 +373,7 @@ class AdsController extends Controller
 		$order_model->order_no=$prefix_to_order.$order_model->id;
 		
 		$order_model->save(false);
+		
 		$vendor_model=Users::model()->findByAttributes(array('uid'=>$current_user));#To fetch & pass all contact info
 				
 		// $vendor_model`first_name`, `last_name`, `full_name`, `email`, `password`, `business_name`, `address`, `contact_no` 
@@ -396,7 +398,7 @@ class AdsController extends Controller
 		$paymentlog_model->save(false);
 		$paymentlog_model->txnid=$paymentlog_model->id;
 		$paymentlog_model->save(false);
-		// 	($paymentlog_model->attributes);exit;
+			// print_r($paymentlog_model->attributes);exit;
 		
 		if($paymentlog_model->key!='' && $paymentlog_model->txnid!='' && $paymentlog_model->amount!='' && $paymentlog_model->productinfo!='' && $paymentlog_model->firstname!='' && $paymentlog_model->email!=''){
 			

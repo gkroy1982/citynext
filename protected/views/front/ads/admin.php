@@ -1,4 +1,9 @@
 <!--- -->
+<style>
+input[type="checkbox"] {
+    display: block !important;
+}
+</style>
 <?php 
 
 $url = Yii::app()->theme->baseUrl; 
@@ -57,6 +62,11 @@ $url = Yii::app()->theme->baseUrl;
 				  </div>
 				</div>
 			</div>
+			
+			<div align="right" >
+				<input type="button" name="Pay Now" value="Pay Now" class="btn btn-primary btn_pay_now_margin" id="btn_pay">
+			</div>
+			
 			<?php $this->widget('zii.widgets.grid.CGridView', array(
 				'id'=>'ads-grid',
 				'dataProvider'=>$model->search( array('condition'=>'user_id='.Yii::app()->user->getState('uid')) ),
@@ -114,7 +124,6 @@ $url = Yii::app()->theme->baseUrl;
 									// ),
 									'visible'=>'($data->paymentstatus->status!="success" && $data->status=="Active")',
 								),
-								
 								
 								'update'=>array(
 									'label'=>'Pay Now',
@@ -202,9 +211,9 @@ $url = Yii::app()->theme->baseUrl;
 		});
 		
 		$('#btn_pay').click(function(){
-		 // alert('jj'); 
 			// $('input[name="selectedIds[]"]:checked').
 			var ads_ids=$('input[name="selectedIds[]"]:checked').serialize();
+		   // alert('ads_ids'); 
 			
 			var product_offer_id=$(this).attr("id");
 			// alert('product_offer_id='+product_offer_id);
