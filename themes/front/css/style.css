@@ -1896,6 +1896,7 @@ input[type="checkbox"]:checked + label.color-checkbox {
 
 .content {
   margin-top: 30px;
+  display: inline-block;
 }
 
 
@@ -1985,6 +1986,11 @@ input[type="checkbox"]:checked + label.color-checkbox {
 .tp-banner a.button.big {
   font-size: 18px;
   padding-top: 18px;
+}
+
+.tp-banner ul {
+  list-style: none;
+  padding: 0;
 }
 
 
@@ -2506,11 +2512,17 @@ span.price del {
 .product-image {
   position: relative;
   overflow: hidden;
+  height: 250px;
+  display: flex;
+  background: #f7f7f7;
 }
 
 .product-image img {
-  width: 100%;
-  height: 250px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: auto;
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -5126,7 +5138,8 @@ input[type="checkbox"]:checked + label:before {
   .slides img,
   .product-image img,
   .subcategory img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
   }
   .rating img {
     width: auto!important;
