@@ -1477,6 +1477,7 @@ li.orange .parent-arrow:after {
 .sidebar-box {
   margin-bottom: 30px;
   color: #7a8188;
+  margin-top: 10px;
 }
 
 .sidebar-box .padding-box {

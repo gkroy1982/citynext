@@ -7,12 +7,12 @@
 $url = Yii::app()->theme->baseUrl; 
 ?>
 
-    <div id="container" class="content">
+    <div id="container">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
         <?php $this->renderPartial('/products/left');?> 
       </div>
       <!--Middle Part Start-->
-      <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12 content">
         <div id="content">
 	<?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'users-form',
@@ -21,7 +21,7 @@ $url = Yii::app()->theme->baseUrl;
 	)); ?>  
             <div class="box">
               <div class="box-heading">
-                <div class="breadcrumb">
+                <div class="">
                   <?php echo $nav;?>
                 </div>
               </div>

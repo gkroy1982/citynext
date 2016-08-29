@@ -1,4 +1,4 @@
-﻿<?php $this->pageTitle='Jhansishopping.com | Condolence Details';?>
+<?php $this->pageTitle='Jhansishopping.com | Condolence Details';?>
 <?php 
 
 $url = Yii::app()->theme->baseUrl; 
