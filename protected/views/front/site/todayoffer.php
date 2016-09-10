@@ -12,25 +12,25 @@ $url = Yii::app()->theme->baseUrl;
     <!--Middle Part Start-->
     <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div id="content">
-        <section class="slider">
+        <!--section class="slider">
           <div class="tp-banner-container">
             <div class="tp-banner">
               <ul>
-                <?php 
+                <?php /*
           $url_ads = Yii::app()->baseUrl.'/upload/ads/'; 
           foreach ($ads as $ad )
           {
-            ?>
-                  <!-- SLIDES  -->
+            */
+			?>
                   <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
                     <img src="<?php echo $url_ads.$ad->image; ?>" alt="slidebg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                   </li>
                   <?php
-          } ?>
+          //} ?>
               </ul>
             </div>
           </div>
-        </section>
+        </section-->
 
         <!--Featured Product Part Start-->
         <div class="box">
@@ -47,7 +47,9 @@ $url = Yii::app()->theme->baseUrl;
                 <!-- Product Item -->
                 <div class="col-lg-4 col-md-4 col-sm-4 product">
                   <div class="product-image">
+				  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"> 
                     <img src="<?php echo $p_url.$product->image;?>" alt="Product">
+					</a>
                   </div>
 
                   <div class="product-info">

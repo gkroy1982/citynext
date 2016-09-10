@@ -103,10 +103,11 @@
           <!-- /The Service -->
 
           <!-- City Updates -->
-          <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+          <!--div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
             <h4>City Updates </h4>
             <marquee style="height:200px;" direction="up">
               <?php
+			  /*
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 				// var_dump($news[0]->attributes);exit;
 					foreach($news as $obj ) {
@@ -118,9 +119,10 @@
 						<span style='color:#0E0C0A;margin:2%;float:right;'><b>By ". $obj->user->first_name.'</b> '.date('d-m-Y h:s a',strtotime($obj->created_on))."</span></p>";
 						echo '</a><br>';
 					}
+					*/
 				?>
             </marquee>
-          </div>
+          </div-->
           <!-- /Like us on Facebook -->
 
         </div>

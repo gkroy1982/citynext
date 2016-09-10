@@ -49,6 +49,7 @@ return array(
 		),
 		// uncomment the following to use a MySQL database
 		*/
+		 
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=sp',
 			'emulatePrepare' => true,
@@ -58,6 +59,7 @@ return array(
 			'enableProfiling'=>true,
 			'enableParamLogging'=>true,
 		),
+		 
 		/* 'db'=>array(
 			'connectionString' => 'mysql:host=50.62.209.82:3306;dbname=sp',
 			'emulatePrepare' => true,

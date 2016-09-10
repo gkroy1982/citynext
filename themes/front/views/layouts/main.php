@@ -123,7 +123,9 @@
     <script>
       $("#sideMenuHeading").on('click', function () {
         $("#sideMenuContent").toggle();
-      })
+      });
+	  $("#sideMenuHeading").click();
+	   
     </script>
 
 

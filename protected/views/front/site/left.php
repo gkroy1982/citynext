@@ -87,6 +87,27 @@ $url = Yii::app()->theme->baseUrl;
           </section>
         </div>
       </div>
+	  <div class="sidebar-box">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel">
+			
+            <h4 class="sidebar-box-heading">City Updates </h4>
+            <marquee style="height:200px;" direction="up">
+              <?php
+				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
+				// var_dump($news[0]->attributes);exit;
+					foreach($news as $obj ) {
+						echo '<a href="'.Yii::app()->createUrl('//site/news',array('id'=>$obj->id)).'">';
+						echo "<p><div class='image' style='float:left;'><img src=$url_product$obj->image height='40px' width='40px'></div>
+						<div style='color:#0E0C0A;margin:2%; font-size:14px'><strong>
+						".ucwords($obj->title)."
+						</strong></div>
+						<span style='color:#0E0C0A;margin:2%;float:right;'><b>By ". $obj->user->first_name.'</b> '.date('d-m-Y h:s a',strtotime($obj->created_on))."</span></p>";
+						echo '</a><br>';
+					}
+				?>
+            </marquee>
+	    </div>
+      </div>
     </div>
     <!--Categories Part End-->
     <!--Latest Product Start-->

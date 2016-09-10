@@ -165,7 +165,7 @@
         <ul>
 
           <li class="home-green current-item">
-            <a>
+            <a href="<?php echo Yii::app()->createUrl('//site/index')?>">
               <span class="nav-caption">Home</span>
             </a>
           </li>
