@@ -1886,6 +1886,9 @@ input[type="checkbox"]:checked + label.color-checkbox {
   color: #1abc9c;
 }
 
+.errorMessage {
+  color: #ff0000 !important;
+}
 
 /* ==================================== */
 
