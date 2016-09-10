@@ -1897,7 +1897,7 @@ input[type="checkbox"]:checked + label.color-checkbox {
 
 .content {
   margin-top: 30px;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 
@@ -5264,6 +5264,10 @@ input[type="checkbox"]:checked + label:before {
   nav.login {
     margin-top: 0;
   }
+  .content {
+    display: inline-block; */
+  }
+  
 }
 
 @media screen and (max-width: 350px) {
