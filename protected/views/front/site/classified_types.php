@@ -37,16 +37,16 @@ $url = Yii::app()->theme->baseUrl;
 				?>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 subcategory">
                   <a href="<?php echo Yii::app()->createUrl('site/classifieds',array('id'=>$classifiedtypes_row->id));?>">
-                    <?php if($classifiedtypes_row->image!='' and file_exists($url_img.$classifiedtypes_row->image) ){?>
-                      <img src="<?php echo $p_url.$classifiedtypes_row->image;?>" alt="product">
-                      <?php } else {?>
-                        <img src="<?php echo $p_url.'images.jpg';?>" alt="product">
-                        <?php } ?>
+                    <?php //if($classifiedtypes_row->image!='' and file_exists($url_img.$classifiedtypes_row->image) ){?>
+                      <!--img src="<?php echo $p_url.$classifiedtypes_row->image;?>" alt="product"-->
+                      <?php //} else {?>
+                        <!--img src="<?php echo $p_url.'images.jpg';?>" alt="product"-->
+                        <?php //} ?>
                           <div class="name" style="text-align:center;">
 
                           </div>
                           <div class="product-info">
-                            <h6><?php echo substr(ucwords($classifiedtypes_row->name),0,20);?>..</h6>
+                            <h6><?php echo substr(ucwords($classifiedtypes_row->name),0,20);?></h6>
                           </div>
                   </a> 
                 </div>

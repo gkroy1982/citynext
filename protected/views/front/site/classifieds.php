@@ -40,7 +40,7 @@ $url = Yii::app()->theme->baseUrl;
                         <div class="image" style="float:left;">
 							<?php if($classified->image!='' and file_exists($url_img.$classified->image) ){?>
                                  <img style='width:100px;height:110px;' src="<?php echo $p_url.$classified->image;?>"  />
-                                 <?php } else {?>                              
+                                 <?php } else {?>
                                   <img style='width:100px;height:110px;' src="<?php echo $p_url.'images.jpg';?>"  />
                            <?php } ?>
 						   </div> -->

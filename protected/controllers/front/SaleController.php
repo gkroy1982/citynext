@@ -74,7 +74,7 @@ class SaleController extends Controller
 
 		
 		$model = Product::model()->findAll(array('condition'=>"main_category_id=$id AND status='Active' AND '".date('Y-m-d')."'>=activation_date AND '".date('Y-m-d')."'<=DATE_ADD(activation_date, INTERVAL 1 month)"));
-
+// print_r($model);exit;
 		$ads=Ads::model()->findAll( array('condition'=>'status ="active"'));
 
 		
