@@ -8,7 +8,6 @@ $url_img = Yii::app()->basePath.'/../upload/products/';
     <div id="container" class="content">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
         <?php $this->renderPartial('left');?>
-          <!--Middle Part Start-->
       </div>
 
       <!--Middle Part Start-->
