@@ -2254,6 +2254,14 @@ input[type="checkbox"]:checked + label.color-checkbox {
 
 /* ========================= */
 
+.main-content .box{
+	float: left;
+}
+
+.product-single {
+  float: left;
+}
+
 .breadcrumbs {
   background: #f7f7f7;
   margin-bottom: 20px;

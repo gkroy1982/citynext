@@ -110,6 +110,10 @@ $url_img = Yii::app()->basePath.'/../upload/sell/';
                     <td>Availability</td>
                     <td><span class="green">in stock</span></td>
                   </tr>
+                  <tr>
+                    <td>Description</td>
+                    <td><span><?php echo $product->description;?></span></td>
+                  </tr>
                 </table>
 
                 <span class="price">
@@ -166,9 +170,8 @@ $url_img = Yii::app()->basePath.'/../upload/sell/';
           <!-- /Product -->
 
 
-          <!-- Product Tabs -->
 
-          <div class="row">
+          <!--div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -190,8 +193,7 @@ $url_img = Yii::app()->basePath.'/../upload/sell/';
                 </div>
               </div>
             </div>
-          </div>
-          <!-- /Product Tabs -->
+          </div-->
         </div>
       </section>
 	  
