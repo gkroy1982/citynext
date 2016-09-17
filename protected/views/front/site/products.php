@@ -8,10 +8,12 @@ $url = Yii::app()->theme->baseUrl;
 ?>
 
   <div id="container">
-   <?php $this->renderPartial('left');?>
+      <aside class="sidebar col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <?php $this->renderPartial('left');?>
+      </aside>
     <!--Middle Part Start-->
-    <div id="content">
-    
+     <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	<div id="content">
       <!--Slideshow Part Start-->
       <!--<div class="slider-wrapper">
         <div id="slideshow" class="nivoSlider"> 
@@ -37,78 +39,115 @@ $url = Yii::app()->theme->baseUrl;
 
       <!--Featured Product Part Start-->
       <div class="box">
-         <div class="box-heading"><div class="breadcrumb"> <?php  echo $nav;?></div></div>
+         <div class="box-heading">
+			<div class="breadcrumb">
+				<?php  echo $nav;?>
+			</div>
+		</div>
         <div class="box-content">
           <div class="box-product">
+			<div class="row">
+                <?php 
+					$p_url=Yii::app()->baseUrl.'/upload/products/';
+					$pb_url = Yii::app()->basePath.'/../upload/products/';
+		 			if(!empty($products)){
+					foreach($products as $product){
+				?>
+                    <!-- Product Item -->
+					
+                    <div class="col-lg-4 col-md-4 col-sm-4 product">
 
-         <?php 
-         $p_url=Yii::app()->baseUrl.'/upload/products/';
-		 $pb_url = Yii::app()->basePath.'/../upload/products/';
-		 
-		 if(!empty($products)){
-			  foreach($products as $product){
-				?>
-				<div style='width:155px;height:200px;'>
-				  <div class="image">
+                      <div class="product-image">
 					  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-					 
-					  
-					  <img src="<?php  if($product->image!='' and file_exists($pb_url.$product->image) ){ 
+						<img src="<?php  if($product->image!='' and file_exists($pb_url.$product->image) ){ 
 							echo $p_url.$product->image;
 						}else{
 							echo $p_url.'images.jpg';
-						}?>" style='width:152px;height:152px;' /></a>
-				  </div>
-				  <div class="name" style="text-align:center;">
-					<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a>
-				  </div>
-				  <div class="price">Rs. <?php echo $product->price;?></div>
-				 <!-- <div class="rating">
-					  <img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
-				  </div>
-				  <div class="cart">
-					<a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
-				  </div>-->
+						}?>" />
+					   </a>
+                      </div>
+
+                      <div class="product-info">
+                        <h5><a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a></h5>
+                        <span class="price">Rs. <?php echo $product->price;?></span>
+                      </div>
+
+                    </div>
+                    <!-- Product Item -->
+				<!--
+                <div class="rating">
+					<div class="rating readonly-rating" data-score="4"></div>
+					<img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
 				</div>
-				<?php
-			 }
-		 }
-          ?>
+				<div class="cart">
+					<a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
+				</div>
+				<div class="product-actions">
+					<span class="add-to-cart">
+						<span class="action-wrapper">
+							<i class="icons icon-basket-2"></i>
+							<span class="action-name">Add to cart</span>
+						</span>
+					</span>
+				</div>
+				-->
+                <?php
+					}
+				}
+				?>
+                </div>
 		  <br><br><div class="box-heading"><div class="breadcrumb"> Today's Offer</div></div><br><br>
-		  
-		  <?php 
-         $p_url=Yii::app()->baseUrl.'/upload/products/';
+
 		 
-		 
-		 if(!empty($products1)){
-			  foreach($products1 as $product){
+		 		<div class="row">
+                <?php 
+					$p_url=Yii::app()->baseUrl.'/upload/products/';
+		 			   if(!empty($products1)){
+						foreach($products1 as $product){
 				?>
-				<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-				<div style='width:155px;height:200px;'>
-				  <div class="image">
+                    <!-- Product Item -->
+					
+                    <div class="col-lg-4 col-md-4 col-sm-4 product">
+
+                      <div class="product-image">
 					  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-					  <img src="<?php if($product->image!='' and file_exists($pb_url.$product->image) ){ 
+						<img src="<?php if($product->image!='' and file_exists($pb_url.$product->image) ){ 
 							echo $p_url.$product->image;
 						}else{
 							echo $p_url.'images.jpg';
-						}?>" style='width:152px;height:152px;' /></a>
-				  </div>
-				  <div class="name" style="text-align:center;">
-					<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a>
-				  </div>
-				  <div class="price">Rs. <?php echo $product->price;?></div>
-				 <!-- <div class="rating">
-					  <img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
-				  </div>
-				  <div class="cart">
-					<a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
-				  </div>-->
+						}?>" />
+					   </a>
+                      </div>
+
+                      <div class="product-info">
+                        <h5><a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a></h5>
+                        <span class="price">Rs. <?php echo $product->price;?></span>
+                      </div>
+
+                    </div>
+                    <!-- Product Item -->
+				<!--
+                <div class="rating">
+					<div class="rating readonly-rating" data-score="4"></div>
+					<img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
 				</div>
-				</a>
-				<?php
-			 }
-		 }
-          ?>
+				<div class="cart">
+					<a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
+				</div>
+				<div class="product-actions">
+					<span class="add-to-cart">
+						<span class="action-wrapper">
+							<i class="icons icon-basket-2"></i>
+							<span class="action-name">Add to cart</span>
+						</span>
+					</span>
+				</div>
+				-->
+                <?php
+					}
+				}
+				?>
+                </div>
 		  
 		  <br><br><div class="box-heading"><div class="breadcrumb"> Discounts Vouchers</div></div><br><br>
 		  
@@ -133,50 +172,42 @@ $url = Yii::app()->theme->baseUrl;
 						if( $rem_voucher>0)
 						{
 					?>
-						
-					<div class='voucher' style=' width:48%;height:100px;border: 1px solid #98978f' 
-					<?php if(!Yii::app()->user->isGuest){ ?>
 					
-						onclick="reserve_voucher('<?php echo $obj->id;?>')"
-					<?php } else { ?>
-						onclick='login()'
-					<?php } ?>
-					>  
-						<a href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
-							<div class="image" style="float:left;">
-								<img src="<?php 
+					<div class="vouchers col-lg-6 col-md-6 col-sm-6">
+						<article class="news">
+						  <div class="news-background" >
+								  <a class="row" href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
+									<div class="col-lg-3 col-md-4 col-sm-6 news-thumbnail">
+									  <a href="#"><img src="<?php 
 								if($user->photo!='' and file_exists($ppb_url.$user->photo) ){ 
 									echo $p_url.$user->photo;
 								}else{
 									echo $p_url.'user.jpg';
-								}  ?>" style='width:100px;height:110px;'/>							
-							</div> 
-							<div class="name" style="text-align:left;float:right;width:75%;height:100px;"> 
-								
-								<div style="font-size:14px">
-									<strong>
-										<?php
-										if($user->business_name!='')
-											echo ucwords($user->business_name);
-										else
-											echo ucwords($user->first_name.' '.$user->last_name);
-										
-										?>	
-									</strong>
-								</div>
-								<div style="font-size:12px;	border-bottom: 1px solid #a8a8a8 ;">
-									<strong>
-										<?php echo $user->address.', '.$user->area->area_name.', '.$user->cities->city_name.', '.$user->cities->state->state_name; ?>
-									</strong>
-								</div>							
-								<div>
-									<?php echo substr($obj->description,0,150); ?>
-								</div>
-								<strong><?php echo " Valid Upto :". date('d-M-Y',strtotime($obj->to_date)).', '." Remaining Vouchers : $rem_voucher of $obj->total ";?>	</strong>
-							</div>             
-							
-						</a></div>
-					
+								}  ?>" alt=""></a>
+									</div>
+									<div class="col-lg-9 col-md-8 col-sm-6 news-content">
+									  <h5><a href="blog_post.html"><?php
+											if($user->business_name!='')
+												echo ucwords($user->business_name);
+											else
+												echo ucwords($user->first_name.' '.$user->last_name);
+											
+											?>	</a></h5>
+									  <span class="date"><i class="icons icon-location-7"></i><?php echo $user->address.', '.$user->area->area_name.', '.$user->cities->city_name.', '.$user->cities->state->state_name; ?></span>
+									  <p>
+										<?php echo substr($obj->description,0,150); ?>
+									  </p>
+									  <p><b><?php echo " Valid Upto :". date('d-M-Y',strtotime($obj->to_date)).', '." Remaining Vouchers : $rem_voucher of $obj->total ";?></b></p>
+									</div>
+								  </a>
+						  </div>
+						</article>
+						<a href="#" class="voucherClick" <?php if(!Yii::app()->user->isGuest){ ?> onclick="reserve_voucher('<?php echo $obj->id;?>')"
+							  <?php } else { ?> data-toggle="modal" data-target="#loginModal"
+								<?php } ?>>
+								<h3>Click to get Voucher</h3>
+						</a>
+					</div>
 					
 					<?php
 						}
@@ -192,6 +223,7 @@ $url = Yii::app()->theme->baseUrl;
 
       <!--Featured Product Part End-->
     </div>
+	</section>
     <!--Middle Part End-->
 	
 	
