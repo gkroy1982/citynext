@@ -69,13 +69,19 @@ $url = Yii::app()->theme->baseUrl;
               <ul class="slides">
                 <?php
 					$url_ads = Yii::app()->baseUrl.'/upload/ads/';
+					$pb_url = Yii::app()->basePath.'/../upload/ads/';
 					// var_dump($ads2);exit;
 					$count_slide=0;
 					foreach ($ads2 as $ad ) {
 				?>
                   <li>
                     <a href="#">
-						<img src="<?php echo $url_ads.$ad->image; ?>" style='height:250px;'/>
+						<img src="<?php 
+						if($ad->image!='' and file_exists($pb_url.$ad->image) ){ 
+							echo $url_ads.$ad->image;
+						}else{
+							echo $url_ads.'images.jpg';
+						}  ?>" style='height:250px;'/>
 					</a>
                   </li>
                   <?php
@@ -96,8 +102,13 @@ $url = Yii::app()->theme->baseUrl;
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 				// var_dump($news[0]->attributes);exit;
 					foreach($news as $obj ) {
+						if($obj->image!='' and file_exists($pb_url.$obj->image) ){ 
+							$furl = $url_ads.$obj->image;
+						}else{
+							$furl = $url_ads.'images.jpg';
+						} 
 						echo '<a href="'.Yii::app()->createUrl('//site/news',array('id'=>$obj->id)).'">';
-						echo "<p><div class='image' style='float:left;'><img src=$url_product$obj->image height='40px' width='40px'></div>
+						echo "<p><div class='image' style='float:left;'><img src=$furl height='40px' width='40px'></div>
 						<div style='color:#0E0C0A;margin:2%; font-size:14px'><strong>
 						".ucwords($obj->title)."
 						</strong></div>
