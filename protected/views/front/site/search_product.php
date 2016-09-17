@@ -1,4 +1,7 @@
-<?php   $p_url=Yii::app()->baseUrl.'/upload/products/';  ?>
+<?php   
+	$p_url=Yii::app()->baseUrl.'/upload/products/'; 
+	$pb_url = Yii::app()->basePath.'/../upload/products/';
+ ?>
 
   <!--
 <div style='width:155px;height:200px;'>
@@ -25,7 +28,13 @@
   <!-- Product Item -->
 <div class="col-lg-4 col-md-4 col-sm-4 product">
     <div class="product-image">
-      <img src="<?php echo $p_url.$data->image;?>" alt="Product"/>
+      <img src="<?php 
+	  if($data->image!='' and file_exists($pb_url.$data->image) ){ 
+			echo $p_url.$data->image;
+		}else{
+			echo $p_url.'images.jpg';
+		} 
+	  ?>" alt="Product"/>
     </div>
 
     <div class="product-info">
