@@ -40,8 +40,8 @@ $url = Yii::app()->theme->baseUrl;
       <!--Featured Product Part Start-->
       <div class="box">
          <div class="box-heading">
-			<div class="breadcrumb">
-				<?php  echo $nav;?>
+			<div class="breadcrumb carousel-heading no-margin">
+				<h4><?php  echo $nav;?></h4>
 			</div>
 		</div>
         <div class="box-content">
