@@ -2254,14 +2254,6 @@ input[type="checkbox"]:checked + label.color-checkbox {
 
 /* ========================= */
 
-.main-content .box{
-	float: left;
-}
-
-.product-single {
-  float: left;
-}
-
 .breadcrumbs {
   background: #f7f7f7;
   margin-bottom: 20px;
@@ -2409,6 +2401,14 @@ input[type="checkbox"]:checked + label.color-checkbox {
   background: #dde3e6;
 }
 
+.panel-title{
+  padding: 4px;
+  margin: 7px;
+}
+
+.panel-title a{
+  color: #fff;
+}
 
 /* ========================= */
 
@@ -3567,6 +3567,7 @@ ul.comments li ul li {
 .product-single {
   background: #f7f7f7;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 #product-slider {
