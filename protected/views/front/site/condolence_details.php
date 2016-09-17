@@ -76,15 +76,18 @@ $url_img = Yii::app()->basePath.'/../upload/condolence/';
                
                   <br />
                   <br />
-
-                  <?php if($classified->date!='')
-					{ 	?>
-                    <strong>Date</strong>
+					<?php echo $condolence->description; ?>
+					
+                  <?php 
+					// if($classified->date!='')
+					// { 	
+					?>
+                    <!--strong>Date</strong>
                     <span class="price">
-                      <span class="price-new"><?php echo date('d-m-Y',strtotime($classified->date)); ?></span>
-                    </span>
+                      <span class="price-new"><?php //echo date('d-m-Y',strtotime($classified->date)); ?></span>
+                    </span-->
                     <?php
-                        } 
+                        // } 
                     ?>
 
 
@@ -98,7 +101,7 @@ $url_img = Yii::app()->basePath.'/../upload/condolence/';
 
           <!-- Product Tabs -->
 
-          <div class="row">
+          <!--div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -112,7 +115,7 @@ $url_img = Yii::app()->basePath.'/../upload/condolence/';
 
                   <div id="tab1">
                     <p>
-                      <?php echo $condolence->description; ?>
+                      <?php //echo $condolence->description; ?>
                     </p>
                   </div>
 
@@ -120,7 +123,7 @@ $url_img = Yii::app()->basePath.'/../upload/condolence/';
                 </div>
               </div>
             </div>
-          </div>
+          </div-->
           <!-- /Product Tabs -->
         </div>
       </section>
