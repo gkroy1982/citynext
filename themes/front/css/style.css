@@ -2530,11 +2530,11 @@ span.price del {
   overflow: hidden;
   height: 250px;
   display: flex;
-  background: #f7f7f7;
+  background: #fff;
 }
 
 .product-image img {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   height: auto;
   max-height: 100%;
