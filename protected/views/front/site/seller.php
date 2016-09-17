@@ -38,18 +38,31 @@
             </div>
             <div class="page-content">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-right align-xs">
+			  
+				<div class="col-lg-4 col-md-4 col-sm-4">
+				  <p>Account Type</p>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+				  <?php
+					$arr=array('customer'=>'User/Customer Account','vendor'=>'Vendor/Seller Account');
+
+					$selected = array('vendor'=>array('selected'=>'selected'));
+                    echo CHtml::dropDownList('user_type_option','user_type_option', $arr,array('options'=>$selected, 'class'=>'large-field  cls_reg_redirect')); 
+					?>
+				</div>
+				
+                <!--div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-right align-xs">
                  
-                <a href="<?php echo Yii::app()->createUrl('site/register');?>"><input type="radio" value="1" name="newsletter">
+                <a href="<?php //echo Yii::app()->createUrl('site/register');?>"><input type="radio" value="1" name="newsletter">
                     User/Customer Account
               	</a>
                 </div>
                 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-left align-xs">
-                <a href="<?php echo Yii::app()->createUrl('site/sellerregister');?>"><input type="radio" checked="checked" value="2" name="newsletter">
+                <a href="<?php //echo Yii::app()->createUrl('site/sellerregister');?>"><input type="radio" checked="checked" value="2" name="newsletter">
                     Vendor/Seller Account
             	</a>
-                </div>
+                </div-->
               </div>
             </div>
           </div>
@@ -294,6 +307,15 @@
   </div>
 
   <script>
+	$('.cls_reg_redirect').change(function(){
+		var user_type = $(this).val();
+		if(user_type=='vendor')
+		 window.location.href = '<?php echo Yii::app()->createUrl('site/sellerregister');?>';
+		if(user_type=='customer')
+			window.location.href = '<?php echo Yii::app()->createUrl('site/register');?>';
+		 
+		// alert($('.cls_reg_redirect').attr('ref'));
+	});
 
   var cat_id=$('#Users_main_category_id').val();
   var dat='cat_id='+cat_id;

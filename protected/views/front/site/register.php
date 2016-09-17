@@ -39,28 +39,25 @@
             </div>
             <div class="page-content">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-right align-xs">
-					<a href="<?php echo Yii::app()->createUrl('site/register');?>">
-					<input type="radio" class="blue" checked="checked" value="1" name="newsletter">
-						User/Customer Account
-					</a>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-left align-xs">
-					<a href="<?php echo Yii::app()->createUrl('site/sellerregister');?>">
-						<input type="radio" value="2" class="orange" name="newsletter">
-						Vendor/Seller Account
-					</a>
-                </div>
+			  
+			  
+				<div class="col-lg-4 col-md-4 col-sm-4">
+				  <p>Account Type</p>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+				  <?php
+					$arr=array('customer'=>'User/Customer Account','vendor'=>'Vendor/Seller Account');
+ 
+					$selected = array('customer'=>array('selected'=>'selected'));
+                    echo CHtml::dropDownList('user_type_option','user_type_option', $arr,array('options'=>$selected, 'class'=>'large-field  cls_reg_redirect')); 
+					?>
+				</div>
+			    
               </div>
             </div>
           </div>
         </div>
-		 
-
-
-
-
+		  
 
 		<div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 register-account">
@@ -295,15 +292,21 @@
      
     </div>
   </div>
-<script>
-	// $(function() {
-		// $( ".datepicker" ).datepicker();
-	// });
-</script>
+ 
 <script language="JavaScript" type="text/javascript">
+ 
+$('.cls_reg_redirect').change(function(){
+	var user_type = $(this).val();
+	if(user_type=='vendor')
+     window.location.href = '<?php echo Yii::app()->createUrl('site/sellerregister');?>';
+	if(user_type=='customer')
+		window.location.href = '<?php echo Yii::app()->createUrl('site/register');?>';
+     
+	// alert($('.cls_reg_redirect').attr('ref'));
+});
 
 $('#btn_register').click(function(){
-	 
+	
 /*	
 	var first_name 		= $('#Users_first_name').val();
 	// var last_name 		= $('#Users_last_name').val();
