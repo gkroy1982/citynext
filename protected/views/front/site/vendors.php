@@ -54,13 +54,18 @@ $url = Yii::app()->theme->baseUrl;
 
          <?php 
          $p_url=Yii::app()->baseUrl.'/upload/profile/';
+		 $pb_url = Yii::app()->basePath.'/../upload/profile/';
           foreach($vendors as $user)
           {
             ?>
             <div style='width:155px;height:200px;'>
 		<a href="<?php echo Yii::app()->createUrl('site/products',array('id'=>$cid,'uid'=>$user->uid));?>">
               		<div class="image">
-                            <img src="<?php echo $p_url.$product->photo;?>" style='width:152px;height:152px;' />
+					 
+						<img src="<?php if($product->photo!='' and file_exists($pb_url.$product->photo) ){ 
+						echo $p_url.$product->photo;}else{
+							echo $p_url.'user.jpg';
+						} ?>" style='width:152px;height:152px;' />
               		</div>
               		<div class="name" style="text-align:center;">
                 		<?php

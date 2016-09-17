@@ -47,15 +47,26 @@ $url = Yii::app()->theme->baseUrl;
               <div class="box-product">
                 <div class="row">
                   <?php 
-         $p_url=Yii::app()->baseUrl.'/upload/sell/';
+         $p_url = Yii::app()->baseUrl.'/upload/sell/';
+		 $pb_url = Yii::app()->basePath.'/../upload/sell/'; 
           foreach($products as $product)
           {
             ?>
                     <!-- Product Item -->
+					<a href="<?php echo Yii::app()->createUrl('sale/productdetails',array('id'=>$product->pid));?>">
                     <div class="col-lg-4 col-md-4 col-sm-4 product">
 
                       <div class="product-image">
-                        <img src="<?php echo $p_url.$product->image;?>" alt="Product">
+					  
+					   
+						  
+                        <img src="<?php 
+						if($product->image!='' and file_exists($pb_url.$product->image) ) {
+							echo $p_url.$product->image;
+						}else {
+							echo $p_url.'default.jpg';
+						}
+							?>" alt="Product"/>
                         <!-- <a href="<?php echo Yii::app()->createUrl('sale/productdetails',array('id'=>$product->pid));?>" class="product-hover">
                           <i class="icons icon-eye-1"></i> Quick View
                         </a> -->
@@ -67,6 +78,7 @@ $url = Yii::app()->theme->baseUrl;
                       </div>
 
                     </div>
+					</a>
                     <!-- Product Item -->
 				<!--
                 <div class="rating">

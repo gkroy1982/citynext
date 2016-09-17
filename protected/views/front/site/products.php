@@ -43,13 +43,21 @@ $url = Yii::app()->theme->baseUrl;
 
          <?php 
          $p_url=Yii::app()->baseUrl.'/upload/products/';
+		 $pb_url = Yii::app()->basePath.'/../upload/products/';
+		 
 		 if(!empty($products)){
 			  foreach($products as $product){
 				?>
 				<div style='width:155px;height:200px;'>
 				  <div class="image">
 					  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-					  <img src="<?php echo $p_url.$product->image;?>" style='width:152px;height:152px;' /></a>
+					 
+					  
+					  <img src="<?php  if($product->image!='' and file_exists($pb_url.$product->image) ){ 
+							echo $p_url.$product->image;
+						}else{
+							echo $p_url.'images.jpg';
+						}?>" style='width:152px;height:152px;' /></a>
 				  </div>
 				  <div class="name" style="text-align:center;">
 					<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a>
@@ -75,10 +83,15 @@ $url = Yii::app()->theme->baseUrl;
 		 if(!empty($products1)){
 			  foreach($products1 as $product){
 				?>
+				<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
 				<div style='width:155px;height:200px;'>
 				  <div class="image">
 					  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-					  <img src="<?php echo $p_url.$product->image;?>" style='width:152px;height:152px;' /></a>
+					  <img src="<?php if($product->image!='' and file_exists($pb_url.$product->image) ){ 
+							echo $p_url.$product->image;
+						}else{
+							echo $p_url.'images.jpg';
+						}?>" style='width:152px;height:152px;' /></a>
 				  </div>
 				  <div class="name" style="text-align:center;">
 					<a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a>
@@ -91,6 +104,7 @@ $url = Yii::app()->theme->baseUrl;
 					<a href="<?php echo Yii::app()->createUrl('card/addcard',array('id'=>$product->pid));?>"><input type="button" value="Add to Cart" onClick="addToCart('40');" class="button" /></a>
 				  </div>-->
 				</div>
+				</a>
 				<?php
 			 }
 		 }
@@ -101,6 +115,7 @@ $url = Yii::app()->theme->baseUrl;
 		  
 <?php 
          $p_url=Yii::app()->baseUrl.'/upload/profile/';
+		 $ppb_url = Yii::app()->basePath.'/../upload/profile/';
           if(!empty( $user))
           {
 			 $model = DiscountVouchers::model()->findAll( array( 'condition'=>' vender_id='.$user->uid.' and status="Active" and total > 0') );
@@ -123,13 +138,18 @@ $url = Yii::app()->theme->baseUrl;
 					<?php if(!Yii::app()->user->isGuest){ ?>
 					
 						onclick="reserve_voucher('<?php echo $obj->id;?>')"
-					<?php } else { ?>						
+					<?php } else { ?>
 						onclick='login()'
 					<?php } ?>
 					>  
 						<a href="#<?php //echo Yii::app()->createUrl('site/voucherdetails',array('id'=>$user->uid));?>">
 							<div class="image" style="float:left;">
-								<img src="<?php echo $p_url.$user->photo;?>" style='width:100px;height:110px;'/>							
+								<img src="<?php 
+								if($user->photo!='' and file_exists($ppb_url.$user->photo) ){ 
+									echo $p_url.$user->photo;
+								}else{
+									echo $p_url.'user.jpg';
+								}  ?>" style='width:100px;height:110px;'/>							
 							</div> 
 							<div class="name" style="text-align:left;float:right;width:75%;height:100px;"> 
 								
