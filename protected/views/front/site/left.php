@@ -69,20 +69,23 @@ $url = Yii::app()->theme->baseUrl;
 					$pb_url = Yii::app()->basePath.'/../upload/ads/';
 					// var_dump($ads2);exit;
 					$count_slide=0;
-					foreach ($ads2 as $ad ) {
+					foreach($ads2 as $ad ) {
+						if($ad->paymentstatus->status=='success')
+						{
 				?>
                   <li>
                     <a href="#">
 						<img src="<?php 
-						if($ad->image!='' and file_exists($pb_url.$ad->image) ){ 
+						if($ad->image!='' and file_exists($pb_url.$ad->image) ) {
 							echo $url_ads.$ad->image;
-						}else{
+						} else {
 							echo $url_ads.'images.jpg';
 						}  ?>" style='height:250px;'/>
 					</a>
                   </li>
                   <?php
-					} 
+						}
+					}
 				?>
               </ul>
             </div>

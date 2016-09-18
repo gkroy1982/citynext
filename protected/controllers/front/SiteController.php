@@ -274,7 +274,7 @@ class SiteController extends Controller
 		
 		// $condolences = Condolences::model()->findAll(array('condition'=>"status='Active' AND '$todate'>=date AND '$todate'<=DATE_ADD(date,INTERVAL 3 DAY) "));
 		
-		$condolences = Condolences::model()->findAllBySql("SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW(),'%Y-%m-%d')>=date AND DATE_FORMAT(NOW(),'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY)");
+		$condolences = Condolences::model()->findAllBySql("SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW(),'%Y-%m-%d')>=date AND DATE_FORMAT(NOW(),'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY) ORDER BY created_on DESC ");
 		 
 		$this->render('condolences',array('condolences'=>$condolences,'nav'=>$nav));
 	}

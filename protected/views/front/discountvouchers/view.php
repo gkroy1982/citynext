@@ -9,7 +9,7 @@ $url = Yii::app()->theme->baseUrl;
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="carousel-heading no-margin">
-				<h4>View Classifieds #<?php echo $model->id; ?></h4>
+				<h4>View Discount Voucher #<?php echo $model->id; ?></h4>
 			</div>
 			<?php  if(Yii::app()->user->hasFlash('success')):  ?>    <div class="alert alert-success">
         <?php echo Yii::app()->user->getFlash('success');  ?>    </div>

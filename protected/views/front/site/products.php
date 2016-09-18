@@ -46,6 +46,7 @@ $url = Yii::app()->theme->baseUrl;
 		</div>
         <div class="box-content">
           <div class="box-product">
+			 <br>
 			<div class="row">
                 <?php 
 					$p_url=Yii::app()->baseUrl.'/upload/products/';
@@ -166,6 +167,8 @@ $url = Yii::app()->theme->baseUrl;
 				}	*/
 				if(!empty($model)){
 					foreach( $model as $obj ){ 
+					if($obj->paymentstatus->status=='success')
+					{
 						$rem_voucher= Reservevouchers::model()->findAll(array('condition'=>"user_id=$user->uid and voucher_id= $obj->id"));
 					
 						$rem_voucher = $obj->total - count( $rem_voucher );
@@ -211,6 +214,7 @@ $url = Yii::app()->theme->baseUrl;
 					
 					<?php
 						}
+					  }
 					}
 				}
           }

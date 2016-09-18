@@ -72,6 +72,9 @@ class ClassifiedsController extends Controller
 		if(isset($_POST['Classifieds']))
 		{
 			$model->attributes=$_POST['Classifieds'];
+			$model->to_date = date('Y-m-d',strtotime($model->to_date));
+			$model->from_date = date('Y-m-d',strtotime($model->from_date));
+			
 			$model->user_id=Yii::app()->user->getState('uid');
 			$imgLocation=Yii::app()->basePath.'/../upload/classified/';			
 			$fileNameImag=CommonFunctions::FileUpload($model,'image',$imgLocation);
@@ -102,6 +105,8 @@ class ClassifiedsController extends Controller
 		if(isset($_POST['Classifieds']))
 		{
 			$model->attributes=$_POST['Classifieds'];
+			$model->to_date = date('Y-m-d',strtotime($model->to_date));
+			$model->from_date = date('Y-m-d',strtotime($model->from_date));
 			
 			$imgLocation=Yii::app()->basePath.'/../upload/classified/';		
 			$fileNameImag=CommonFunctions::FileUpdate($model,'image',$imgLocation);

@@ -70,6 +70,9 @@ class ClassifiedsController extends Controller
 		if(isset($_POST['Classifieds']))
 		{
 			$model->attributes=$_POST['Classifieds'];
+			$model->to_date = date('Y-m-d',strtotime($model->to_date));
+			$model->from_date = date('Y-m-d',strtotime($model->from_date));
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +97,9 @@ class ClassifiedsController extends Controller
 		if(isset($_POST['Classifieds']))
 		{
 			$model->attributes=$_POST['Classifieds'];
+			$model->to_date = date('Y-m-d',strtotime($model->to_date));
+			$model->from_date = date('Y-m-d',strtotime($model->from_date));
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
