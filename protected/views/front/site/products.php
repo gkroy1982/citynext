@@ -57,16 +57,15 @@ $url = Yii::app()->theme->baseUrl;
                     <!-- Product Item -->
 					
                     <div class="col-lg-4 col-md-4 col-sm-4 product">
-
-                      <div class="product-image">
 					  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
+					  <div class="product-image">
 						<img src="<?php  if($product->image!='' and file_exists($pb_url.$product->image) ){ 
 							echo $p_url.$product->image;
 						}else{
 							echo $p_url.'images.jpg';
 						}?>" />
-					   </a>
                       </div>
+					   </a>
 
                       <div class="product-info">
                         <h5><a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a></h5>

@@ -31,7 +31,7 @@ $url = Yii::app()->theme->baseUrl;
 
                 <!-- Product Item -->
                 <div class="col-lg-4 col-md-4 col-sm-4 product">
-				<a href="<?php echo Yii::app()->createUrl('site/condolencedetails',array('id'=>$condolence->id));?>">
+				  <a href="<?php echo Yii::app()->createUrl('site/condolencedetails',array('id'=>$condolence->id));?>">
 					<div class="product-image">
 						<?php if($condolence->image!='' and file_exists($url_img.$condolence->image) ){?>
 							<img src="<?php echo $p_url.$condolence->image;?>" alt="Product">
