@@ -16,13 +16,13 @@
         <div class="row">
 
           <!-- Newsletter -->
-          <div class="col-lg-7 col-md-7 col-sm-7">
+          <!--div class="col-lg-7 col-md-7 col-sm-7">
             <form id="newsletter" action="http://inthe7heaven.com/homeshop-html/php/newsletter.php">
               <h4>Newsletter Sign Up</h4>
               <input type="text" name="newsletter-email" placeholder="Enter your email address">
               <input type="submit" name="newsletter-submit" value="Submit">
             </form>
-          </div>
+          </div-->
           <!-- /Newsletter -->
 
 
@@ -36,15 +36,15 @@
               <li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook">
                 <a href="#"></a>
               </li>
-              <li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest">
+              <li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter">
                 <a href="#"></a>
               </li>
-              <li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter">
+              <!--li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest">
                 <a href="#"></a>
               </li>
               <li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube">
                 <a href="#"></a>
-              </li>
+              </li-->
             </ul>
           </div>
           <!-- /Social Media -->
@@ -145,7 +145,7 @@
             <p class="copyright"><a href="http://www.Jhansishopping.com" target="_blank">Jhansishopping.com</a>| Shop Master © 2016</p>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-6">
+          <!--div class="col-lg-6 col-md-6 col-sm-6">
             <ul class="payment-list">
               <li class="payment1"></li>
               <li class="payment2"></li>
@@ -153,7 +153,7 @@
               <li class="payment4"></li>
               <li class="payment5"></li>
             </ul>
-          </div>
+          </div-->
 
         </div>
 
