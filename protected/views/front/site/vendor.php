@@ -8,11 +8,12 @@ $url = Yii::app()->theme->baseUrl;
 ?>
 
   <div id="container">
-   <?php $this->renderPartial('left');?>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <?php $this->renderPartial('left');?>
+      </div>
     <!--Middle Part Start-->
+	<section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <div id="content">
-    
-    
       <div class="box">
         <div class="box-heading">
 		
@@ -25,22 +26,24 @@ $url = Yii::app()->theme->baseUrl;
 		</div>
         <div class="box-content">
           <div class="box-product">
-
-         <?php 
+			<div class="row">
+                  <?php 
          $p_url=Yii::app()->baseUrl.'/upload/products/';
           foreach($products as $product)
           {
             ?>
-            <div style='width:155px;height:200px;'>
-              <div class="image">
-                  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
-                  <img src="<?php echo $p_url.$product->image;?>" style='width:152px;height:152px;' /></a>
-              </div>
-              <div class="name" style="text-align:center;">
-                <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a>
-              </div>
-              <div class="price">Rs. <?php echo $product->price;?></div>
-             <!-- <div class="rating">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			  <div class="product-image">
+			  <a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>">
+				<img src="<?php echo $p_url.$product->image;?>" />
+			   </a>
+			  </div>
+
+			  <div class="product-info">
+				<h5><a href="<?php echo Yii::app()->createUrl('site/productdetails',array('id'=>$product->pid));?>"><?php echo substr(ucwords($product->product),0,20);?>..</a></h5>
+				<span class="price">Rs. <?php echo $product->price;?></span>
+			  </div>
+			    <!-- <div class="rating">
                   <img src="<?php echo $url; ?>/image/stars-<?php echo $product->rating;?>.png" />
               </div>
               <div class="cart">
@@ -50,12 +53,14 @@ $url = Yii::app()->theme->baseUrl;
             <?php
           }
           ?>
+			</div>
 
           </div>
         </div>
       </div>
       <!--Featured Product Part End-->
     </div>
+	</section>
     <!--Middle Part End-->
     <div class="clear"></div>
     <div class="social-part">

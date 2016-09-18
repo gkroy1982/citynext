@@ -11,11 +11,10 @@
     <!-- Upper Footer -->
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-      <div id="upper-footer">
+      <!--div id="upper-footer">
 
         <div class="row">
 
-          <!-- Newsletter -->
           <div class="col-lg-7 col-md-7 col-sm-7">
             <form id="newsletter" action="http://inthe7heaven.com/homeshop-html/php/newsletter.php">
               <h4>Newsletter Sign Up</h4>
@@ -23,10 +22,7 @@
               <input type="submit" name="newsletter-submit" value="Submit">
             </form>
           </div>
-          <!-- /Newsletter -->
-
-
-          <!-- Social Media -->
+		  
           <div class="col-lg-5 col-md-5 col-sm-5 social-media">
             <h4>Stay Connected</h4>
             <ul>
@@ -47,13 +43,12 @@
               </li>
             </ul>
           </div>
-          <!-- /Social Media -->
 
         </div>
 
       </div>
 
-    </div>
+    </div-->
     <!-- /Upper Footer -->
 
 
