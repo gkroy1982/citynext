@@ -5,10 +5,13 @@ $url = Yii::app()->theme->baseUrl;
 $url_product = Yii::app()->baseUrl.'/upload/cityupdate/'; 
 $url_img = Yii::app()->basePath.'/../upload/cityupdate/'; 
 ?>
-
-   <?php $this->renderPartial('left');?>
+  <div id="container" class="content">
+      <aside class="sidebar col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <?php $this->renderPartial('left');?>
+      </aside>
   
 <!--Middle Part Start-->
+	<section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <div id="content">
 
       <!--Breadcrumb Part Start-->
@@ -63,10 +66,9 @@ $url_img = Yii::app()->basePath.'/../upload/cityupdate/';
       </div>-->
 
     </div>
+	</section>
     <!--Middle Part End-->
     <div class="clear"></div>
-    <div class="social-part">
-     
-    </div>
+    <div class="social-part"></div>
   </div>
 </div>
