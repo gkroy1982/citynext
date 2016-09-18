@@ -16,7 +16,7 @@ $url = Yii::app()->theme->baseUrl;
     <!--Categories Part Start-->
     <div class="box">
       <!-- Categories -->
-      <div class="row sidebar-box purple">
+      <div class="sidebar-box purple">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
           <div class="sidebar-box-heading" id="sideMenuHeading">
             <i class="icons icon-folder-open-empty"></i>
@@ -53,16 +53,13 @@ $url = Yii::app()->theme->baseUrl;
                 ?>
             </ul>
           </div>
-
-
-
         </div>
       </div>
       <!-- /Categories -->
 
 
       <div class="sidebar-box">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel no-padding">
           <!-- Slider -->
           <section class="sidebar-slider">
             <div class="sidebar-flexslider">

@@ -20,9 +20,6 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
       <!--div style='padding:10px;width:23%;float:right;height:500px;overflow:hidden;border:2px solid #e0e0e0; color:#e0e0e0;border-radius: 10px;'-->
 
       <section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-12">
-
-
-
         <section class="slider">
           <div class="tp-banner-container">
             <div class="tp-banner">

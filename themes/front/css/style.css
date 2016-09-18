@@ -696,6 +696,7 @@ span.quantity {
   display: table-cell;
   background: #34495e;
   padding-top: 4px;
+  text-align:center;
 }
 
 #main-navigation>ul>li:hover>a>.icons {
@@ -1475,7 +1476,6 @@ li.orange .parent-arrow:after {
 /* ==================================== */
 
 .sidebar-box {
-  margin-bottom: 30px;
   color: #7a8188;
   /* margin-top: 10px; */
 }
@@ -1506,6 +1506,7 @@ li.orange .parent-arrow:after {
 
 .sidebar-box-content {
   background: #fff;
+  margin-bottom: 30px;
 }
 
 .sidebar-box-content.sidebar-padding-box {
@@ -1995,6 +1996,7 @@ input[type="checkbox"]:checked + label.color-checkbox {
 .tp-banner ul {
   list-style: none;
   padding: 0;
+  margin-top: 0;
 }
 
 

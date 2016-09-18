@@ -32,7 +32,7 @@
       <!-- Top Header -->
       <div id="top-header">
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
 
             <div class="card" style="text-align:center;margin-bottom: 2px;">
               <marquee style="height:20px;">
