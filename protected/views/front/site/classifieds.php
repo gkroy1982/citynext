@@ -9,7 +9,6 @@ $url = Yii::app()->theme->baseUrl;
     <div id="container" class="content">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
         <?php $this->renderPartial('left');?>
-          <!--Middle Part Start-->
       </div>
 
       <!--Middle Part Start-->
