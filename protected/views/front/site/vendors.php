@@ -62,7 +62,7 @@ $url = Yii::app()->theme->baseUrl;
           {
             ?>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-			  <div class="product-image">
+			  <div class="product-image" style="height:auto;>
 			  <a href="<?php echo Yii::app()->createUrl('site/products',array('id'=>$cid,'uid'=>$user->uid));?>">
 				<img src="<?php if($product->photo!='' and file_exists($pb_url.$product->photo) ){ 
 					echo $p_url.$product->photo;}else{
