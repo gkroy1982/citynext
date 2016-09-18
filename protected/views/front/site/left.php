@@ -93,7 +93,7 @@ $url = Yii::app()->theme->baseUrl;
 	  <div class="sidebar-box">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel no-padding">
 			
-            <h5 class="sidebar-box-heading">City Updates </h5>
+            <h5 class="sidebar-box-heading" style="margin-bottom:1px;">City Updates </h5>
             <marquee style="height:200px;" direction="up">
               <?php
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));

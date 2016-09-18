@@ -1490,7 +1490,7 @@ li.orange .parent-arrow:after {
   background: #34495e;
   overflow: hidden;
   height: 50px;
-  padding: 15px 20px 12px 40px;
+  padding: 10px 20px 12px 40px;
 }
 
 .sidebar-box-heading .icons {
@@ -1506,7 +1506,6 @@ li.orange .parent-arrow:after {
 
 .sidebar-box-content {
   background: #fff;
-  margin-bottom: 30px;
 }
 
 .sidebar-box-content.sidebar-padding-box {
@@ -1626,6 +1625,7 @@ li.orange .parent-arrow:after {
   position: relative;
   display: block;
   overflow: hidden;
+  margin-top: 30px;
 }
 
 .sidebar-slider .flex-control-nav {
