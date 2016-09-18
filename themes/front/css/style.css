@@ -2496,6 +2496,7 @@ input[type="checkbox"]:checked + label.color-checkbox {
   padding: 10px 15px;
   text-align: center;
   text-transform: capitalize;
+  margin-top: -5px;
 }
 
 .product-info h5 {
