@@ -4771,6 +4771,10 @@ input[type="checkbox"]:checked + label:before {
   line-height: 42px;
 }
 
+.vouchers{
+  margin-top: 10px;
+}
+
 .vouchers:hover .voucherClick {
   display: block;
 }
