@@ -119,8 +119,12 @@ $form=$this->beginWidget('CActiveForm', array(
 							<?php echo $form->textField($model,'validity_days',array('placeholder'=>'Enter no of days to check availability')); ?>
 							<?php echo $form->error($model,'validity_days'); ?>
 							<?php echo CHtml::Button('Check Availabilty',array('class'=>'btn btn-primary check_availability')); ?>
+							<div class="slider_availability">
+							</div>
+						
 						</div>
-					</div>
+					</div> 
+					 
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
 							<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-primary')); ?>
@@ -222,7 +226,7 @@ $form=$this->beginWidget('CActiveForm', array(
 			  url: "<?php echo Yii::app()->createUrl('ads/adsavailability');?>",
 			  data: {'start_date':start_date,'validity_days':validity_days,'show_in':show_in},
 			  success: function(response){
-				  // alert(response);
+				    alert(response);
 				  if(response!=='')
 					$('.slider_availability').replaceWith(response);
 			  }
