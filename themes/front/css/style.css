@@ -3036,7 +3036,7 @@ p .tag-item {
 }
 
 .news-thumbnail img {
-  height: 150px;
+  /* height: 150px; */
 }
 
 .news-content {
