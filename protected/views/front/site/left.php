@@ -94,7 +94,7 @@ $url = Yii::app()->theme->baseUrl;
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel no-padding">
 			
             <h5 class="sidebar-box-heading" style="margin-bottom:1px;">City Updates </h5>
-            <marquee style="height:200px;" direction="up">
+            <marquee style="height:200px;" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
               <?php
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 				// var_dump($news[0]->attributes);exit;
