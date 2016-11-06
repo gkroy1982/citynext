@@ -36,14 +36,21 @@ $this->title="City Updates";
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cityupdate-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search( array( 'order'=>'status DESC,created_on DESC')) ,
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'user_id',
+
+		array(
+			'header' => 'Image',
+			'type'=>'html',
+			'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/cityupdate/".$data->image,"width"=>"50",	))
+			: "" '
+		),
+		// 'id',
 		'title',
+		array('header'=>'User','value'=>'$data->user->full_name'),
 		//'news',
-		'image',
+		// 'image',
 		'date',
 		/*
 		'created_on', */

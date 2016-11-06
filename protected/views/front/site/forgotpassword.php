@@ -98,9 +98,10 @@
 								
                                 <div class="row">
 									<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:right">
-                                    	<?php echo CHtml::submitButton('Send SMS',array('class'=>'button','id'=>'sms','disabled'=>"true")); ?>
-                                    </div>
-                                    
+                                    	<?php echo CHtml::submitButton('Send SMS',array('class'=>'button','id'=>'sms')); ?>
+										<?php //echo CHtml::submitButton('Send SMS',array('class'=>'button','id'=>'sms','disabled'=>"true")); ?>
+										<!--input type="button" id='sms' name='sms' class='button' value='Send SMS'-->
+                                    </div>                                    
                                 </div>
 					<?php $this->endWidget(); ?>
 					
@@ -121,7 +122,8 @@
     </div>
     <!--Middle Part End-->
 	
-	  <script>
+  <script>
+	  
   $('.pw').click(function(){
 
       var id=$(this).val();
@@ -135,5 +137,5 @@
         $("#sms").attr('disabled','disabled');
         $("#email").removeAttr('disabled');
       }
-  })
+  }); 
   </script>

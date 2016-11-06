@@ -36,12 +36,12 @@ $this->title="List Home Page Slider";
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'ads-grid',
-	'dataProvider'=>$model->search( array( 'order'=>'status DESC,start_date')),
+	'dataProvider'=>$model->search( array( 'order'=>'status DESC,created_on DESC')),
 	'itemsCssClass'=>'table table-bordered',
 	'enableSorting'=>false,
 	
 	'columns'=>array(
-array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
+		array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
 		'user.full_name',
 		array(
 	            'header' => 'Ads Image ',
@@ -49,6 +49,11 @@ array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage
 	            'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/ads/".$data->image,"width"=>"50px",	))			
 				: "" '
 	        ),
+		array(
+			'header' => 'Slider ',
+			'type'=>'html',
+			'value' => '($data->show_in == 1) ?"Second Slider":"First Slider"'
+		),
 		'validity_days',
 		'start_date',
 		'status',

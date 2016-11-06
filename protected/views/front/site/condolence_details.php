@@ -22,7 +22,7 @@ $url_img = Yii::app()->basePath.'/../upload/condolence/';
         <div class="box">
           <div class="box-heading">
             <!--Breadcrumb Part Start-->
-      <div class="breadcrumb"> <a href="<?php echo Yii::app()->createUrl('site/index')?>">HOME</a> » <a href="<?php echo Yii::app()->createUrl('site/condolences')?>">OBITURIES</a> » <a><?php echo strtoupper( $condolence->title);?></a></div>
+      <div class="breadcrumb"> <a href="<?php echo Yii::app()->createUrl('site/index')?>">HOME</a> » <a href="<?php echo Yii::app()->createUrl('site/condolences')?>">OBITUARIES</a> » <a><?php echo strtoupper( $condolence->title);?></a></div>
       <!--Breadcrumb Part End-->
           </div>
         </div>

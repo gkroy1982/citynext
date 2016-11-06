@@ -81,6 +81,7 @@ class DiscountvouchersController extends Controller
 			$model->code = rand(111111,999999);
 			if($model->save())
 			{
+				Yii::app()->user->setFlash('success', 'Record added successful and will be activated within 24 hr.');
 				/*$total = $model->total;
 				
 				for( $i=1; $i < $total; $i++)

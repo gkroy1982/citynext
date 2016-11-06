@@ -10,20 +10,26 @@ $url = Yii::app()->theme->baseUrl;
     width: 98%;
 }
 </style>
-  <div id="container">
-   <?php $this->renderPartial('/products/left');?>
-    <!--Middle Part Start-->
-    <div id="content">
-      <!--Featured Product Part Start-->
-      <div class="box">
-	  <div class="box-heading"><?php echo $nav;?></div>
-       <?php //$this->renderPartial('/products/menu');?>
 
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<?php $this->renderPartial('/products/left');?>
+</div>
+
+<section class="main-content col-lg-9 col-md-9 col-sm-9 content">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="carousel-heading no-margin">
+				<h4><?php echo $nav; ?></h4>
+			</div>
+			
+ 
         <div class="box-content">
-        <?php  if(Yii::app()->user->hasFlash('success')):  ?>    <div class="alert alert-success">
-        <?php echo Yii::app()->user->getFlash('success');  ?>    </div>
-		<?php  endif;  ?>
-
+			<?php  if(Yii::app()->user->hasFlash('success')):  ?>    
+			<div class="alert alert-success">
+				<?php echo Yii::app()->user->getFlash('success');  ?>    
+			</div>
+			<?php  endif;  ?>
+		</div>
 		<?php Yii::app()->clientScript->registerScript(
 		   'myHideEffect',
 		   '$(".alert-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',
@@ -31,7 +37,7 @@ $url = Yii::app()->theme->baseUrl;
 		);
 
 		?>
-          <div class="box-product"> 
+       
 		
 			<?php $this->widget('zii.widgets.CDetailView', array(
 				'data'=>$model,
@@ -49,14 +55,8 @@ $url = Yii::app()->theme->baseUrl;
 					'status',
 				),
 			)); ?>
-          </div>
-        </div>
-      </div>
+       	</div>
       <!--Featured Product Part End-->
     </div>
     <!--Middle Part End-->
-    <div class="clear"></div>
-    <div class="social-part">
-     
-    </div>
-  </div>
+</section>

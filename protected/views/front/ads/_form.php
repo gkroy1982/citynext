@@ -1,10 +1,17 @@
+<!--style>
+.slider_availability{
+	width:300px;
+	overflow:scroll;
+}
+</style-->
 <?php
 
 $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'ads-form',
 	'htmlOptions'=>array('class'=>'form-horizontal','enctype' => 'multipart/form-data'),
 	'enableAjaxValidation'=>false,
-)); ?>
+)); ?> 
+
 <!-- Main Content -->
 <section class="main-content col-lg-12 col-md-12 col-sm-12  col-xs-12">
 	
@@ -57,7 +64,10 @@ $form=$this->beginWidget('CActiveForm', array(
 							<p><?php echo $form->labelEx($model,'show_in'); ?></p>
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-8">
-							<?php echo $form->dropDownList($model,'show_in',array('0'=>'Big Slider on main page','1'=>'Small Slider on main page')); ?>
+						
+							<?php 
+							unset($model->show_in);
+							echo $form->dropDownList($model,'show_in',array(''=>'Select Display On', '0'=>'Big Slider on main page','1'=>'Small Slider on main page'),array('options' => array(''=>array('selected'=>true)))); ?>
 							<?php echo $form->error($model,'show_in'); ?>
 						</div>
 					</div>		
@@ -93,7 +103,7 @@ $form=$this->beginWidget('CActiveForm', array(
 						  <p><?php echo $form->labelEx($model,'start_date'); ?></p>
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-8">
-						 <?php echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
+						 <?php echo $form->textField($model,'start_date',array('class'=>'datepicker_disable_past')); ?>
 						<?php echo $form->error($model,'start_date'); ?>
 						</div>
 					</div>
@@ -144,6 +154,7 @@ $form=$this->beginWidget('CActiveForm', array(
 <?php $this->endWidget(); ?>
 
 <script>
+
 	$('#Ads_image').change(function()
     {
 		var fileUpload = $(this)[0];
@@ -226,7 +237,7 @@ $form=$this->beginWidget('CActiveForm', array(
 			  url: "<?php echo Yii::app()->createUrl('ads/adsavailability');?>",
 			  data: {'start_date':start_date,'validity_days':validity_days,'show_in':show_in},
 			  success: function(response){
-				    alert(response);
+				   // alert(response);
 				  if(response!=='')
 					$('.slider_availability').replaceWith(response);
 			  }

@@ -258,7 +258,7 @@ class SiteController extends Controller
 	{
 		$nav="Classifieds";
 		
-		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a>Classifieds</a>";
+		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a href='". Yii::app()->createUrl('site/classifiedtypes')."'>Classifieds</a>";
 		
 		$classifieds = Classifieds::model()->findAll(array('condition'=>"classified_id=$id AND status='Active'"));
 		 
@@ -267,14 +267,14 @@ class SiteController extends Controller
 	
 	public function actionCondolences()
 	{
-		$nav="Condolences";
+		// $nav="Condolences";
 		// $todate=date('Y-m-d');
 		
 		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a>Obituaries</a>";
 		
 		// $condolences = Condolences::model()->findAll(array('condition'=>"status='Active' AND '$todate'>=date AND '$todate'<=DATE_ADD(date,INTERVAL 3 DAY) "));
 		
-		$condolences = Condolences::model()->findAllBySql("SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW(),'%Y-%m-%d')>=date AND DATE_FORMAT(NOW(),'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY) ORDER BY created_on DESC ");
+		$condolences = Condolences::model()->findAllBySql("SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW()+ INTERVAL 1 DAY,'%Y-%m-%d')>=date AND DATE_FORMAT(NOW()+ INTERVAL 1 DAY,'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY) ORDER BY created_on DESC ");
 		 
 		$this->render('condolences',array('condolences'=>$condolences,'nav'=>$nav));
 	}
@@ -304,9 +304,7 @@ class SiteController extends Controller
 			$model->attributes=$_POST['Users'];
 			$model->full_name=ucwords($model->first_name.' '.$model->last_name );
 			$model->dob=date('Y-m-d',strtotime($model->dob));
-		
 			if($model->save()) {
-			
 				// echo '<pre>';
 				// print_r($_POST);
 				// print_r($model->attributes);exit;
@@ -348,6 +346,9 @@ class SiteController extends Controller
 
 			if($model->save())
 			{
+				// echo '<pre>';
+				// print_r($_POST);
+				// print_r($model->attributes);exit;
 				$sms_cust_reg='Dear '.ucwords($model->first_name).', ';
 				$sms_cust_reg.='Thank you for showing your interest in CITYNEXT. Your account would be activated within 24 hrs.';
 				$cust_reg_mobile=$model->contact_no;
@@ -623,17 +624,50 @@ class SiteController extends Controller
 			echo 2;
 	}
 
-	public function actionForgotpassword()
-	{
-		$email=$_GET['e'];
+	public function actionForgotpassword() {
+		$email=trim($_GET['e']);
 
 		$model=Users::model()->findByAttributes(array('email'=>"$email"));
 
+		if(!empty($_POST['yt0'])) {
+			$message = 'Your password is: '.$model->password;
+			$to = $model->email;
+			$subject = 'Citynext:Forgot Password';
+			$from_email='info@citynext.co.in';
+			$this->sendemail($to,$subject,$message,$from_email);
+			
+			$this->redirect(array('/site/index'));
+		}
+			
+		if(!empty($_POST['yt1'])){
+			$sms = 'Your password is: '.$model->password;
+			$mobile_no = $model->contact_no;
+			$user_id = $model->uid;
+			
+			$this->SMS( $sms, $mobile_no, $user_id );
+			$this->redirect(array('/site/index'));
+		}
+		
 		if( $model )
 			$this->render('forgotpassword',array('model'=>$model));
 		else
-			$this->redirect(array('/site/index'));	
+			$this->redirect(array('/site/index'));
 	}
+	public function sendPasswordOnMobile(){
+		
+		$email=trim($_POST['email']);
+		$model = Users::model()->findByAttributes(array('email'=>"$email"));
+		
+		$sms = 'Your password is: '.$model->password;
+		$mobile_no = $model->contact_no;
+		$user_id = $model->uid;
+		
+		if($this->SMS( $sms, $mobile_no, $user_id ))
+			return 1;
+		else
+			return 0;
+	}
+	
 
 	public function actionPopup()
 	{

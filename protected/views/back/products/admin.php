@@ -58,15 +58,20 @@ $this->title="List Products";
 // ),
 	
 	'columns'=>array(
-array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
-		
+		array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
+		array(
+		  'name'=>'Image',
+		  'type' => 'raw',
+		  'value' => 'CHtml::image(Yii::app()->baseUrl . "/upload/products/" . $data->image, "", array("style"=>"width:32px;height:32px;"))'
+		),
 		'product',
 		'user.full_name',
 		'mainCategory.category',
 		'subCategory.sub_category',
 		'quantity',
 		'status',
-		array(
+/*	
+	array(
         'header'=>'Image Status(300x750)',
 		'name'=>'image_status',
         'value'=>function($data){
@@ -90,6 +95,7 @@ array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage
 		},
 		'htmlOptions' => array('style'=>'color:red;')
     ),
+	*/
 		// array(
 			  // 'class' => 'PcLinkButton',
 			  // 'imageUrlExpression' => 'Yii::app()->baseUrl."/upload/products/" . $data->image',

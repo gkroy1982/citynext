@@ -112,69 +112,79 @@ class Controller extends CController
 	}
 	
 	 public function SMTPMail($data)
-        {   
-             //create array with this index -> username,password,to,reply_to,reply_name,from,from_name,cc,bcc,subject,body,attachmentpath, 
+	 {
+		 //create array with this index -> username,password,to,reply_to,reply_name,from,from_name,cc,bcc,subject,body,attachmentpath, 
 
-             
-            require_once Yii::app()->basePath . '/smtp/class.phpmailer.php';
-            if(!empty($data['to']))
-            {
-                $mail = new PHPMailer(); // create a new object
-                $mail->IsSMTP(); // enable SMTP
-                $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-                $mail->SMTPAuth = true; // authentication enabled
-                $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-                $mail->Host = "smtp.gmail.com";
-                $mail->domain = "gmail.com";
-                $mail->authentication = "plain";
-                $mail->Port = 465; // or 587
-                $mail->IsHTML(true);
-                $mail->Username = $data['username'];
-                $mail->Password = $data['password'];
-                $mail->AddReplyTo($data['reply_to'], $data['reply_name']); //reply-to address
-                $mail->SetFrom($data['from'],$data['from_name']); //From address of the mail
-                $cc = explode(',', $data['cc']);
-                if(!empty($cc))
-                {
-                    foreach ($cc as $c)
-                    {
-                        if(str_replace(' ', '', $c)!=$data['to'])
-                        {
-                           $mail->addCC($c);
-                        }
-                    }
-                }
-                $bcc = explode(',', $data['bcc']);
-                if(!empty($bcc))
-                {
-                    foreach ($bcc as $b)
-                    {
-                        if(str_replace(' ', '', $b)!=$data['to'])
-                        {
-                            $mail->addBCC($b);
-                        }
-                    }
-                }
+		 
+		require_once Yii::app()->basePath . '/smtp/class.phpmailer.php';
+		if(!empty($data['to']))
+		{
+			$mail = new PHPMailer(); // create a new object
+			$mail->IsSMTP(); // enable SMTP
+			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			$mail->SMTPAuth = true; // authentication enabled
+			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+			$mail->Host = "smtp.gmail.com";
+			$mail->domain = "gmail.com";
+			$mail->authentication = "plain";
+			$mail->Port = 465; // or 587
+			$mail->IsHTML(true);
+			$mail->Username = $data['username'];
+			$mail->Password = $data['password'];
+			$mail->AddReplyTo($data['reply_to'], $data['reply_name']); //reply-to address
+			$mail->SetFrom($data['from'],$data['from_name']); //From address of the mail
+			$cc = explode(',', $data['cc']);
+			if(!empty($cc))
+			{
+				foreach ($cc as $c)
+				{
+					if(str_replace(' ', '', $c)!=$data['to'])
+					{
+					   $mail->addCC($c);
+					}
+				}
+			}
+			$bcc = explode(',', $data['bcc']);
+			if(!empty($bcc))
+			{
+				foreach ($bcc as $b)
+				{
+					if(str_replace(' ', '', $b)!=$data['to'])
+					{
+						$mail->addBCC($b);
+					}
+				}
+			}
 
-                $mail->Subject = $data['subject'];
-                $mail->Body = $data['body'];
-                $mail->AddAddress($data['to']);
-                if(isset($data['attachmentpath']))
-                $mail->AddAttachment($data['attachmentpath']);
+			$mail->Subject = $data['subject'];
+			$mail->Body = $data['body'];
+			$mail->AddAddress($data['to']);
+			if(isset($data['attachmentpath']))
+			$mail->AddAttachment($data['attachmentpath']);
 
-                if(@$mail->Send())
-                {
-                    return TRUE;
-                }
-                else
-                {
-                    return FALSE;
-                }
-            }
-            else
-            {
-                return FALSE;
-            }
-        }
+			if(@$mail->Send()){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
+		}else{
+			return FALSE;
+		}
+	}
 	
+	public function sendemail($to,$subject,$message, $from_email){
+		// Always set content-type when sending HTML email
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		// More headers
+		// $headers .= 'From: <webmaster@example.com>' . "\r\n";
+		$headers .= 'From: '.$from_email . "\r\n";
+		// $headers .= 'Cc: myboss@example.com' . "\r\n";
+
+		if(@mail($to,$subject,$message,$headers))
+			return true;
+		else
+			return false;
+	}
 }

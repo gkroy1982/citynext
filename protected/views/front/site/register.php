@@ -176,7 +176,7 @@
 			  
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  <p>Answer*</p>
+                  <p>Security Answer*</p>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8">
 					<?php echo $form->textField($model,'answer',array('class'=>'large-field')); ?>
@@ -263,13 +263,14 @@
 
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-				  
-                  <p>I have read and agree to the <a href="<?php echo Yii::app()->createUrl('site/policy')?>"><b> Term & Conditions </b> </a></p>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8"> 
+				  <p>
 				  <input type="checkbox" value="1" name="agree" id="i-agree-to-terms">
                   <label for="i-agree-to-terms"></label>
+				  
+                  I have read and agree to the <a href="<?php echo Yii::app()->createUrl('site/policy')?>"><b> Term & Conditions </b> </a>
+				  </p>
                 </div>
+                 
               </div>
 			  
               <div class="row">

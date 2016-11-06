@@ -36,13 +36,18 @@ $this->title="List Products";
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'products-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search(array('order'=>'status DESC, created_on DESC')),
 	'itemsCssClass'=>'table table-bordered',
 	'enableSorting'=>false,
 	
 	'columns'=>array(
-array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
+		array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
 		
+		array(
+		  'name'=>'Image',
+		  'type' => 'raw',
+		  'value' => 'CHtml::image(Yii::app()->baseUrl . "/upload/sell/" . $data->image, "", array("style"=>"width:32px;height:32px;"))'
+		),
 		'product',
 		'user.full_name',
 		'mainCategory.category',

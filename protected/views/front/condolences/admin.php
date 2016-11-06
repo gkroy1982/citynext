@@ -65,11 +65,11 @@ $url = Yii::app()->theme->baseUrl;
 					array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
 					
 					array(
-				            'header' => 'Image',
-				            'type'=>'html',
-				            'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/condolence/".$data->image,"width"=>"50","height"=>"50"))
-							: "" '
-				        ),
+						'header' => 'Image',
+						'type'=>'html',
+						'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/condolence/".$data->image,"width"=>"50","height"=>"50"))
+						: "" '
+					),
 					'title',
 					'description',
 					//'image',

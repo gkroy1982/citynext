@@ -42,10 +42,15 @@ $this->title="List Today's  Offers";
 	
 	'columns'=>array(
 array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
-		
 		'user.full_name',	
 		'offer.days',
 		'product.product',
+		array(
+			'header' => 'Image',
+			'type'=>'html',
+			'value' => '($data->product->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/products/".$data->product->image,"width"=>"50",	))
+			: "" '
+		),
 		'start_date',
 		'end_date',		
 		'status',

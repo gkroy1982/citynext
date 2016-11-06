@@ -95,24 +95,27 @@ class AdsController extends Controller
 		// $start_date='2016-02-06';
 		// $no_of_validity_days=6;
 		
-		$ads=Ads::model()->findAll(array('condition'=>"show_in=$show_in AND status ='active' AND '$start_date'>=start_date AND DATE_ADD('$start_date', INTERVAL $no_of_validity_days DAY)<=DATE_ADD(start_date,INTERVAL validity_days DAY) ",'limit'=>$max_slide_limit));
+		// $ads=Ads::model()->findAll(array('condition'=>"show_in=$show_in AND status ='active' AND '$start_date'>=start_date AND DATE_ADD('$start_date', INTERVAL $no_of_validity_days DAY)<=DATE_ADD(start_date,INTERVAL validity_days DAY) ",'limit'=>$max_slide_limit));
+		
+		$ads=Ads::model()->findAll(array('condition'=>"show_in=$show_in AND status ='active' AND '$start_date'>=start_date AND DATE_ADD('$start_date', INTERVAL $no_of_validity_days DAY)<=DATE_ADD(start_date,INTERVAL validity_days DAY) ",'limit'=>$no_of_validity_days));
+		
 		
 		$count_validity_day=count($ads);
-		$na_count=$max_slide_limit-$count_validity_day;
+		$na_count=$no_of_validity_days-$count_validity_day;
 		
-		$return_str="<table class='table table-hover slider_availability'  style='width:100%;'><thead>
+		$return_str="<table class='table table-hover slider_availability'  style='width:100px;overflow:scroll;'><thead>
 			<tr>
-				<th colspan=$max_slide_limit align='center'>Slider Availabilty On Selected Date</th>
+				<th colspan=$no_of_validity_days align='center'>Slider Availabilty On Selected Date</th>
 			</tr>
 			<tr>";
 			
-			for($i=1;$i<=$max_slide_limit;$i++){
-				$return_str.="<th>Slider $i</th>";
+			for($i=1;$i<=$no_of_validity_days;$i++) {
+				$return_str.="<th>".date('d-m-Y',strtotime($date . "+$i days"))."</th>"; 
 			}
 			$return_str.="</tr></thead>
 			<tbody>
 				<tr>";
-				for($i=1;$i<=$max_slide_limit;$i++){
+				for($i=1;$i<=$no_of_validity_days;$i++) {
 					if($i<=$count_validity_day)
 						$return_str.="<td>NA</td>";
 					else
@@ -169,7 +172,7 @@ class AdsController extends Controller
 		$nav = 'Ads >> Create';
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		$price_model=HomePageSlidePriceSetting::model()->findAllByAttributes(array('status'=>'Active'));
+		$price_model=HomePageSlidePriceSetting::model()->findAllByAttributes(array('status'=>'Active'), array('order'=>'slide_type'));
 		$count_response=trim($_POST['count_response']);
 		
 		if(isset($count_response) && $count_response==0) {

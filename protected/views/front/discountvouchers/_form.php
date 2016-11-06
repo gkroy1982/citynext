@@ -55,7 +55,7 @@
 						<?php echo $form->labelEx($model,'from_date'); ?>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<?php echo $form->textField($model,'from_date',array('class'=>'datepicker')); ?>
+						<?php echo $form->textField($model,'from_date',array('class'=>'datepicker_disable_past')); ?>
 						<?php echo $form->error($model,'from_date'); ?>
 					</div>
 				</div>	
@@ -64,7 +64,7 @@
 						<?php echo $form->labelEx($model,'to_date'); ?>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<?php echo $form->textField($model,'to_date',array('class'=>'datepicker')); ?>
+						<?php echo $form->textField($model,'to_date',array('class'=>'datepicker_disable_past')); ?>
 						<?php echo $form->error($model,'to_date'); ?>
 					</div>
 				</div>

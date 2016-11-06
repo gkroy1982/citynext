@@ -39,12 +39,17 @@ $this->title="List Condolences";
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'condolences-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search( array( 'order'=>'status DESC,created_on DESC')) ,
 	'itemsCssClass'=>'table table-bordered',
 	'enableSorting'=>false,
 	'columns'=>array(
 		array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
-	
+		array(
+			'header' => 'Image',
+			 'type' => 'raw',
+			'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/condolence/".$data->image,"width"=>"50","height"=>"50"))
+			: "" '
+		),
 		'title',
 		'description',
 		//'image',

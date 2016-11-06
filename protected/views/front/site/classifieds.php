@@ -48,7 +48,10 @@ $url = Yii::app()->theme->baseUrl;
                       <h4><?php echo ucwords($classified->title);?></h4>
                       <!--<h5><?php //echo 'Category: '.ucwords($classified->classified->name);?></h5>-->
                       <p>
-                        <?php echo substr( $classified->description,0,25);?>
+                        <?php 
+							echo $classified->description;
+							// echo substr( $classified->description,0,25);							
+						?>
                       </p>
                     </div>
 

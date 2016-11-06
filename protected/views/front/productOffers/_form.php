@@ -96,7 +96,7 @@
 							if(!empty($model->start_date))
 								$model->start_date=date('d-m-Y',strtotime($model->start_date));
 							
-							echo $form->textField($model,'start_date',array('class'=>'datepicker')); ?>
+							echo $form->textField($model,'start_date',array('class'=>'datepicker_disable_past')); ?>
 							<?php echo $form->error($model,'start_date'); ?>
 						</div>
 					</div>

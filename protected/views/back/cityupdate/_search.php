@@ -11,10 +11,10 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
+	<!--div class="row">
+		<?php //echo $form->label($model,'id'); ?>
+		<?php //echo $form->textField($model,'id'); ?>
+	</div-->
 
 	<div class="row">
 		<?php echo $form->label($model,'user_id'); ?>
@@ -26,20 +26,20 @@
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'news'); ?>
-		<?php echo $form->textArea($model,'news',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+	<!--div class="row">
+		<?php //echo $form->label($model,'news'); ?>
+		<?php //echo $form->textArea($model,'news',array('rows'=>6, 'cols'=>50)); ?>
+	</div-->
 
-	<div class="row">
-		<?php echo $form->label($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
-	</div>
+	<!--div class="row">
+		<?php //echo $form->label($model,'image'); ?>
+		<?php //echo $form->textField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
+	</div-->
 
-	<div class="row">
-		<?php echo $form->label($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
-	</div>
+	<!--div class="row">
+		<?php //echo $form->label($model,'date'); ?>
+		<?php //echo $form->textField($model,'date'); ?>
+	</div-->
 
 	<div class="row">
 		<?php echo $form->label($model,'created_on'); ?>

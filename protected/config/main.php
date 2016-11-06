@@ -28,7 +28,7 @@ return array(
             ),         
         ),
     ),
-	
+	'timeZone' => 'Asia/Kolkata',
 	// application components
 	'components'=>array(
 		'user'=>array(

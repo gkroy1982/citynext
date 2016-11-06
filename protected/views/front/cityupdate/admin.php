@@ -66,7 +66,13 @@ $url = Yii::app()->theme->baseUrl;
 					
 					'title',
 				    'news', 
-					'image',
+					// 'image',
+					array(
+						'header' => 'Image',
+						'type'=>'html',
+						'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/cityupdate/".$data->image,"width"=>"50",	))			
+						: "" '
+					),
 					array(
 						'name'=>'Date',
 						'header'=>'Date',

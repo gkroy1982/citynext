@@ -55,7 +55,8 @@
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 							<?php //$model->from_date = date("d-m-Y",strtotime($model->from_date )); ?>
-							<?php echo $form->textField($model,'from_date',array('size'=>60,'maxlength'=>200,'class'=>'datepicker')); ?>
+							<?php echo $form->textField($model,'from_date',array('size'=>60,'maxlength'=>200,'class'=>'datepicker_disable_past')); ?>
+							
 							<?php echo $form->error($model,'from_date'); ?>
 					</div>
 				</div>	
@@ -64,7 +65,8 @@
 						<?php echo $form->labelEx($model,'to_date'); ?>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<?php echo $form->textField($model,'to_date',array('size'=>60,'maxlength'=>200,'class'=>'datepicker')); ?>
+						<?php echo $form->textField($model,'to_date',array('size'=>60,'maxlength'=>200,'class'=>'datepicker_disable_past')); ?>
+						
 						<?php echo $form->error($model,'to_date'); ?>
 					</div>
 				</div>

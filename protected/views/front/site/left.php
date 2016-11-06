@@ -95,17 +95,20 @@ $url = Yii::app()->theme->baseUrl;
       </div>
 	  <div class="sidebar-box">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sidebar-carousel no-padding">
-			
+			<?php
+				$url_cityupdate = Yii::app()->baseUrl.'/upload/cityupdate/';
+				$cityupdate_b_url = Yii::app()->basePath.'/../upload/cityupdate/';
+			?>
             <h5 class="sidebar-box-heading" style="margin-bottom:1px;">City Updates </h5>
             <marquee style="height:200px;" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
               <?php
 				$news =Cityupdate::model()->findAll(array('condition'=>'status ="active"'));
 				// var_dump($news[0]->attributes);exit;
 					foreach($news as $obj ) {
-						if($obj->image!='' and file_exists($pb_url.$obj->image) ){ 
-							$furl = $url_ads.$obj->image;
+						if($obj->image!='' and file_exists($cityupdate_b_url.$obj->image) ){ 
+							$furl = $url_cityupdate.$obj->image;
 						}else{
-							$furl = $url_ads.'images.jpg';
+							$furl = $url_cityupdate.'images.jpg';
 						} 
 						echo '<a href="'.Yii::app()->createUrl('//site/news',array('id'=>$obj->id)).'">';
 						echo "<p><div class='image' style='float:left;'><img src=$furl height='40px' width='40px'></div>
