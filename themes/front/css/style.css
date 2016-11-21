@@ -5292,7 +5292,7 @@ input[type="checkbox"]:checked + label:before {
     margin-top: 0;
   }
   .content {
-    display: inline-block; */
+	display: inline-block; 
   }
   
 }
