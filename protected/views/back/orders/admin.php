@@ -53,6 +53,7 @@ $this->title="List Orders";
 			'value'=>'$data->getPaymentStatus($data->payment_status)'
 		),
 		'total_amount',
+		'user.business_name',
 		// 'item_ids',
 		// 'item_rates',
 		// 'payment_status',

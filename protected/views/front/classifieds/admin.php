@@ -66,12 +66,12 @@ $url = Yii::app()->theme->baseUrl;
 				  'enableSorting'=>false,
 				'columns'=>array(
 					array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
-					array(
+					/* array(
 				            'header' => 'Ads Image',
 				            'type'=>'html',
 				            'value' => '($data->image != "") ?CHtml::tag("img",array("src"=>Yii::app()->baseUrl."/upload/classified/".$data->image,"width"=>"50",	))			
 							: "" '
-					),
+					), */
 					'classifiedtype.name',
 					'title',
 					'description',

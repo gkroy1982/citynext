@@ -106,10 +106,10 @@ $url_img = Yii::app()->basePath.'/../upload/sell/';
 
                 <h2><?php echo ucwords($product->product);?></h2>
                 <table>
-                  <tr>
+                  <!--tr>
                     <td>Availability</td>
                     <td><span class="green">in stock</span></td>
-                  </tr>
+                  </tr-->
                   <tr>
                     <td>Description</td>
                     <td><span><?php echo $product->description;?></span></td>

@@ -257,8 +257,8 @@ class SiteController extends Controller
 	public function actionClassifieds($id)
 	{
 		$nav="Classifieds";
-		
-		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a href='". Yii::app()->createUrl('site/classifiedtypes')."'>Classifieds</a>";
+		$classifiedtype = Classifiedtype::model()->findByPk($id);
+		$nav="<a href='". Yii::app()->createUrl('site/index')."'>Home</a> » <a href='". Yii::app()->createUrl('site/classifiedtypes')."'>Classifieds</a> » $classifiedtype->name";
 		
 		$classifieds = Classifieds::model()->findAll(array('condition'=>"classified_id=$id AND status='Active'"));
 		 

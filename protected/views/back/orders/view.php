@@ -22,11 +22,16 @@ $this->title='View Order';
 	'attributes'=>array(
 		'id',
 		'order_no',
+		/* array(
+			'name'=>'Service Type',
+			'value'=>$model->getServiceType($data->service_types_id) 
+		),		 */
 		'service_types_id',
 		'item_ids',
 		'item_rates',
 		'total_amount',
-		'ordered_by',
+		// 'ordered_by',
+		'user.business_name',
 		'ordered_date',
 		'payment_status',
 		// 'invoice_pdf',

@@ -58,18 +58,9 @@
 		<div class="controls">
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'title'); ?>
-	</div>
+		</div>
 	</div>
 
-	<div class="row">
-		<label class="control-label">
-		<?php echo $form->labelEx($model,'description'); ?>
-		</label>
-		<div class="controls">
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
-	</div>
 
 	<div class="row">
 		<label class="control-label">
@@ -80,7 +71,16 @@
 		<?php echo $form->error($model,'image'); ?>
 	</div>
 	</div>-->
-
+	
+	<div class="row">
+		<label class="control-label">
+		<?php echo $form->labelEx($model,'description'); ?>
+		</label>
+		<div class="controls">
+		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'description'); ?>
+		</div>
+	</div>
 	<div class="row">
 		<label class="control-label">
 		<?php echo $form->labelEx($model,'from_date'); ?>

@@ -123,6 +123,7 @@ class DiscountvouchersController extends Controller
 		if(isset($_POST['Discountvouchers']))
 		{
 			$model->attributes=$_POST['Discountvouchers'];
+			// print_r($model->attributes);exit;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

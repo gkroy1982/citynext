@@ -70,7 +70,8 @@
 						<?php echo $form->error($model,'to_date'); ?>
 					</div>
 				</div>
-				<div class="row">
+				
+				<!--div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<p><?php echo $form->labelEx($model,'image'); ?></p>
 					</div>
@@ -78,7 +79,7 @@
 						<?php echo $form->fileField($model,'image'); ?>
 						<?php echo $form->error($model,'image'); ?>
 					</div>
-				</div>
+				</div-->	
 				
 				
 				<div class="row">

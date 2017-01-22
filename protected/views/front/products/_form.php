@@ -128,7 +128,7 @@
 						<?php echo $form->error($model,'description'); ?>
 					</div>
 				</div>
-				<div class="row">
+				<!--div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<?php echo $form->labelEx($model,'status'); ?>
 					</div>
@@ -136,7 +136,7 @@
 						<?php echo $form->dropDownList($model,'status',Products::getStatus()); ?>
 						<?php echo $form->error($model,'status'); ?>
 					</div>
-				</div>
+				</div-->
 				
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:right">

@@ -1,3 +1,11 @@
+<style>
+.row-fluid .span9 {
+    width: 78.359%;
+}
+
+</style>
+
+
 <?php
 /* @var $this ProductOffersController */
 /* @var $model ProductOffers */
@@ -42,7 +50,8 @@ $this->title="List Today's  Offers";
 	
 	'columns'=>array(
 array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
-		'user.full_name',	
+		// 'user.full_name',
+		'user.business_name',
 		'offer.days',
 		'product.product',
 		array(

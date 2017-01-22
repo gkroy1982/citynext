@@ -50,7 +50,7 @@ class Cityupdate extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'title' => 'Title',
-			'news' => 'News',
+			'news' => 'Description',
 			'image' => 'Image',
 			'date' => 'Date',
 			'created_on' => 'Created On',

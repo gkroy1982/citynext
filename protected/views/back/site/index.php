@@ -372,6 +372,26 @@ $this->title="Dashboard";
 		<a data-rel="tooltip" title=""  href="<?php echo Yii::app()->createUrl("productoffers/admin"); ?>">
 		Today's Offer
 		</a>
+		
+		<?php 
+			$active_productoffers_model = ProductOffers::model()->findAllByAttributes(array('status'=> 'Active'));
+			$active_productoffers_count = count($active_productoffers_model);
+			if($active_productoffers_count>=1){
+		?>
+		<a href="<?php echo Yii::app()->createUrl("productoffers/admin"); ?>" title="Active Obituaries">
+		<span class="badge badge-info pull-right active_count"><?php echo $active_productoffers_count; ?></span>
+		</a>
+		<?php } ?>
+		
+		<?php 
+			$inactive_productoffers_model = ProductOffers::model()->findAllByAttributes(array('status'=> 'Inactive'));
+			$inactive_productoffers_count = count($inactive_productoffers_model);
+			if($inactive_productoffers_count>=1){
+		?>
+		<a href="<?php echo Yii::app()->createUrl("productoffers/admin"); ?>" title="Active Obituaries">
+		<span class="badge badge-info pull-right inactive_count"><?php echo $inactive_productoffers_count; ?></span>
+		</a>
+		<?php } ?>
 	</div>
 	
 	<div>

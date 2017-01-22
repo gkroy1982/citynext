@@ -76,9 +76,9 @@ class ClassifiedsController extends Controller
 			$model->from_date = date('Y-m-d',strtotime($model->from_date));
 			
 			$model->user_id=Yii::app()->user->getState('uid');
-			$imgLocation=Yii::app()->basePath.'/../upload/classified/';			
+/* 			$imgLocation=Yii::app()->basePath.'/../upload/classified/';			
 			$fileNameImag=CommonFunctions::FileUpload($model,'image',$imgLocation);
-			if(!empty($fileNameImag)){ $model->image = $fileNameImag;}
+			if(!empty($fileNameImag)){ $model->image = $fileNameImag;} */
 			if($model->save()){
 				Yii::app()->user->setFlash('success', 'You have successfully created your classified. This will be activated soon within 24 hrs.');
 				$this->redirect(array('admin'));
@@ -108,9 +108,9 @@ class ClassifiedsController extends Controller
 			$model->to_date = date('Y-m-d',strtotime($model->to_date));
 			$model->from_date = date('Y-m-d',strtotime($model->from_date));
 			
-			$imgLocation=Yii::app()->basePath.'/../upload/classified/';		
+			/* $imgLocation=Yii::app()->basePath.'/../upload/classified/';		
 			$fileNameImag=CommonFunctions::FileUpdate($model,'image',$imgLocation);
-			if(!empty($fileNameImag)){$model->image = $fileNameImag;}
+			if(!empty($fileNameImag)){$model->image = $fileNameImag;} */
 			
 			if($model->save()){
 				Yii::app()->user->setFlash('success', 'You have successfully updated your classified.');

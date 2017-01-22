@@ -53,6 +53,12 @@ $url = Yii::app()->theme->baseUrl;
 							// echo substr( $classified->description,0,25);							
 						?>
                       </p>
+					  
+                      <p><strong>Contact:</strong>
+						<?php echo $classified->user->business_name.', '.$classified->user->address.', '.$classified->user->area->area_name.', '.$classified->user->states->state_name.'-'.$classified->user->post_code; ?>
+						<?php echo $classified->user->email.'<br>';
+						echo $classified->user->contact_no; ?>
+                      </p>
                     </div>
 
                   </div>
