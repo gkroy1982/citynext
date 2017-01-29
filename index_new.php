@@ -1,5 +1,6 @@
 <?php
 error_reporting(1);
+date_default_timezone_set("Asia/Kolkata");
 $yii = dirname(__FILE__).'/yii/framework/yii.php';
 $config = dirname(__FILE__).'/protected/config/front.php';
  

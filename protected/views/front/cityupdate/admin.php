@@ -65,7 +65,11 @@ $url = Yii::app()->theme->baseUrl;
 					array('header'=>'#','value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize+($row+1)'),
 					
 					'title',
-				    'news', 
+				    // 'news', 
+					 array(
+						'name'=>'news',
+						'value'=>'substr($data->news, 0, 15)',
+					  ),
 					// 'image',
 					array(
 						'header' => 'Image',

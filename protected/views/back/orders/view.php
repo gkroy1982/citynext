@@ -27,7 +27,7 @@ $this->title='View Order';
 			'value'=>$model->getServiceType($data->service_types_id) 
 		),		 */
 		'service_types_id',
-		'item_ids',
+		/* 'item_ids', */
 		'item_rates',
 		'total_amount',
 		// 'ordered_by',

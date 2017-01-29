@@ -74,7 +74,12 @@ $url = Yii::app()->theme->baseUrl;
 					), */
 					'classifiedtype.name',
 					'title',
-					'description',
+					// 'description',
+					 array(
+						'name'=>'description',
+						'value'=>'substr($data->description, 0, 15)',
+					  ),
+
 					
 					array(
 						'name'=>'From Date',

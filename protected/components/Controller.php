@@ -25,6 +25,7 @@ class Controller extends CController
 	public $breadcrumbs = array();
 	
 	public function init(){
+		date_default_timezone_set("Asia/Kolkata");
 		Define ('PAYU_SALT', 'a2it84nzxP');
 		Define ('PAYU_MERCHANT_KEY', 'h0fFL9iY');
 		#"https://test.payu.in";#End point - change to https://secure.payu.in for LIVE mode

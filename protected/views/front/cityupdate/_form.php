@@ -35,7 +35,7 @@
               <?php echo $form->labelEx($model,'news'); ?>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-              <?php echo $form->textArea($model,'news',array('size'=>60,'maxlength'=>200)); ?>
+              <?php echo $form->textArea($model,'news',array('size'=>60,'maxlength'=>'')); ?>
                 <?php echo $form->error($model,'news'); ?>
             </div>
           </div>

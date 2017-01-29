@@ -71,7 +71,11 @@ $url = Yii::app()->theme->baseUrl;
 						: "" '
 					),
 					'title',
-					'description',
+					// 'description',
+					array(
+						'name'=>'description',
+						'value'=>'substr($data->description, 0, 15)',
+					  ),
 					//'image',
 					array(
 						'name'=>'Date',
