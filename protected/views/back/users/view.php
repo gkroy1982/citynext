@@ -28,11 +28,6 @@ $this->menu=array(
 $this->title="View Users";
  ?>
 
-
-
-
-
-
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
@@ -59,6 +54,8 @@ $this->title="View Users";
 		'states.state_name',
 
 		'status',
-
+		array('label'=>"Created On",
+			'type'=>'raw',
+			'value'=>(date('d-m-Y',strtotime($model->created_on)))),
 	),
 )); ?>

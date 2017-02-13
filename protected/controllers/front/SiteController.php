@@ -69,18 +69,25 @@ class SiteController extends Controller
 	{
 		$ids=0;
 
-		$offers = Productoffers::model()->findAll( array('condition'=>'status ="active"') );
-
+		// $offers = Productoffers::model()->findAll( array('condition'=>'status ="active" ') );
+		/* 
+		SELECT * FROM `product_offers` as po, payu_payment_logs as pl WHERE po.payu_payment_logs_id = pl.id AND po.status='active' AND po.`end_date`>='2017-01-30' AND pl.status='success' */ 
+		
+		$current_date = date('Y-m-d');
+		/* // $offers = Productoffers::model()->findAll( array('condition'=>'status="active" AND end_date>="$current_date"') );
+		SELECT * FROM condolences WHERE status='Active' AND DATE_FORMAT(NOW()+ INTERVAL 1 DAY,'%Y-%m-%d')>=date AND DATE_FORMAT(NOW()+ INTERVAL 1 DAY,'%Y-%m-%d')<=DATE_ADD(date,INTERVAL 3 DAY) ORDER BY created_on DESC  */
+		$offers = Productoffers::model()->findAllBySql("SELECT * FROM product_offers where status='active' AND end_date>='$current_date'");
+// echo "SELECT * FROM product_offers where status='active' AND end_date>=$current_date";exit;
 		foreach($offers as $offer ){
 			if($offer->paymentstatus->status=='success')
 				$ids.=','.$offer->product_id;
 		}
-		
+		// echo $ids;exit;
 		 $products = Products::model()->findAll(array('condition'=>"pid in ( $ids ) and status ='active'"));
 
 		 $ads=Ads::model()->findAll( array('condition'=>'status ="active"'));
 
-		$this->render('todayoffer',array('products'=>$products, 'ads'=>$ads) );
+		$this->render('todayoffer',array('products'=>$products, 'ads'=>$ads));
 	}
 
 

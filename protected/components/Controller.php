@@ -25,6 +25,9 @@ class Controller extends CController
 	public $breadcrumbs = array();
 	
 	public function init(){
+		
+		Yii::app()->db->createCommand("SET time_zone = 'Asia/Kolkata'")->query();
+		
 		date_default_timezone_set("Asia/Kolkata");
 		Define ('PAYU_SALT', 'a2it84nzxP');
 		Define ('PAYU_MERCHANT_KEY', 'h0fFL9iY');

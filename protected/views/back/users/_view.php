@@ -77,7 +77,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_on')); ?>:</b>
 	<?php echo CHtml::encode($data->created_on); ?>
 	<br />
+	*/
 
-	*/ ?>
+	?>
 
 </div>

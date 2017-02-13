@@ -73,7 +73,7 @@ $form=$this->beginWidget('CActiveForm', array(
 					</div>		
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-4">
-							<p><?php echo $form->labelEx($model,'image'); ?></p>
+							<p><?php echo $form->labelEx($model,'image').' *'; ?></p>
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-8">
 							<?php echo $form->fileField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
