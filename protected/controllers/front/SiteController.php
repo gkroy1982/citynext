@@ -33,7 +33,7 @@ class SiteController extends Controller
 		
 		foreach( $classifieds as $classified ){
 			$obj = Classifieds::model()->findByPk( $classified->id );
-			$obj->status = 'Deactive';
+			$obj->status = 'Inactive';
 			$obj->update();
 		}
 		

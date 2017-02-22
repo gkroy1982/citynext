@@ -27,9 +27,10 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
 						if($ad->url!='' )
 							$url = $ad->url;
 				?>
-                  <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
+				
+				 <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
                     <!-- MAIN IMAGE -->
-                    <img src="<?php echo $url_ads.$ad->image; ?>" alt="" data-bgfit="100%" data-bgposition="left top" data-bgrepeat="no-repeat">
+						<img class="banner_img" data-href="<?php echo $ad->url; ?>" src="<?php echo $url_ads.$ad->image; ?>" alt="" data-bgfit="100%" data-bgposition="left top" data-bgrepeat="no-repeat">
                     <!-- LAYERS -->
                     <!--div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="60" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                     <h2>The New <strong>Laptop</strong></h2>
@@ -41,7 +42,7 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
                   </div>
                   <div class="tp-caption skewfromrightshort fadeout" data-x="40" data-y="300" data-speed="500" data-start="1200" data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
                   </div-->
-                  </li>
+                  </li>				
                   <?php
 					} ?>
                     <!-- SLIDE  -->
@@ -204,3 +205,10 @@ $url_offer_product = Yii::app()->baseUrl.'/upload/products/';
     <div class="social-part"></div>
   </div>
   <!--Middle Part End-->
+  
+  <script>
+    $('.banner_img').click(function(){
+		alert($(this).attr('data-href'));
+	});
+  </script>
+  
